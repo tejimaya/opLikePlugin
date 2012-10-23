@@ -8,9 +8,19 @@ Nice:
       type: integer(11)
       primary: true
       autoincrement: true
-    member_id: integer(4)
-    foreign_table: string(100)
-    foreign_id: integer(11)
+    member_id:
+      type: integer(4)
+      notnull: true
+    foreign_table:
+      type: char(1)
+      notnull: true
+    foreign_id:
+      type: integer(11)
+      notnull: true
   relations:
     Member:
       onDelete: cascade
+  indexes:
+    member_id_foreign_table_foreign_id_UNIQUE:
+      fields: [member_id, foreign_table, foreign_id]
+      type: unique

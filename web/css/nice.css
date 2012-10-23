@@ -25,3 +25,38 @@ form#NiceForm input
   border-width: 0;
   text-decoration: underline;
 }
+
+.nice-post
+{
+  cursor: pointer;
+}
+
+.nice-cancel
+{
+  cursor: pointer;
+}
+
+.nice-list
+{
+  cursor: pointer;
+}
+
+.nice-list {
+  /*width: 97px;
+  padding: 40px 14px 0 14px;*/
+  float: right;
+  position: relative;
+}
+
+
+.nice-list-member {
+  width: 300px; 
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  position: absolute;
+  /*left: 15px;
+  top: 80px;*/
+  overflow: visible;
+  z-index: 100; 
+  display: none;
+}

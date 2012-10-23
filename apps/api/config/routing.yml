@@ -1,0 +1,20 @@
+# default rules
+nice_search:
+  url: /nice/search.json
+  param: { module: nice, action: search, sf_format: json }
+  requirements: { sf_method: [get] }
+
+nice_post:
+  url: /nice/post.json
+  param: { module: nice, action: post, sf_format: json }
+  requirements: { sf_method: [post] }
+
+nice_delete:
+  url: /nice/delete.json
+  param: { module: nice, action: delete, sf_format: json }
+  requirements: { sf_method: [post] }
+
+nice_list:
+  url: /nice/list.json
+  param: { module: nice, action: list, sf_format: json }
+  requirements: { sf_method: [get] }
