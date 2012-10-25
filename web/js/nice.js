@@ -1,62 +1,74 @@
 $(function(){
 
-  //いいねをつける
-  $('.nice-post').live('click', function() {
+  $('.nice-post').live('click', function()
+  {
     var niceid = $(this).attr('data-nice-id');
+    var memberid = $(this).attr('member-id');
 
-    $.ajax({
+    $.ajax(
+    {
       url: openpne.apiBase + 'nice/post.json?apiKey=' + openpne.apiKey,
       type: 'POST',
-      data: {
+      data: 
+      {
         'target': 'A',
-        'target_id': niceid
+        'target_id': niceid,
+        'member_id': memberid
       },
-      success: function(json){
+      success: function(json)
+      {
         $('span[class="nice-post"][data-nice-id="' +  niceid + '"]').hide();
         $('span[class="nice-cancel"][data-nice-id="' +  niceid + '"]').show();
         totalLoad(niceid);
       },
-      error: function(XMLHttpRequest, textStatus, errorThrown) {
+      error: function(XMLHttpRequest, textStatus, errorThrown) 
+      {
         $('span[class="nice-post"][data-nice-id="' +  niceid + '"]').text('いいね投稿失敗');
       }
     });
   });
 
-  //いいねを取り消す
-  $('.nice-cancel').live('click', function() {
+  $('.nice-cancel').live('click', function() 
+  {
     var niceid = $(this).attr('data-nice-id');
 
-    $.ajax({
+    $.ajax(
+    {
       url: openpne.apiBase + 'nice/delete.json?apiKey=' + openpne.apiKey,
       type: 'POST',
-      data: {
+      data: 
+      {
         'target': 'A',
         'target_id': niceid
       },
-      success: function(json){
+      success: function(json)
+      {
         $('span[class="nice-cancel"][data-nice-id="' +  niceid + '"]').hide();
         $('span[class="nice-post"][data-nice-id="' +  niceid + '"]').show();
         totalLoad(niceid);
       },
-      error: function(XMLHttpRequest, textStatus, errorThrown) {
+      error: function(XMLHttpRequest, textStatus, errorThrown)
+      {
         $('span[class="nice-cancel"][data-nice-id="' +  niceid + '"]').text('いいね取消し失敗');
       }
     });
   });
 
 
-  //いいねした人のリストを表示する
-  $('.nice-list').live('click', function() {
+  $('.nice-list').live('click', function()
+  {
     var niceid = $(this).attr('data-nice-id');
     var listMember = $('div[class="nice-list-member"][data-nice-id="' + niceid + '"]');
     listMember.children().children().remove();
 
     if ('none' == listMember.css('display'))
     {
-      $.ajax({
+      $.ajax(
+      {
         url: openpne.apiBase + 'nice/list.json?apiKey=' + openpne.apiKey,
         type: 'POST',
-        data: {
+        data: 
+        {
           'target': 'A',
           'target_id': niceid
         },
@@ -79,24 +91,25 @@ $(function(){
       listMember.hide();
     }
   });
-
-  //var timer = setInterval('totalLoadAll()', 4000);
 });
 
 function totalLoad(niceid)
 {
-  $.ajax({
+  $.ajax(
+  {
     url: openpne.apiBase + 'nice/search.json?apiKey=' + openpne.apiKey,
     type: 'GET',
-    data: {
+    data: 
+    {
       'target': 'A',
       'target_id': niceid
     },
-    success: function(json){
-      if (json.data.length > 0)
+    success: function(json)
+    {
+      if (0 < json.data.length)
       {
         var mine = false;
-        for(var i=0;i<json.data.length;i++)
+        for (var i=0; i<json.data.length; i++)
         {
           if (json.data[i].requestMemberId == json.data[i].member_id)
           {
@@ -120,9 +133,6 @@ function totalLoad(niceid)
         $('span[class="nice-list"][data-nice-id="' + niceid + '"]').text('いいね！');
       }
     },
-    error: function(XMLHttpRequest, textStatus, errorThrown) {
-      //alert('search失敗');
-    }
   });
 }
 

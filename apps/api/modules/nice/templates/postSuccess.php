@@ -1,7 +1,7 @@
 <?php
 
 $data = array();
-if (isset($nices))
+if (isset($nice))
 {
   $data[] = array(
       'id' => $nice['id'],

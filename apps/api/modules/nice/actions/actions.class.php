@@ -3,36 +3,19 @@ class niceActions extends opJsonApiActions
 {
   public function executeSearch(sfWebRequest $request)
   {
-    if (isset($request['target']))
-    {
-      if ('A' === $request['target'])
-      {
-        $memberId = $this->getUser()->getMemberId();
-        $this->forward400Unless($request['target_id'], 'target_id parameter not specified.');
-/*
-        $query = Doctrine::getTable('Nice')->createQuery()
-          ->where('member_id = ? and foreign_table = ? and foreign_id = ?', array($memberId, $request['target'], $request['target_id']));
-        $this->nices = $query->execute();
+    $this->forward400Unless($request['target'], 'foreign_table not specified.');
+    $this->forward400Unless($request['target_id'], 'foreign_id not specified.');
+    $foreignTable = $request['target'];
+    $foreignId = $request['target_id'];
 
-        $total_q = Doctrine::getTable('Nice')->createQuery()
-          ->where('foreign_table = ? and foreign_id = ?', array($request['target'], $request['target_id']));
-        $this->total = $total_q->count();
-        $this->requestMemberId = $memberId;
-*/
-        $query = Doctrine::getTable('Nice')->createQuery()
-          ->where('foreign_table = ? and foreign_id = ?', array($request['target'], $request['target_id']));
-        $this->nices = $query->execute();
-        $this->total = $query->count();
-        $this->requestMemberId = $memberId;
-      }
-      else
-      {
-        $this->forward400('target parameter is invalid.');
-      }
-    }
-    else
+    if ('A' === $foreignTable)
     {
-      $this->forward400('target is invalid.');
+      $memberId = $this->getUser()->getMemberId();
+
+      $this->nices = Doctrine::getTable('Nice')->getNicedList($foreignTable, $foreignId);
+      $this->total = Doctrine::getTable('Nice')->getNicedCount($foreignTable, $foreignId);
+
+      $this->requestMemberId = $memberId;
     }
   }
 
@@ -40,15 +23,21 @@ class niceActions extends opJsonApiActions
   {
     $this->forward400Unless($request['target'], 'foreign_table not specified.');
     $this->forward400Unless($request['target_id'], 'foreign_id not specified.');
+    $this->forward400Unless($request['member_id'], 'member_id not specified.');
     $foreignTable = $request['target'];
     $foreignId = $request['target_id'];
+    $requestMemberId = $request['member_id'];
 
     $memberId = $this->getUser()->getMemberId();
 
-    $query = Doctrine::getTable('Nice')->createQuery()
-      ->where('member_id = ? and foreign_table = ? and foreign_id = ?', array($memberId, $foreignTable, $foreignId));
+    if ($memberId == $requestMemberId)
+    {
+      $this->forward400('I can not be myself nice');
+    }
 
-    if (count($query->execute()))
+    $nice = Doctrine::getTable('Nice')->isAlreadyNiced($memberId, $foreignTable, $foreignId);
+
+    if (0 < $nice)
     {
       $this->forward400('It has already been registered');
     }
@@ -56,8 +45,8 @@ class niceActions extends opJsonApiActions
     {
       $nice = new Nice();
       $nice->setMemberId($memberId);
-      $nice->setforeignTable($foreignTable);
-      $nice->setforeignId($foreignId);
+      $nice->setForeignTable($foreignTable);
+      $nice->setForeignId($foreignId);
 
       $nice->save();
       $this->nice = $nice;
@@ -73,9 +62,7 @@ class niceActions extends opJsonApiActions
 
     $memberId = $this->getUser()->getMemberId();
 
-    $query = Doctrine::getTable('Nice')->createQuery()
-      ->where('member_id = ? and foreign_table = ? and foreign_id = ?', array($memberId, $request['target'], $request['target_id']));
-    $nice = $query->execute();
+    $nice = Doctrine::getTable('Nice')->isAlreadyNiced($memberId, $foreignTable, $foreignId);
     
     if (count($nice))
     {
@@ -86,12 +73,6 @@ class niceActions extends opJsonApiActions
     {
       $this->forward400('There is no data');
     }
-    //Doctrineを使ってみたがなぜかmember_idが無視されて削除されたので生SQL発行。調査 TODO
-    /*$query = Doctrine::getTable('Nice')->createQuery()
-      ->where('member_id = ?', $memberId)
-      ->where('foreign_table = "?"', $foreignTable)
-      ->where('foreign_id = ?', $foreignId);
-      */
   }
 
   public function executeList(sfWebRequest $request)
@@ -101,14 +82,6 @@ class niceActions extends opJsonApiActions
     $foreignTable = $request['target'];
     $foreignId = $request['target_id'];
 
-    $nices = Doctrine::getTable('Nice')->createQuery()->select('member_id')
-      ->where('foreign_table = ? and foreign_id = ?', array($request['target'], $request['target_id']))
-      ->execute();
-
-    foreach ($nices as $nice)
-    {
-      $memberIds[] = (int)$nice['member_id'];
-    }
-    $this->members = Doctrine::getTable('Member')->createQuery()->whereIn('id', $memberIds)->execute();
+    $this->members = Doctrine::getTable('Nice')->getNiceMemberList($foreignTable, $foreignId);
   }
 }
