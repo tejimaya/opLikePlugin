@@ -65,9 +65,10 @@ class PluginNiceTable extends Doctrine_Table
     return $pager;
   }
 
-  public function getNiceMemberList($table, $id)
+  public function getNiceMemberList($table, $id, $maxId = null)
   {
-    $nices = Doctrine::getTable('Nice')->getNicedList($table, $id);
+    if (is_null($maxId)) $maxId = 20;
+    $nices = Doctrine::getTable('Nice')->getNicedList($table, $id, $maxId);
 
     foreach ($nices as $nice)
     {   

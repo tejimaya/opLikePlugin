@@ -82,6 +82,11 @@ class niceActions extends opJsonApiActions
     $foreignTable = $request['target'];
     $foreignId = $request['target_id'];
 
-    $this->members = Doctrine::getTable('Nice')->getNiceMemberList($foreignTable, $foreignId);
+    if (isset($request['max_id']))
+    {
+      $maxId = $request['max_id'];
+    }
+
+    $this->members = Doctrine::getTable('Nice')->getNiceMemberList($foreignTable, $foreignId, $maxId);
   }
 }

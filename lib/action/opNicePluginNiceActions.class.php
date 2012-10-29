@@ -45,6 +45,7 @@ class opNicePluginNiceActions extends sfActions
    */
   public function executeMemberList(sfWebRequest $request)
   {
+    $this->forwardIf($request->isSmartphone(), 'nice', 'smtMemberList');
     $this->id = $request->getParameter('id');
     $this->table = $request->getParameter('table');
     $nice = new Nice();
@@ -59,6 +60,13 @@ class opNicePluginNiceActions extends sfActions
     $this->pager = Doctrine::getTable('Nice')->getMemberPager($this->table, $this->id, $size, $this->page);
   }
   
+  /**
+   * list of members who niced to particular content for smartphone
+   */
+  public function executeSmtMemberList(sfWebRequest $request)
+  {
+  }
+
   /**
    * list of contens niced by particular member
    */

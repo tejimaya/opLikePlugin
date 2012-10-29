@@ -1,0 +1,22 @@
+.nice-list
+{
+  cursor: pointer;
+  float: right;
+}
+
+.nice-post
+{
+  cursor: pointer;
+  float: right;
+}
+
+.nice-cancel
+{
+  cursor: pointer;
+  float: right;
+}
+
+.nice-comment
+{
+  font-size: 4px;
+}

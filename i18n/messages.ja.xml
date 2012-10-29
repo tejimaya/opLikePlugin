@@ -15,6 +15,10 @@
         <target>「%name%」にイイネ！と言っているメンバー</target>
       </trans-unit>
       <trans-unit id="">
+        <source>Members niced</source>
+        <target>イイネしたメンバー</target>
+      </trans-unit>
+      <trans-unit id="">
         <source>No member niced.</source>
         <target>イイネ！と言っているメンバーはいません。</target>
       </trans-unit>
