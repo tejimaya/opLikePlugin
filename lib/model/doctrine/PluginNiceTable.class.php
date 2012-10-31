@@ -19,7 +19,7 @@ class PluginNiceTable extends Doctrine_Table
   
   public function getNicedList($table, $id, $limit=0)
   {
-    $q = $this->createQuery('n')->where('foreign_table = ? AND foreign_id = ?', array($table, $id))->orderBy('created_at');
+    $q = $this->createQuery('n')->where('foreign_table = ? AND foreign_id = ?', array($table, $id));
     
     if($limit>0)
     {
@@ -42,7 +42,7 @@ class PluginNiceTable extends Doctrine_Table
   public function getMemberPager($foreignTable, $foreignId, $size, $page = 1)
   {
     if($page < 1) $page = 1;
-    $q = $this->createQuery('n')->addWhere('n.foreign_table = ? AND n.foreign_id = ?', array($foreignTable, $foreignId))->orderBy('n.created_at DESC');
+    $q = $this->createQuery('n')->addWhere('n.foreign_table = ? AND n.foreign_id = ?', array($foreignTable, $foreignId));
     
     $pager = new sfDoctrinePager('Nice', $size);
     $pager->setQuery($q);
@@ -55,7 +55,7 @@ class PluginNiceTable extends Doctrine_Table
   public function getContentPager($memberId, $size, $page = 1)
   {
     if($page < 1) $page = 1;
-    $q = $this->createQuery('n')->addWhere('n.member_id = ?', $memberId)->orderBy('n.created_at DESC');
+    $q = $this->createQuery('n')->addWhere('n.member_id = ?', $memberId);
     
     $pager = new sfDoctrinePager('Nice', $size);
     $pager->setQuery($q);

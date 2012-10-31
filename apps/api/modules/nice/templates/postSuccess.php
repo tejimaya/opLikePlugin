@@ -1,14 +1,10 @@
 <?php
+use_helper('opNice');
 
 $data = array();
 if (isset($nice))
 {
-  $data[] = array(
-      'id' => $nice['id'],
-      'member_id' => $nice['member_id'],
-      'foreign_table' => $nice['foreign_table'],
-      'foreign_id' => $nice['foreign_id'],
-  );
+  $data = op_api_nice_post($nice);
 }
 
 return array(
