@@ -1,4 +1,22 @@
 <?php
+
+/**
+ * This file is part of the OpenPNE package.
+ * (c) OpenPNE Project (http://www.openpne.jp/)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file and the NOTICE file that were distributed with this source code.
+ */
+
+/**
+ * opNicePlugin actions.
+ *
+ * @package    OpenPNE
+ * @subpackage opNicePlugin
+ * @author     tatsuya ichikawa <ichikawa@tejimaya.com>
+ */
+
+
 class niceActions extends opJsonApiActions
 {
   public function executeSearch(sfWebRequest $request)
@@ -27,6 +45,8 @@ class niceActions extends opJsonApiActions
     $foreignTable = $request['target'];
     $foreignId = $request['target_id'];
     $requestMemberId = $request['member_id'];
+
+    if (1 < $foreignTable.strlen) $this->forward400('Is at least one character');
 
     $memberId = $this->getUser()->getMemberId();
 

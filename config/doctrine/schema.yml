@@ -1,6 +1,5 @@
 options:
   charset: utf8
-actAs: [Timestampable]
 
 Nice:
   columns:
