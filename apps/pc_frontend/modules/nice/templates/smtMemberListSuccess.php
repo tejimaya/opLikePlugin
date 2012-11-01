@@ -1,15 +1,15 @@
 <?php use_helper('Javascript', 'opUtil', 'opAsset') ?>
 <?php op_smt_use_javascript('/opNicePlugin/js/memberList-smartphone.js', 'last') ?>
-<div class='row'>
-  <div class='gadget_header span12'><a href='javascript:history.go(-1)'><i style='float: left;' class='icon-arrow-left icon-white'></i></a><?php echo __('Members niced') ?></div>
+<div class="row">
+  <div class="gadget_header span12"><a href="javascript:history.go(-1)"><i style="float: left;" class="icon-arrow-left icon-white"></i></a><?php echo __('Members niced') ?></div>
 </div>
-<div id='nice-list-member'></div>
+<div id="nice-list-member"></div>
 
-<script id='NicelistTemplate' type='text/x-jquery-tmpl'>
-  <div class='row' style='border: 1px solid #000000;'>
+<script id="NicelistTemplate" type="text/x-jquery-tmpl">
+  <div class="row" style="border: 1px solid #000000;">
 
-    <span class='span2' style='border-right: 1px solid #000000;'><a href='${profile_url}'><img src='${profile_image}' width='48'></a></span>
-    <span class='span10' style='padding-top: 15px;'><a href='${profile_url}'>${name}</a></span>
+    <span class="span2" style="border-right: 1px solid #000000;"><a href="${profile_url}"><img src="${profile_image}" width="48"></a></span>
+    <span class="span10" style="padding-top: 15px;"><a href="${profile_url}">${name}</a></span>
   </div>
 </script>
 

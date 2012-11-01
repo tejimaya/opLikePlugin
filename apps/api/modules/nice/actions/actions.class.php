@@ -35,6 +35,10 @@ class niceActions extends opJsonApiActions
 
       $this->requestMemberId = $memberId;
     }
+    else
+    {
+      $this->forward400('Table does not exist');
+    }
   }
 
   public function executePost(sfWebRequest $request)
@@ -46,7 +50,7 @@ class niceActions extends opJsonApiActions
     $foreignId = $request['target_id'];
     $requestMemberId = $request['member_id'];
 
-    if (1 < $foreignTable.strlen) $this->forward400('Is at least one character');
+    if (1 < strlen($foreignTable)) $this->forward400('Is at least one character');
 
     $memberId = $this->getUser()->getMemberId();
 
@@ -57,20 +61,15 @@ class niceActions extends opJsonApiActions
 
     $nice = Doctrine::getTable('Nice')->isAlreadyNiced($memberId, $foreignTable, $foreignId);
 
-    if (0 < $nice)
-    {
-      $this->forward400('It has already been registered');
-    }
-    else
-    {
-      $nice = new Nice();
-      $nice->setMemberId($memberId);
-      $nice->setForeignTable($foreignTable);
-      $nice->setForeignId($foreignId);
+    $this->forward400Unless(!$nice, 'It has already been registered');
 
-      $nice->save();
-      $this->nice = $nice;
-    }
+    $nice = new Nice();
+    $nice->setMemberId($memberId);
+    $nice->setForeignTable($foreignTable);
+    $nice->setForeignId($foreignId);
+
+    $nice->save();
+    $this->nice = $nice;
   }
 
   public function executeDelete(sfWebRequest $request)
@@ -82,14 +81,10 @@ class niceActions extends opJsonApiActions
 
     $memberId = $this->getUser()->getMemberId();
 
-    $nice = Doctrine::getTable('Nice')->isAlreadyNiced($memberId, $foreignTable, $foreignId);
-    
-    if (count($nice))
-    {
-      $con = Doctrine_Manager::connection();
-      $this->con = $con->execute('delete from nice where member_id = ? and foreign_table = ? and foreign_id = ?', array($memberId, $foreignTable, $foreignId));
-    }
-    else
+    $nice = Doctrine::getTable('Nice')->getAlreadyNiced($memberId, $foreignTable, $foreignId);
+    $this->nice = $nice->delete()->execute();
+
+    if ($this->nice < 1)
     {
       $this->forward400('There is no data');
     }
@@ -102,9 +97,10 @@ class niceActions extends opJsonApiActions
     $foreignTable = $request['target'];
     $foreignId = $request['target_id'];
 
+    $maxId = null;
     if (isset($request['max_id']))
     {
-      $maxId = $request['max_id'];
+      is_numeric($request['max_id']) ? $maxId = $request['max_id'] : $this->forward400('max_id is not a number');
     }
 
     $this->members = Doctrine::getTable('Nice')->getNiceMemberList($foreignTable, $foreignId, $maxId);

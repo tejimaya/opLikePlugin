@@ -11,7 +11,7 @@
  * opActivity provides helper function for Activity
  *
  * @package    OpenPNE
- * @subpackage NicePlugin 
+ * @subpackage NicePlugin
  * @author     tatsuya ichikawa <ichikawa@tejimaya.com>
  */
 

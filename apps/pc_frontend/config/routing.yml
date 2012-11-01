@@ -6,3 +6,6 @@ niced_member_list:
     id: \d+
     sf_method: [get]
 
+no_nice_frontend:
+  url: /nice/*
+  param: { module: default, action: error }

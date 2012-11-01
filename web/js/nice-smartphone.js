@@ -3,7 +3,7 @@ $(function(){
 
   $('body').click(function()
   {
-    if (niceListMemberFlag) 
+    if (niceListMemberFlag)
     {
       $('div[class="nice-list-member"]').hide();
       niceListMemberFlag = false;
@@ -34,7 +34,7 @@ $(function(){
     });
   });
 
-  $('.nice-cancel').live('click', function() 
+  $('.nice-cancel').live('click', function()
   {
     var niceId = $(this).attr('data-nice-id');
 
@@ -42,7 +42,7 @@ $(function(){
     {
       url: openpne.apiBase + 'nice/delete.json?apiKey=' + openpne.apiKey,
       type: 'POST',
-      data: 
+      data:
       {
         'target': 'A',
         'target_id': niceId
@@ -63,7 +63,7 @@ function totalLoad(niceId)
   {
     url: openpne.apiBase + 'nice/search.json?apiKey=' + openpne.apiKey,
     type: 'GET',
-    data: 
+    data:
     {
       'target': 'A',
       'target_id': niceId

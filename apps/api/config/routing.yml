@@ -18,3 +18,7 @@ nice_list:
   url: /nice/list.json
   param: { module: nice, action: list, sf_format: json }
   requirements: { sf_method: [get] }
+
+no_nice_api:
+  url: /nice/*
+  param: { module: default, action: error }
