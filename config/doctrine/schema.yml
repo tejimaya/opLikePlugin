@@ -4,7 +4,7 @@ options:
 Nice:
   columns:
     id:
-      type: integer(11)
+      type: integer(4)
       primary: true
       autoincrement: true
     member_id:
@@ -14,10 +14,12 @@ Nice:
       type: char(1)
       notnull: true
     foreign_id:
-      type: integer(11)
+      type: integer(4)
       notnull: true
   relations:
     Member:
+      local: member_id
+      foreign: id
       onDelete: cascade
   indexes:
     member_id_foreign_table_foreign_id_UNIQUE:

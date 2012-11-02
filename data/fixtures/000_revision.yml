@@ -1,0 +1,4 @@
+SnsConfig:
+  op_nice_plugin_current_revision:
+    name: "opNicePlugin_revision"
+    value: 1

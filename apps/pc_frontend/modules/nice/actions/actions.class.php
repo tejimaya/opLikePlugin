@@ -18,5 +18,7 @@
  */
 class niceActions extends opNicePluginNiceActions
 {
-
+  public function executeSmtMemberList(sfWebRequest $request)
+  {
+  }
 }

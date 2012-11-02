@@ -50,13 +50,6 @@ class opNicePluginNiceActions extends sfActions
   }
 
   /**
-   * list of members who niced to particular content for smartphone
-   */
-  public function executeSmtMemberList(sfWebRequest $request)
-  {
-  }
-
-  /**
    * list of contens niced by particular member
    */
   public function executeContentList(sfWebRequest $request)
