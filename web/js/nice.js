@@ -168,13 +168,13 @@ function totalLoad(niceId)
 
         if (mine)
         {
-          $('span[class="nice-list"][data-nice-id="' + niceId + '"]').text('いいね！(' + json.data['0'].total + ')');
+          $('span[class="nice-list"][data-nice-id="' + niceId + '"]').text('いいね！(' + json.data[0].total + ')');
           $('span[class="nice-post"][data-nice-id="' +  niceId + '"]').hide();
           $('span[class="nice-cancel"][data-nice-id="' +  niceId + '"]').show();
         }
         else
         {
-          $('span[class="nice-list"][data-nice-id="' + niceId + '"]').text('いいね！(' + json.data['0'].total + ')');
+          $('span[class="nice-list"][data-nice-id="' + niceId + '"]').text('いいね！(' + json.data[0].total + ')');
         }
       }
       else

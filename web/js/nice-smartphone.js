@@ -54,6 +54,7 @@ $(function(){
         totalLoad(niceId);
       },
     });
+    $('span[class="nice-list"][data-nice-id="' + niceId + '"]').parent().removeAttr('href');
   });
 });
 
@@ -70,6 +71,7 @@ function totalLoad(niceId)
     },
     success: function(json)
     {
+      var niceList = $('span[class="nice-list"][data-nice-id="' + niceId + '"]');
       if (0 < json.data.length)
       {
         var mine = false;
@@ -83,18 +85,19 @@ function totalLoad(niceId)
 
         if (mine)
         {
-          $('span[class="nice-list"][data-nice-id="' + niceId + '"]').text('いいね！(' + json.data['0'].total + ')');
+          niceList.text('いいね！(' + json.data[0].total + ')');
           $('span[class="nice-post"][data-nice-id="' +  niceId + '"]').hide();
           $('span[class="nice-cancel"][data-nice-id="' +  niceId + '"]').show();
         }
         else
         {
-          $('span[class="nice-list"][data-nice-id="' + niceId + '"]').text('いいね！(' + json.data['0'].total + ')');
+          niceList.text('いいね！(' + json.data[0].total + ')');
         }
+        niceList.parent().attr('href', '/nice/list/A/' + niceId);
       }
       else
       {
-        $('span[class="nice-list"][data-nice-id="' + niceId + '"]').text('いいね！');
+        niceList.text('いいね！');
       }
     },
   });
