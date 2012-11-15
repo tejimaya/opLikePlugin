@@ -3,27 +3,27 @@
   <file orginal="global" source-language="en" datatype="plaintext">
     <body>
       <trans-unit id="">
-        <source>Nice!</source>
+        <source>Like!</source>
         <target>イイネ！</target>
       </trans-unit>
       <trans-unit id="">
-        <source>Delete Nice!</source>
+        <source>Delete Like!</source>
         <target>×</target>
       </trans-unit>
       <trans-unit id="">
-        <source>Members who niced %name%</source>
+        <source>Members who liked %name%</source>
         <target>「%name%」にイイネ！と言っているメンバー</target>
       </trans-unit>
       <trans-unit id="">
-        <source>Members niced</source>
+        <source>Members liked</source>
         <target>イイネしたメンバー</target>
       </trans-unit>
       <trans-unit id="">
-        <source>No member niced.</source>
+        <source>No member liked.</source>
         <target>イイネ！と言っているメンバーはいません。</target>
       </trans-unit>
       <trans-unit id="">
-        <source>%member% niced these.</source>
+        <source>%member% liked these.</source>
         <target>%member%さんのイイネ！一覧</target>
       </trans-unit>
       <trans-unit id="">
@@ -31,11 +31,11 @@
         <target>イイネ！はありません。</target>
       </trans-unit>
       <trans-unit id="">
-        <source>You cannot nice to this content.</source>
+        <source>You cannot like to this content.</source>
         <target>イイネ！できません。</target>
       </trans-unit>
       <trans-unit id="">
-        <source>You have already niced this content.</source>
+        <source>You have already liked this content.</source>
         <target>既にイイネ！済みです。</target>
       </trans-unit>
     </body>

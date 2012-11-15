@@ -1,0 +1,56 @@
+form.LikeDeleteForm
+{
+  display: inline;
+}
+
+form.LikeDeleteForm input
+{
+  display: inline;
+  cursor: pointer;
+  background: transparent;
+  border-width: 0;
+  text-decoration: underline;
+}
+
+form#LikeForm
+{
+  display: inline;
+}
+
+form#LikeForm input
+{
+  display: inline;
+  cursor: pointer;
+  background: transparent;
+  border-width: 0;
+  text-decoration: underline;
+}
+
+.like-post
+{
+  cursor: pointer;
+  float: right;
+}
+
+.like-cancel
+{
+  cursor: pointer;
+  float: right;
+}
+
+.like-list {
+  cursor: pointer;
+  float: right;
+  position: relative;
+}
+
+.like-list-member {
+  width: 300px; 
+  height: 400px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  position: absolute;
+  overflow-y: scroll;
+  z-index: 100; 
+  display: none;
+}

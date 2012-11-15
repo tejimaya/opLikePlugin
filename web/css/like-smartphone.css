@@ -1,0 +1,18 @@
+.like-list
+{
+  cursor: pointer;
+  float: right;
+}
+
+.like-post
+{
+  cursor: pointer;
+  float: right;
+}
+
+.like-cancel
+{
+  cursor: pointer;
+  float: right;
+}
+

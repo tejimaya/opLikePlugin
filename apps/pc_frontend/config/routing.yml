@@ -1,11 +1,11 @@
-niced_member_list:
-  url: /nice/list/:table/:id
-  param: { module: nice, action: memberList }
+liked_member_list:
+  url: /like/list/:table/:id
+  param: { module: like, action: memberList }
   requirements:
     table: \w+
     id: \d+
     sf_method: [get]
 
-no_nice_frontend:
-  url: /nice/*
+no_like_frontend:
+  url: /like/*
   param: { module: default, action: error }

@@ -1,24 +1,24 @@
 # default rules
-nice_search:
-  url: /nice/search.json
-  param: { module: nice, action: search, sf_format: json }
+like_search:
+  url: /like/search.json
+  param: { module: like, action: search, sf_format: json }
   requirements: { sf_method: [get] }
 
-nice_post:
-  url: /nice/post.json
-  param: { module: nice, action: post, sf_format: json }
+like_post:
+  url: /like/post.json
+  param: { module: like, action: post, sf_format: json }
   requirements: { sf_method: [post] }
 
-nice_delete:
-  url: /nice/delete.json
-  param: { module: nice, action: delete, sf_format: json }
+like_delete:
+  url: /like/delete.json
+  param: { module: like, action: delete, sf_format: json }
   requirements: { sf_method: [post] }
 
-nice_list:
-  url: /nice/list.json
-  param: { module: nice, action: list, sf_format: json }
+like_list:
+  url: /like/list.json
+  param: { module: like, action: list, sf_format: json }
   requirements: { sf_method: [get] }
 
-no_nice_api:
-  url: /nice/*
+no_like_api:
+  url: /like/*
   param: { module: default, action: error }
