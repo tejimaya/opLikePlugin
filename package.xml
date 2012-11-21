@@ -15,7 +15,7 @@
   <active>yes</active>
  </lead>
  <date>2012-11-21</date>
- <time>14:06:08</time>
+ <time>14:23:07</time>
  <version>
   <release>0.9.0</release>
   <api>0.9.0</api>
@@ -74,7 +74,7 @@ First beta release.
    <file baseinstalldir="/" md5sum="f3008b3ce9318caf8fc4b4fb13eeee33" name="web/js/like-smartphone.js" role="data" />
    <file baseinstalldir="/" md5sum="7e945cd1ee63092e07c0118d71e5ebde" name="web/js/like.js" role="data" />
    <file baseinstalldir="/" md5sum="da2ca425bfad6178e534575e5a50b337" name="web/js/memberList-smartphone.js" role="data" />
-   <file baseinstalldir="/" md5sum="d6c13094914b84081603e5376755f6e2" name="README.md" role="data" />
+   <file baseinstalldir="/" md5sum="bdc616e7f444e8624205fb4bfcaab0f3" name="README.md" role="data" />
   </dir>
  </contents>
  <dependencies>
