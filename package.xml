@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>opLikePlugin</name>
+ <channel>plugins.openpne.jp</channel>
+ <summary>いいね！機能を追加します</summary>
+ <description>いいね！機能を追加します。現在はopTimelinePluginにのみ対応。
+ </description>
+ <lead>
+  <name>ichikawa tatsuya</name>
+  <user>ichikawa</user>
+  <email />
+  <active>yes</active>
+ </lead>
+ <date>2012-11-21</date>
+ <time>14:06:08</time>
+ <version>
+  <release>0.9.0</release>
+  <api>0.9.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license>Apache</license>
+ <notes>
+First beta release.
+ </notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="/" md5sum="a2bf81bc9835bae25c789c33841ae0f6" name="apps/api/config/filters.yml" role="data" />
+   <file baseinstalldir="/" md5sum="554bbfcd95b0afc804d2211b4fe87fbe" name="apps/api/config/routing.yml" role="data" />
+   <file baseinstalldir="/" md5sum="af01f563d2d7290fc24d9e8aebae4e59" name="apps/api/modules/like/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="fcff38997b3a0a44df79666e58f8d5a7" name="apps/api/modules/like/templates/deleteSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="5c556015ff36e05af6aac96be232e440" name="apps/api/modules/like/templates/listSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="4e20e0bfaee8e6220130d5bcf4e756d7" name="apps/api/modules/like/templates/postSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="0dbf816c6ed63dd27467c3294e70bddb" name="apps/api/modules/like/templates/searchSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="bbe28d19c160509a1f4447422b05f2b6" name="apps/pc_frontend/config/routing.yml" role="data" />
+   <file baseinstalldir="/" md5sum="90368aebc596f7e04ba80e5cb15c86df" name="apps/pc_frontend/config/view.yml" role="data" />
+   <file baseinstalldir="/" md5sum="a827ecc9ea3fe0bc08450c5c270c4c31" name="apps/pc_frontend/modules/communityEvent/config/view.yml" role="data" />
+   <file baseinstalldir="/" md5sum="7e0811017920af68573f04b26434f5f3" name="apps/pc_frontend/modules/communityTopic/config/view.yml" role="data" />
+   <file baseinstalldir="/" md5sum="472ef8f476f587d9ce895ab33d8cda97" name="apps/pc_frontend/modules/diary/config/view.yml" role="data" />
+   <file baseinstalldir="/" md5sum="f22b473f03720f69c8c8d15901bd18d6" name="apps/pc_frontend/modules/like/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="c26679c552b7507d39978fb0634c0f65" name="apps/pc_frontend/modules/like/actions/components.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="ad154960030a5addc41eaa2ee5077646" name="apps/pc_frontend/modules/like/config/security.yml" role="data" />
+   <file baseinstalldir="/" md5sum="49d965b67dcc5318343b37602da16029" name="apps/pc_frontend/modules/like/templates/contentListSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="a57ba4008985dc4986916f0f34e3900c" name="apps/pc_frontend/modules/like/templates/memberListSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="eaf52063017c568a190bafb20996a53f" name="apps/pc_frontend/modules/like/templates/smtMemberListSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="06ce54d44f99fa769eba4cf934a17379" name="apps/pc_frontend/modules/like/templates/_show.php" role="data" />
+   <file baseinstalldir="/" md5sum="ab6f1520ad194b172cc868f08fec6ece" name="config/opLikePluginConfiguration.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="0ec7b3a33290826240e086d109f4550c" name="config/doctrine/schema.yml" role="data" />
+   <file baseinstalldir="/" md5sum="b6d911a5e823f5301d0d0e5777a8ac1c" name="data/fixtures/000_revision.yml" role="data" />
+   <file baseinstalldir="/" md5sum="73850b34857e09a64a0fe3eb7c60dfaa" name="data/migrations/1.0.0/001_opLikePlugin.php" role="data" />
+   <file baseinstalldir="/" md5sum="59b5c35ee6c356af4732c491f945e10a" name="i18n/messages.ja.xml" role="data" />
+   <file baseinstalldir="/" md5sum="c643c0fe842f0399c007bc916e9db56f" name="lib/opLikePluginLikeRemover.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="764320148afef0c23715015b26952b06" name="lib/action/opLikePluginLikeAction.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="7ce6a4a0bcf07b07f6a7352669a37bcd" name="lib/action/opLikePluginLikeComponents.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="d432405f95a3acd7bbb0fcd4f65800ea" name="lib/filter/doctrine/PluginLikeFormFilter.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="fa86dfad039a5c18d0704b72245de845" name="lib/form/doctrine/PluginNiceForm.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="27e735b7cd593fdb0e686f7fd1069c96" name="lib/helper/opLikeHelper.php" role="data" />
+   <file baseinstalldir="/" md5sum="fc3b318ba6195c3a8dfe6a030afb25af" name="lib/model/doctrine/PluginNice.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="3fc902e01eb29f06c06188a6d0f6d676" name="lib/model/doctrine/PluginNiceTable.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="25b04d5e2306bbc79824f120dc88d181" name="test/bootstrap/database.php" role="data" />
+   <file baseinstalldir="/" md5sum="2089e76b9d0ae0fd4d222ee37ea68cb5" name="test/bootstrap/functional.php" role="data" />
+   <file baseinstalldir="/" md5sum="4bfa4b596e946c8a283410a2e2ba4315" name="test/bootstrap/unit.php" role="data" />
+   <file baseinstalldir="/" md5sum="8471fade12b0760fab6715ffb8b8f9e4" name="test/fixtures/test_data.yml" role="data" />
+   <file baseinstalldir="/" md5sum="8a98cacfcc151f2808c399543fd52679" name="test/functional/mobile_frontend/skeletonActionsTest.php" role="data" />
+   <file baseinstalldir="/" md5sum="1faa199e87c1ce270e86edee706b37fd" name="test/functional/pc_frontend/skeletonActionsTest.php" role="data" />
+   <file baseinstalldir="/" md5sum="52440ab0abcc01c98551283f1e9942e1" name="test/unit/model/SkeletonTest.php" role="data" />
+   <file baseinstalldir="/" md5sum="2e000222597c8789d1efd6502e2897c5" name="web/css/like-smartphone.css" role="data" />
+   <file baseinstalldir="/" md5sum="749a73051286dc1db19c646d1b580865" name="web/css/like.css" role="data" />
+   <file baseinstalldir="/" md5sum="f3008b3ce9318caf8fc4b4fb13eeee33" name="web/js/like-smartphone.js" role="data" />
+   <file baseinstalldir="/" md5sum="7e945cd1ee63092e07c0118d71e5ebde" name="web/js/like.js" role="data" />
+   <file baseinstalldir="/" md5sum="da2ca425bfad6178e534575e5a50b337" name="web/js/memberList-smartphone.js" role="data" />
+   <file baseinstalldir="/" md5sum="d6c13094914b84081603e5376755f6e2" name="README.md" role="data" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.3</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.9.0</release>
+    <api>0.9.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2012-11-21</date>
+   <license>Apache</license>
+   <notes>
+First beta release.
+   </notes>
+  </release>
+ </changelog>
+</package>
