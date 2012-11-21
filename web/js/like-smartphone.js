@@ -110,4 +110,6 @@ function totalLoadAll()
     var likeId = $(this).attr('data-like-id');
     totalLoad(likeId);
   });
+  $('.like-wrapper').show();
+  $('.like-comment-wrapper').show();
 }
