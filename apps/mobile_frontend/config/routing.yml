@@ -1,3 +1,0 @@
-no_nice_mobile:
-  url: /nice/*
-  param: { module: default, action: error }
