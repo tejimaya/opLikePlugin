@@ -12,14 +12,14 @@ Ajaxでスマートフォンにも対応しています。
 
 スクリーンショット
 ------
-<a href="http://tejimaya.github.com/opLikePlugin/images/nice_01_rm_01.png" target=brank>
-<img src="http://tejimaya.github.com/opLikePlugin/images/nice_01_rm_01.png" height=150/></a>
-<a href="http://tejimaya.github.com/opLikePlugin/images/nice_01_rm_03.png" target=brank>
-<img src="http://tejimaya.github.com/opLikePlugin/images/nice_01_rm_03.png" height=150/></a>
-<a href="http://tejimaya.github.com/opLikePlugin/images/nice_01_rm_02.png" target=brank>
-<img src="http://tejimaya.github.com/opLikePlugin/images/nice_01_rm_02.png" height=150/></a>
-<a href="http://tejimaya.github.com/opLikePlugin/images/nice_01_rm_04.png" target=brank>
-<img src="http://tejimaya.github.com/opLikePlugin/images/nice_01_rm_04.png" height=150/></a>
+<a href="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_01.png" target=brank>
+<img src="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_01.png" height=150/></a>
+<a href="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_03.png" target=brank>
+<img src="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_03.png" height=150/></a>
+<a href="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_02.png" target=brank>
+<img src="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_02.png" height=150/></a>
+<a href="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_04.png" target=brank>
+<img src="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_04.png" height=150/></a>
 
 
 インストール方法
