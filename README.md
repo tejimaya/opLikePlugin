@@ -31,7 +31,7 @@ https://github.com/ichikawatatsuya/opTimelinePlugin.git を使用してくださ
 Bootstrap、CSSファイルを下記のように編集・変更してください。  
 （これらは各次バージョンで修正する予定です）
 
-**タイムラインプラグインの取得**
+**タイムラインプラグインの取得**  
 ZIPでダウンロード、またはgit cloneでインストールしてください。  
 https://github.com/ichikawatatsuya/opTimelinePlugin/archive/master.zip  
 からダウンロードしてインストールしてください。
@@ -40,7 +40,7 @@ https://github.com/ichikawatatsuya/opTimelinePlugin/archive/master.zip
 
 
 **「いいね！」プラグラインのインストール**  
-symfonyコマンドを使って、直接DLします
+symfonyコマンドを使って、直接DLします。
 
     cd path/to/OpenPNE
     ./symfony opPlugin:install opLikePlugin
