@@ -27,7 +27,7 @@ Ajaxでスマートフォンにも対応しています。
 opTimelinePlugin側にも修正を行っています。  
 通常のopTimelinePluginでは動きません。  
 https://github.com/ichikawatatsuya/opTimelinePlugin.git を使用してください。  
-[iine]というブランチで開発したため、git checkout iineでブランチを切り替えてください。  
+[like]というブランチで開発したため、git checkout likeでブランチを切り替えてください。  
 Bootstrap、CSSファイルを下記のように編集・変更してください。  
 （これらは各次バージョンで修正する予定です）
 
@@ -43,19 +43,19 @@ https://github.com/ichikawatatsuya/opTimelinePlugin/archive/master.zip
 symfonyコマンドを使って、直接DLします。
 
     cd path/to/OpenPNE
-    ./symfony opPlugin:install opLikePlugin
+    ./symfony opPlugin:install opLikePlugin -r 1.0.0
 
 
 **ブランチを切り替える**
 
     cd opTimelinePlugin
-    git checkout -b iine remotes/origin/iine
+    git checkout -b like remotes/origin/like
 
 
 **OpnePNE本体側Bootstrapの変更・画像の差し替え**
 
     rm 'OpenPNE ディレクトリ'/web/img/*
-    cp  'OpenPNE ディレクトリ'/plugins/opTimelinePlugin/web/img/* 'インストールディレクトリ'/web/img/
+    cp 'OpenPNE ディレクトリ'/plugins/opTimelinePlugin/web/img/* 'インストールディレクトリ'/web/img/
 
 
 **CSSの編集**
@@ -68,7 +68,7 @@ symfonyコマンドを使って、直接DLします。
 
 **データベース追加**
 
-    ./symfony openpne:migrate --target=opNicePlugin
+    ./symfony openpne:migrate --target=opLikePlugin
 
 
 **タイムラインのインストール**
