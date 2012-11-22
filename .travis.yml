@@ -1,0 +1,25 @@
+language: php
+
+env:
+  - DB=mysql
+#  - DB=sqlite
+
+before_script:
+  - sudo apt-get install -qq apache2 libapache2-mod-php5 php5-mysql php5-sqlite
+  - sudo a2enmod rewrite
+  - echo "Alias /op3 $(pwd)/openpne3/web" | sudo tee /etc/apache2/conf.d/op3
+  - sudo /etc/init.d/apache2 restart
+
+  - mkdir opLikePlugin
+  - mv * opLikePlugin || true
+  - git clone --depth=1 git://github.com/openpne/OpenPNE3.git openpne3
+  - git clone --depth=1 git://github.com/upsilon/opTestApiPlugin.git openpne3/plugins/opTestApiPlugin
+  - cd openpne3
+  - mv ../opLikePlugin plugins/
+
+  - cp config/ProjectConfiguration.class.php{.sample,}
+  - if [ "$DB" = "mysql" ]; then ./symfony openpne:fast-install --dbms=mysql --dbuser=root --dbpassword= --dbname=openpne; fi
+  - if [ "$DB" = "sqlite" ]; then ./symfony openpne:fast-install --dbms=sqlite --dbname=log/op3.sqlite; sudo chgrp -R www-data log; chmod -R g+rw log; fi
+
+script:
+  - phantomjs plugins/opTestApiPlugin/test/bootstrap/run-qunit.js http://localhost/op3/opLikePlugin/apitest/like.html

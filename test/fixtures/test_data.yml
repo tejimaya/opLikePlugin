@@ -1,19 +1,77 @@
 Member:
-  member_1:
-    id: ~
-    name: "OpenPNE君"
+  me:
+    id: 1
+    name: A
+    is_active: 1
+    MemberConfig:
+      member1_api_key: { name: api_key, value: abcdef12345678900001 }
+
+  # フレンド
+  friend_A:
+    id: 2
+    name: B
     is_active: 1
 
-MemberConfig:
-  member_address_1:
-    name: "pc_address"
-    value: "sns@example.com"
-    Member: member_1
-  member_mobile_address_1:
-    name: "mobile_address"
-    value: "sns@example.com"
-    Member: member_1
-  member_password_1:
-    name: "password"
-    value: "<?php echo md5('password') ?>"
-    Member: member_1
+  # フレンド以外
+  other:
+    id: 3
+    name: C
+    is_active: 1
+
+  # 非アクティブ
+  inactive:
+    id: 4
+    name: D
+    is_active: 0
+
+  # 被ブロック
+  blocked:
+    id: 5
+    name: D
+    is_active: 1
+
+MemberRelationship:
+  # フレンド (1 <=> 2)
+  friend_1_2:
+    is_friend: true
+    Member: me
+    MemberRelatedByMemberIdFrom: friend_A
+  friend_2_1:
+    is_friend: true
+    Member: friend_A
+    MemberRelatedByMemberIdFrom: me
+
+  # ブロック (1 <= 5)
+  block_5_1:
+    is_access_block: true
+    Member: blocked
+    MemberRelatedByMemberIdFrom: me
+
+Community:
+  # 参加中のコミュニティ
+  community1_joining:
+    id: 1
+    name: communityA
+    CommunityMember:
+      community1_member1: { Member: me }
+
+  # 参加していないコミュニティ
+  community2_not_joining:
+    id: 2
+    name: communityB
+    CommunityMember:
+      community2_member3: { Member: other }
+
+ActivityData:
+  # 自分の投稿
+  activity1_me:
+    id: 1
+    body: dummy1
+    Member: me
+
+Nice:
+  nice1:
+    id: 1
+    Member: friend_A
+    foreign_table: A
+    foreign_id: 1
