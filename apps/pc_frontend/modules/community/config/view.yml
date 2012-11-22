@@ -1,0 +1,8 @@
+homeSuccess:
+  customize:
+    likeCommunity:
+      template: [like, likeCommunity]
+      parts: [communityHome]
+      target: [before]
+      is_component: true
+
