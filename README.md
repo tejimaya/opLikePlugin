@@ -26,17 +26,17 @@ Ajaxでスマートフォンにも対応しています。
 ----------------
 opTimelinePlugin側にも修正を行っています。  
 通常のopTimelinePluginでは動きません。  
-https://github.com/ichikawatatsuya/opTimelinePlugin.git を使用してください。  
+https://github.com/tejimaya/opTimelinePlugin.git を使用してください。  
 [like]というブランチで開発したため、git checkout likeでブランチを切り替えてください。  
 Bootstrap、CSSファイルを下記のように編集・変更してください。  
 （これらは各次バージョンで修正する予定です）
 
 **タイムラインプラグインの取得**  
 ZIPでダウンロード、またはgit cloneでインストールしてください。  
-https://github.com/ichikawatatsuya/opTimelinePlugin/archive/master.zip  
+https://github.com/tejimaya/opTimelinePlugin/archive/master.zip  
 からダウンロードしてインストールしてください。
 
-    git clone git://github.com/ichikawatatsuya/opTimelinePlugin.git 'インストールディレクトリ'/plugins/opTimelinePlugin
+    git clone git://github.com/tejimaya/opTimelinePlugin.git 'インストールディレクトリ'/plugins/opTimelinePlugin
 
 
 **「いいね！」プラグラインのインストール**  
