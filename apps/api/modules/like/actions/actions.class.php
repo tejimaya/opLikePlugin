@@ -21,6 +21,8 @@ class likeActions extends opJsonApiActions
 {
   public function executeSearch(sfWebRequest $request)
   {
+    $memberId = $this->getUser()->getMemberId();
+
     $this->forward400Unless($request['target'], 'foreign_table not specified.');
     $this->forward400Unless($request['target_id'], 'foreign_id not specified.');
     $foreignTable = $request['target'];
@@ -28,8 +30,6 @@ class likeActions extends opJsonApiActions
 
     if ('A' === $foreignTable)
     {
-      $memberId = $this->getUser()->getMemberId();
-
       $this->likes = Doctrine::getTable('Nice')->getNicedList($foreignTable, $foreignId);
       $this->total = Doctrine::getTable('Nice')->getNicedCount($foreignTable, $foreignId);
 
@@ -92,6 +92,8 @@ class likeActions extends opJsonApiActions
 
   public function executeList(sfWebRequest $request)
   {
+    $memberId = $this->getUser()->getMemberId();
+
     $this->forward400Unless($request['target'], 'foreign_table not specified.');
     $this->forward400Unless($request['target_id'], 'foreign_id not specified.');
     $foreignTable = $request['target'];
