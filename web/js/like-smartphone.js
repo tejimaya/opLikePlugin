@@ -13,6 +13,7 @@ $(function(){
   $('.like-post').live('click', function()
   {
     var likeId = $(this).attr('data-like-id');
+    var target = $(this).attr('data-like-target');
     var memberid = $(this).attr('member-id');
 
     $.ajax(
@@ -21,15 +22,15 @@ $(function(){
       type: 'POST',
       data: 
       {
-        'target': 'A',
+        'target': target,
         'target_id': likeId,
         'member_id': memberid
       },
       success: function(json)
       {
-        $('span[class="like-post"][data-like-id="' +  likeId + '"]').hide();
-        $('span[class="like-cancel"][data-like-id="' +  likeId + '"]').show();
-        totalLoad(likeId);
+        $('span[class="like-post"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').hide();
+        $('span[class="like-cancel"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').show();
+        totalLoad(likeId, target);
       },
     });
   });
@@ -37,6 +38,7 @@ $(function(){
   $('.like-cancel').live('click', function()
   {
     var likeId = $(this).attr('data-like-id');
+    var target = $(this).attr('data-like-target');
 
     $.ajax(
     {
@@ -44,21 +46,23 @@ $(function(){
       type: 'POST',
       data:
       {
-        'target': 'A',
+        'target': target,
         'target_id': likeId
       },
       success: function(json)
       {
-        $('span[class="like-cancel"][data-like-id="' +  likeId + '"]').hide();
-        $('span[class="like-post"][data-like-id="' +  likeId + '"]').show();
-        totalLoad(likeId);
+        $('span[class="like-cancel"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').hide();
+        $('span[class="like-post"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').show();
+        totalLoad(likeId, target);
       },
     });
-    $('span[class="like-list"][data-like-id="' + likeId + '"]').parent().removeAttr('href');
+    $('span[class="like-list"][data-like-id="' + likeId + '"][data-like-target="' + target + '"]').parent().removeAttr('href');
   });
+
+  totalLoadAll();
 });
 
-function totalLoad(likeId)
+function totalLoad(likeId, target)
 {
   $.ajax(
   {
@@ -66,12 +70,12 @@ function totalLoad(likeId)
     type: 'GET',
     data:
     {
-      'target': 'A',
+      'target': target,
       'target_id': likeId
     },
     success: function(json)
     {
-      var likeList = $('span[class="like-list"][data-like-id="' + likeId + '"]');
+      var likeList = $('span[class="like-list"][data-like-id="' + likeId + '"][data-like-target="' + target + '"]');
       if (0 < json.data.length)
       {
         var mine = false;
@@ -86,8 +90,8 @@ function totalLoad(likeId)
         if (mine)
         {
           likeList.text('いいね！(' + json.data[0].total + ')');
-          $('span[class="like-post"][data-like-id="' +  likeId + '"]').hide();
-          $('span[class="like-cancel"][data-like-id="' +  likeId + '"]').show();
+          $('span[class="like-post"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').hide();
+          $('span[class="like-cancel"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').show();
         }
         else
         {
@@ -108,7 +112,8 @@ function totalLoadAll()
   $('.like-list').each(function()
   {
     var likeId = $(this).attr('data-like-id');
-    totalLoad(likeId);
+    var target = $(this).attr('data-like-target');
+    totalLoad(likeId, tagrget);
   });
   $('.like-wrapper').show();
   $('.like-comment-wrapper').show();

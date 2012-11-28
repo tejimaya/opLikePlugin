@@ -1,7 +1,5 @@
 showSuccess:
   customize:
-    niceShow:
-      template: [nice, show]
-      parts: [diaryDetailBox]
-      target: [bottom]
+    likeShow:
+      template: [like, likeDiary]
       is_component: true

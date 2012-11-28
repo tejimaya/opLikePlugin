@@ -39,4 +39,11 @@ class likeComponents extends opLikePluginLikeComponents
   public function executeSmtLikeCommunity(sfWebRequest $request)
   {
   }
+
+  public function executeLikeDiary(sfWebRequest $request)
+  {
+    $this->getResponse()->addStylesheet('/opLikePlugin/css/like.css');
+    $this->getResponse()->addStylesheet('/opLikePlugin/css/bootstrap.css', 'last');
+    $this->getResponse()->addjavascript('/opLikePlugin/js/like.js', 'last');
+  }
 }

@@ -28,17 +28,10 @@ class likeActions extends opJsonApiActions
     $foreignTable = $request['target'];
     $foreignId = $request['target_id'];
 
-    if ('A' === $foreignTable)
-    {
-      $this->likes = Doctrine::getTable('Nice')->getNicedList($foreignTable, $foreignId);
-      $this->total = Doctrine::getTable('Nice')->getNicedCount($foreignTable, $foreignId);
+    $this->likes = Doctrine::getTable('Nice')->getNicedList($foreignTable, $foreignId);
+    $this->total = Doctrine::getTable('Nice')->getNicedCount($foreignTable, $foreignId);
 
-      $this->requestMemberId = $memberId;
-    }
-    else
-    {
-      $this->forward400('Table does not exist');
-    }
+    $this->requestMemberId = $memberId;
   }
 
   public function executePost(sfWebRequest $request)
@@ -60,7 +53,6 @@ class likeActions extends opJsonApiActions
     }
 
     $like = Doctrine::getTable('Nice')->isAlreadyNiced($memberId, $foreignTable, $foreignId);
-
     $this->forward400Unless(!$like, 'It has already been registered');
 
     $like = new Nice();

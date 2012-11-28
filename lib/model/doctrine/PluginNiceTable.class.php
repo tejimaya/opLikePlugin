@@ -19,7 +19,7 @@ class PluginNiceTable extends Doctrine_Table
 
   public function getNicedList($table, $id, $limit=0)
   {
-    $q = $this->createQuery('n')->where('foreign_table = ? AND foreign_id = ?', array($table, $id));
+    $q = $this->createQuery('n')->where('foreign_table = binary ? AND foreign_id = ?', array($table, $id));
 
     if($limit>0)
     {
@@ -31,26 +31,26 @@ class PluginNiceTable extends Doctrine_Table
 
   public function getNicedCount($table, $id)
   {
-    return $this->createQuery('n')->where('foreign_table = ? AND foreign_id = ?', array($table, $id))->count();
+    return $this->createQuery('n')->where('foreign_table = binary ? AND foreign_id = ?', array($table, $id))->count();
   }
 
   public function isAlreadyNiced($memberId, $table, $id)
   {
-    return $this->createQuery('n')->where('member_id = ? AND foreign_table = ? AND foreign_id = ?', array($memberId, $table, $id))->count()>0;
+    return $this->createQuery('n')->where('member_id = ? AND foreign_table = binary ? AND foreign_id = ?', array($memberId, $table, $id))->count()>0;
   }
 
   public function getAlreadyNiced($memberId, $table, $id)
   {
     return $this->createQuery('n')
                 ->addWhere('member_id = ?', $memberId)
-                ->andWhere('foreign_table = ?', $table)
+                ->andWhere('foreign_table = binary ?', $table)
                 ->andWhere('foreign_id = ?', $id);
   }
 
   public function getMemberPager($foreignTable, $foreignId, $size, $page = 1)
   {
     if($page < 1) $page = 1;
-    $q = $this->createQuery('n')->addWhere('n.foreign_table = ? AND n.foreign_id = ?', array($foreignTable, $foreignId));
+    $q = $this->createQuery('n')->addWhere('n.foreign_table = binary ? AND n.foreign_id = ?', array($foreignTable, $foreignId));
 
     $pager = new sfDoctrinePager('Nice', $size);
     $pager->setQuery($q);

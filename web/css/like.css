@@ -54,3 +54,13 @@ form#LikeForm input
   z-index: 100; 
   display: none;
 }
+
+/* diary plugin */
+.like-friend-list {
+  float: right;
+}
+
+div.parts dl span.like-wrapper {
+  float: left;
+}
+
