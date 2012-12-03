@@ -56,10 +56,8 @@ $(function(){
         totalLoad(likeId, target);
       },
     });
-    $('span[class="like-list"][data-like-id="' + likeId + '"][data-like-target="' + target + '"]').parent().removeAttr('href');
   });
-
-  totalLoadAll();
+  setTimeout('totalLoadAll()', 1500);
 });
 
 function totalLoad(likeId, target)
@@ -79,7 +77,7 @@ function totalLoad(likeId, target)
       if (0 < json.data.length)
       {
         var mine = false;
-        for (var i=0; i<json.data.length; i++)
+        for (var i = 0; i < json.data.length; i++)
         {
           if (json.data[i].requestMemberId == json.data[i].member_id)
           {
@@ -97,11 +95,12 @@ function totalLoad(likeId, target)
         {
           likeList.text('いいね！(' + json.data[0].total + ')');
         }
-        likeList.parent().attr('href', '/like/list/A/' + likeId);
+        if (!likeList.attr('no-href-clear')) likeList.parent().attr('href', '/like/list/' + target + '/' + likeId);
       }
       else
       {
         likeList.text('いいね！');
+        if (!likeList.attr('no-href-clear')) likeList.parent().removeAttr('href');
       }
     },
   });
@@ -113,7 +112,7 @@ function totalLoadAll()
   {
     var likeId = $(this).attr('data-like-id');
     var target = $(this).attr('data-like-target');
-    totalLoad(likeId, tagrget);
+    totalLoad(likeId, target);
   });
   $('.like-wrapper').show();
   $('.like-comment-wrapper').show();

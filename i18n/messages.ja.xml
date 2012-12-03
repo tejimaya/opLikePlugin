@@ -38,6 +38,10 @@
         <source>You have already liked this content.</source>
         <target>既にイイネ！済みです。</target>
       </trans-unit>
+      <trans-unit id="">
+        <source>%member% says that it is Like.</source>
+        <target>%member%さんがいいね！と言っています。</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

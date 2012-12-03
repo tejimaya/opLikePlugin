@@ -30,6 +30,10 @@ class likeComponents extends opLikePluginLikeComponents
     $this->getResponse()->addjavascript('/opLikePlugin/js/like.js', 'last');
   }
 
+  public function executeSmtLikeAll(sfWebRequest $request)
+  {
+  }
+
   public function executeLikeCommunity(sfWebRequest $request)
   {
     $this->getResponse()->addStylesheet('/opLikePlugin/css/like.css');
@@ -45,5 +49,10 @@ class likeComponents extends opLikePluginLikeComponents
     $this->getResponse()->addStylesheet('/opLikePlugin/css/like.css');
     $this->getResponse()->addStylesheet('/opLikePlugin/css/bootstrap.css', 'last');
     $this->getResponse()->addjavascript('/opLikePlugin/js/like.js', 'last');
+  }
+
+  public function executeSmtLikeDiary(sfWebRequest $request)
+  {
+error_log("kiteruyo\n",3,"/tmp/ichikawa.log");
   }
 }

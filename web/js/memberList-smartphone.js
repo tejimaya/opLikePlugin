@@ -4,19 +4,20 @@ $(function()
   if ((n = url.lastIndexOf('/')) != -1)
   {
     likeId = url.substring(n + 1);
+    target = url.substring(n - 1, n);
   }
 
-  memberListShow(likeId, 20);
+  memberListShow(likeId, target, 20);
 
   $('#more-see').click(function()
   {
     var maxId = $(this).attr('data-max-id');
     maxId = parseInt(maxId) + 20;
-    memberListShow(likeId, maxId);
+    memberListShow(likeId, target, maxId);
   });
 });
 
-function memberListShow(likeId, maxId)
+function memberListShow(likeId, target, maxId)
 {
   $.ajax(
   {
@@ -24,7 +25,7 @@ function memberListShow(likeId, maxId)
     type: 'POST',
     data: 
     {
-      'target': 'A',
+      'target': target,
       'target_id': likeId,
       'max_id': maxId
     },

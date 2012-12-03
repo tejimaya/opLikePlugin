@@ -5,4 +5,4 @@ smtLike:
   description:
     ja_JP: "いいね！を追加します。"
     en_US: "add to like!"
-  component: [like, smtLike]
+  component: [like, smtLikeAll]

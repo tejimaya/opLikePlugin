@@ -3,3 +3,4 @@ showSuccess:
     likeShow:
       template: [like, likeDiary]
       is_component: true
+

@@ -41,19 +41,19 @@ class likeActions extends opJsonApiActions
     $this->forward400Unless($request['member_id'], 'member_id not specified.');
     $foreignTable = $request['target'];
     $foreignId = $request['target_id'];
-    $requestMemberId = $request['member_id'];
+    $foreignMemberId = $request['member_id'];
 
     if (1 < strlen($foreignTable)) $this->forward400('Is at least one character');
 
     $memberId = $this->getUser()->getMemberId();
 
-    if ($memberId == $requestMemberId)
+    if ($memberId == $foreignMemberId)
     {
       $this->forward400('I can not be myself like');
     }
 
-    $like = Doctrine::getTable('Nice')->isAlreadyNiced($memberId, $foreignTable, $foreignId);
-    $this->forward400Unless(!$like, 'It has already been registered');
+    $AlreadyLike = Doctrine::getTable('Nice')->isAlreadyNiced($memberId, $foreignTable, $foreignId);
+    $this->forward400Unless(!$AlreadyLike, 'It has already been registered');
 
     $like = new Nice();
     $like->setMemberId($memberId);
@@ -62,6 +62,34 @@ class likeActions extends opJsonApiActions
 
     $like->save();
     $this->like = $like;
+
+    $fromMember = $this->getUser()->getMember();
+    $toMember = Doctrine::getTable('Member')->findOneById($foreignMemberId);
+    switch ($foreignTable)
+    {
+      case 'A':
+        $url = '/timeline/show/id/' . $foreignId;
+        break;
+      case 'D':
+        $url = '/diary/' . $foreignId;
+        break;
+      case 'd':
+        $diaryComment = Doctrine::getTable('DiaryComment')->findOneById($foreignId);
+        $url = '/diary/' . $diaryComment->getDiaryId();
+        break;
+      case 'e':
+        $eventComment = Doctrine::getTable('CommunityEventComment')->findOneById($foreignId);
+        $url = '/communityEvent/' . $eventComment->getCommunityEventId();
+        break;
+      case 't':
+        $topicComment = Doctrine::getTable('CommunityTopicComment')->findOneById($foreignId);
+        $url = '/communityTopic/' . $topicComment->getCommunityTopicId();
+        break;
+      default :
+        $url = '#';
+        break;
+    }
+    opLikePluginUtil::sendNotification($fromMember, $toMember, $url);
   }
 
   public function executeDelete(sfWebRequest $request)
