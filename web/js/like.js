@@ -233,5 +233,5 @@ function totalLoadAll()
     totalLoad(likeId, target);
   });
   $('.like-wrapper').show();
-  $('.like-comment-wrapper').show();
+  $('.like').show();
 }

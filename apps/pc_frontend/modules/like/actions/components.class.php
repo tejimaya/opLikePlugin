@@ -27,6 +27,14 @@ class likeComponents extends opLikePluginLikeComponents
   public function executeLikeAll(sfWebRequest $request)
   {
     $this->getResponse()->addStylesheet('/opLikePlugin/css/like.css');
+    $this->getResponse()->addStylesheet('/opLikePlugin/css/bootstrap.css', 'last');
+    $this->getResponse()->addjavascript('/opLikePlugin/js/like.js', 'last');
+  }
+
+  public function executeLikeProfile(sfWebRequest $request)
+  {
+    $this->getResponse()->addStylesheet('/opLikePlugin/css/like.css');
+    $this->getResponse()->addStylesheet('/opLikePlugin/css/bootstrap.css', 'last');
     $this->getResponse()->addjavascript('/opLikePlugin/js/like.js', 'last');
   }
 
@@ -37,6 +45,7 @@ class likeComponents extends opLikePluginLikeComponents
   public function executeLikeCommunity(sfWebRequest $request)
   {
     $this->getResponse()->addStylesheet('/opLikePlugin/css/like.css');
+    $this->getResponse()->addStylesheet('/opLikePlugin/css/bootstrap.css', 'last');
     $this->getResponse()->addjavascript('/opLikePlugin/js/like.js', 'last');
   }
 
@@ -51,8 +60,17 @@ class likeComponents extends opLikePluginLikeComponents
     $this->getResponse()->addjavascript('/opLikePlugin/js/like.js', 'last');
   }
 
-  public function executeSmtLikeDiary(sfWebRequest $request)
+  public function executeLikeCommunityEvent(sfWebRequest $request)
   {
-error_log("kiteruyo\n",3,"/tmp/ichikawa.log");
+    $this->getResponse()->addStylesheet('/opLikePlugin/css/like.css');
+    $this->getResponse()->addStylesheet('/opLikePlugin/css/bootstrap.css', 'last');
+    $this->getResponse()->addjavascript('/opLikePlugin/js/like.js', 'last');
+  }
+
+  public function executeLikeCommunityTopic(sfWebRequest $request)
+  {
+    $this->getResponse()->addStylesheet('/opLikePlugin/css/like.css');
+    $this->getResponse()->addStylesheet('/opLikePlugin/css/bootstrap.css', 'last');
+    $this->getResponse()->addjavascript('/opLikePlugin/js/like.js', 'last');
   }
 }

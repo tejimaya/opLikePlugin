@@ -1,7 +1,5 @@
 showSuccess:
   customize:
     niceShow:
-      template: [nice, show]
-      parts: [topicDetailBox]
-      target: [bottom]
+      template: [like, likeAll]
       is_component: true

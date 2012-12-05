@@ -5,4 +5,4 @@ smtCommunityLikeBox:
   description:
     ja_JP: "コミュニティのタイムラインにいいねを追加します。"
     en_US: "I want to add to the timeline of the community like."
-  component: [like, smtLikeCommunity]
+  component: [like, smtLikeAll]

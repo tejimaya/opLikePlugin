@@ -57,7 +57,7 @@ $(function(){
       },
     });
   });
-  setTimeout('totalLoadAll()', 1500);
+  setTimeout('totalLoadAll()', 3000);
 });
 
 function totalLoad(likeId, target)

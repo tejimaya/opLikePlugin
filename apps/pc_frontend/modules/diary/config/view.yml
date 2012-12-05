@@ -1,6 +1,6 @@
 showSuccess:
   customize:
     likeShow:
-      template: [like, likeDiary]
+      template: [like, likeAll]
       is_component: true
 

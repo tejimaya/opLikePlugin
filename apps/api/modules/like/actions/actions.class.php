@@ -36,8 +36,8 @@ class likeActions extends opJsonApiActions
 
   public function executePost(sfWebRequest $request)
   {
-    $this->forward400Unless($request['target'], 'foreign_table not specified.');
-    $this->forward400Unless($request['target_id'], 'foreign_id not specified.');
+    $this->forward400Unless($request['target'], 'target not specified.');
+    $this->forward400Unless($request['target_id'], 'target_id not specified.');
     $this->forward400Unless($request['member_id'], 'member_id not specified.');
     $foreignTable = $request['target'];
     $foreignId = $request['target_id'];

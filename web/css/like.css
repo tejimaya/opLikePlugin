@@ -26,33 +26,22 @@ form#LikeForm input
   text-decoration: underline;
 }
 
-.like-post
+.like-list-member
 {
-  cursor: pointer;
-  float: right;
-}
-
-.like-cancel
-{
-  cursor: pointer;
-  float: right;
-}
-
-.like-list {
-  cursor: pointer;
-  float: right;
-  position: relative;
-}
-
-.like-list-member {
   width: 300px; 
   height: 400px;
   background: #FFFFFF;
   border: 1px solid #000000;
   position: absolute;
   overflow-y: scroll;
-  z-index: 100; 
+  z-index: 99; 
   display: none;
+}
+
+.like-wrapper
+{
+  cursor: pointer;
+  float: right;
 }
 
 /* diary plugin */

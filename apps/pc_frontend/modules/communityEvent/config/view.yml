@@ -1,7 +1,5 @@
 showSuccess:
   customize:
-    niceShow:
-      template: [nice, show]
-      parts: [communityEvent]
-      target: [lastRow]
+    likeShow:
+      template: [like, likeAll]
       is_component: true
