@@ -36,17 +36,17 @@ symfonyコマンドを使って、直接DLします。
     ./symfony opPlugin:install opLikePlugin -r 1.0.1
 
 
-**「いいね！」に対応したプラグインのダウンロード**
-通常のプラグインでは動作しないため、対応したプラグインを以下のコマンドでダウンロードします。  
+**「いいね！」に対応したプラグインのダウンロード**  
+  通常のプラグインでは動作しないため、対応したプラグインを以下のコマンドでダウンロードします。  
 
     cd path/to/OpnePNE
     php plugins/opLikePlugin/task/pluginInstallTask.php -cdt
 
 
-"-cdt"の部分はインストールしたいプラグインにより変更します。  
-opCommunityTopicPluginだけのインストールしたい場合は "-c"  
-opDiaryPluginとopTimelinePluginをインストールしたい場合は"-dt"  
-上記のようにハイフンの後にプラグインの頭文字を指定します。  
+  "-cdt"の部分はインストールしたいプラグインにより変更します。  
+  opCommunityTopicPluginだけのインストールしたい場合は "-c"  
+  opDiaryPluginとopTimelinePluginをインストールしたい場合は"-dt"  
+  上記のようにハイフンの後にプラグインの頭文字を指定します。  
 
 
 **OpnePNE本体側Bootstrapの変更・画像の差し替え**
