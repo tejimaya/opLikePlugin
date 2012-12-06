@@ -6,16 +6,20 @@
  <name>opLikePlugin</name>
  <channel>plugins.openpne.jp</channel>
  <summary>いいね！機能を追加します</summary>
- <description>いいね！機能を追加します。現在はopTimelinePluginにのみ対応。
- </description>
+ <description>いいね！機能を追加します。
+
+1.0.1での対応プラグイン：
+・opTimelinePlugin
+・opDiaryPlugin
+・opCommunityTopicPlugin</description>
  <lead>
   <name>ichikawa tatsuya</name>
   <user>ichikawa</user>
   <email />
   <active>yes</active>
  </lead>
- <date>2012-12-05</date>
- <time>16:12:49</time>
+ <date>2012-12-06</date>
+ <time>15:05:20</time>
  <version>
   <release>1.0.1</release>
   <api>1.0.1</api>
@@ -76,6 +80,7 @@ stable release.
    <file baseinstalldir="/" md5sum="fc3b318ba6195c3a8dfe6a030afb25af" name="lib/model/doctrine/PluginNice.class.php" role="data" />
    <file baseinstalldir="/" md5sum="02718502f92b620cdc3919711e06c623" name="lib/model/doctrine/PluginNiceTable.class.php" role="data" />
    <file baseinstalldir="/" md5sum="c5b7ce572e1bb488fa9449e9aa467c7c" name="lib/util/opLikePluginUtil.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="ef3162e85f073724c8ac58a894914659" name="task/pluginInstallTask.php" role="data" />
    <file baseinstalldir="/" md5sum="25b04d5e2306bbc79824f120dc88d181" name="test/bootstrap/database.php" role="data" />
    <file baseinstalldir="/" md5sum="2089e76b9d0ae0fd4d222ee37ea68cb5" name="test/bootstrap/functional.php" role="data" />
    <file baseinstalldir="/" md5sum="4bfa4b596e946c8a283410a2e2ba4315" name="test/bootstrap/unit.php" role="data" />
@@ -94,7 +99,7 @@ stable release.
    <file baseinstalldir="/" md5sum="3f856efa81ccc863da476003d9a89a9e" name="web/js/like.js" role="data" />
    <file baseinstalldir="/" md5sum="f53018615ea9314d3e12b078128c0ddf" name="web/js/memberList-smartphone.js" role="data" />
    <file baseinstalldir="/" md5sum="88b26827712c0272829c0c1eda15f5ef" name="DEVELOPMENT.md" role="data" />
-   <file baseinstalldir="/" md5sum="a3eb1fcea18806ffb603290af43b0edc" name="README.md" role="data" />
+   <file baseinstalldir="/" md5sum="514a210d1dbc939f986e50e64b109442" name="README.md" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -148,7 +153,7 @@ First stable release.
     <release>stable</release>
     <api>stable</api>
    </stability>
-   <date>2012-12-05</date>
+   <date>2012-12-06</date>
    <license>Apache</license>
    <notes>
 stable release.
