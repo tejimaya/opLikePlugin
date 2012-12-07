@@ -57,7 +57,7 @@ $(function(){
       },
     });
   });
-  setTimeout('totalLoadAll()', 3000);
+  setInterval('totalLoadAll()', 2000);
 });
 
 function totalLoad(likeId, target)
@@ -110,9 +110,13 @@ function totalLoadAll()
 {
   $('.like-list').each(function()
   {
-    var likeId = $(this).attr('data-like-id');
-    var target = $(this).attr('data-like-target');
-    totalLoad(likeId, target);
+    if (!$(this).attr('not-each-load'))
+    {
+      var likeId = $(this).attr('data-like-id');
+      var target = $(this).attr('data-like-target');
+      totalLoad(likeId, target);
+      $(this).attr('not-each-load', true);
+    }
   });
   $('.like-wrapper').show();
   $('.like-comment-wrapper').show();
