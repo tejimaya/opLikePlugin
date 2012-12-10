@@ -147,13 +147,22 @@ function friendListShow(likeId, target)
       success: function(json)
       {
         var friendHtml = '';
+        var count = 0;
         if (json.data[0])
         {
           for (var i = 0; i < json.data.length; i++)
           {
-            friendHtml = friendHtml + "&nbsp;&nbsp;" + '<a href="' + json.data[i].profile_url + '">' + json.data[i].name + '</a>';
+            if (json.data[i].friend)
+            {
+              friendHtml = friendHtml + "&nbsp;&nbsp;" + '<a href="' + json.data[i].profile_url + '">' + json.data[i].name + '</a>';
+            }
+            else
+            {
+              count++;
+            }
           }
         }
+        friendHtml = friendHtml + "他" + count + "人が「いいね！」と言っています。";
         var friendList = $('span[class="like-friend-list"][data-like-id="' + likeId + '"][data-like-target="' + target + '"]');
         friendList.text('');
         friendList.append(friendHtml);
@@ -196,30 +205,62 @@ function totalLoad(likeId, target)
       if (0 < json.data.length)
       {
         var mine = false;
-        for (var i = 0; i < json.data.length; i++)
+        var friendHtml = '';
+        var friendCount = 0;
+        for (var i = 0; i < json.data.length - 1; i++)
         {
-          if (json.data[i].requestMemberId == json.data[i].member_id)
+          if (json.data[json.data.length - 1].requestMemberId == json.data[i].member.id)
           {
             mine = true;
           }
+  
+          if (5 > friendCount && json.data[i].member.friend)
+          {
+            friendHtml = friendHtml + '<a href="' + json.data[i].member.profile_url + '">' + json.data[i].member.name + '</a>さん';
+          }
+          friendCount++;
         }
 
-        if (mine)
+        likeList.text('');
+        likeList.parent().next().text('');
+        if (mine && '' !== friendHtml)
         {
-          likeList.text('いいね！(' + json.data[0].total + ')');
+          likeList.append('<i class="icon-thumbs-up"></i>あなたと' + '他' + json.data[json.data.length - 1].total + '人');
+          likeList.parent().next().append(friendHtml + 'が「いいね！」と言っています。');
+          $('span[class="like-post"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').hide();
+          $('span[class="like-cancel"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').show();
+        }
+        else if (!mine && '' !== friendHtml)
+        {
+          likeList.append('<i class="icon-thumbs-up"></i> ' + json.data[json.data.length - 1].total + '人');
+          likeList.parent().next().append('と' + friendHtml + 'が「いいね！」と言っています。');
+        }
+        else if (mine && '' === friendHtml)
+        {
+          likeList.append('<i class="icon-thumbs-up"></i>あなた');
+          likeList.parent().next().append('が「いいね！」と言っています。');
           $('span[class="like-post"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').hide();
           $('span[class="like-cancel"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').show();
         }
         else
         {
-          likeList.text('いいね！(' + json.data[0].total + ')');
+          if (0 < json.data[json.data.length - 1].total)
+          {
+            likeList.append('<i class="icon-thumbs-up"></i>' + json.data[json.data.length - 1].total + '人');
+            likeList.parent().next().append(friendHtml + 'が「いいね！」と言っています。');
+          }
+          else
+          {
+            likeList.append('<i class="icon-thumbs-up"></i>0');
+          }
         }
       }
       else
       {
-        likeList.text('いいね！');
+        likeList.parent().next().text('');
+        likeList.text('');
       }
-      friendListShow(likeId, target);
+      //friendListShow(likeId, target);
     },
   });
 }

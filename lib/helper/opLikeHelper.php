@@ -20,15 +20,13 @@ function op_api_member_info($member)
   return op_api_member($member);
 }
 
-function op_api_like_search($like, $total, $requestMemberId)
+function op_api_like_search($like, $member)
 {
   return array(
     'id'              => $like['id'],
-    'member_id'       => $like['member_id'],
+    'member'          => op_api_member_info($member),
     'foreign_table'   => $like['foreign_table'],
     'foreign_id'      => $like['foreign_id'],
-    'total'           => $total,
-    'requestMemberId' => $requestMemberId,
   );
 }
 

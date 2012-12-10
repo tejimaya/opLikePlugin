@@ -40,8 +40,22 @@ form#LikeForm input
 
 .like-wrapper
 {
-  cursor: pointer;
   float: right;
+}
+
+.like-post
+{
+  cursor: pointer;
+}
+
+.like-list
+{
+  cursor: pointer;
+}
+
+.like-cancel
+{
+  cursor: pointer;
 }
 
 /* diary plugin */

@@ -5,8 +5,10 @@ $data = array();
 
 foreach ($likes as $like)
 {
-  $data[] = op_api_like_search($like, $total, $requestMemberId);
+  $member = Doctrine::getTable('Member')->find($like['member_id']);
+  $data[] = op_api_like_search($like, $member);
 }
+$data[] = array('total' => $total, 'requestMemberId' => $requestMemberId);
 
 return array(
   'status' => 'success',
