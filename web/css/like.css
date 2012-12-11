@@ -46,16 +46,41 @@ form#LikeForm input
 .like-post
 {
   cursor: pointer;
+  color: #026cd1;
 }
 
 .like-list
 {
   cursor: pointer;
+  color: #026cd1;
 }
 
 .like-cancel
 {
   cursor: pointer;
+  color: #026cd1;
+}
+
+#likeModal
+{
+ width: 500px;
+}
+
+.modal-header
+{
+  color: #FFFFFF;
+  background-color: #026cd1
+}
+
+.modal-body
+{
+  overflow-y: scroll;
+  height: 300px;
+}
+
+.like-more-see
+{
+  width: 440px;
 }
 
 /* diary plugin */

@@ -18,8 +18,8 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2012-12-06</date>
- <time>15:05:20</time>
+ <date>2012-12-11</date>
+ <time>10:38:46</time>
  <version>
   <release>1.0.1</release>
   <api>1.0.1</api>
@@ -40,7 +40,7 @@ stable release.
    <file baseinstalldir="/" md5sum="fcff38997b3a0a44df79666e58f8d5a7" name="apps/api/modules/like/templates/deleteSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="5c556015ff36e05af6aac96be232e440" name="apps/api/modules/like/templates/listSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="4e20e0bfaee8e6220130d5bcf4e756d7" name="apps/api/modules/like/templates/postSuccess.php" role="data" />
-   <file baseinstalldir="/" md5sum="0dbf816c6ed63dd27467c3294e70bddb" name="apps/api/modules/like/templates/searchSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="0afd9d4471e00c4d13f8d98bc632ae59" name="apps/api/modules/like/templates/searchSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="bbe28d19c160509a1f4447422b05f2b6" name="apps/pc_frontend/config/routing.yml" role="data" />
    <file baseinstalldir="/" md5sum="90368aebc596f7e04ba80e5cb15c86df" name="apps/pc_frontend/config/view.yml" role="data" />
    <file baseinstalldir="/" md5sum="4f32393f46485f58099ed9053afafed8" name="apps/pc_frontend/modules/community/config/view.yml" role="data" />
@@ -48,22 +48,22 @@ stable release.
    <file baseinstalldir="/" md5sum="71134250e4a130555d3601361551b45d" name="apps/pc_frontend/modules/communityTopic/config/view.yml" role="data" />
    <file baseinstalldir="/" md5sum="0b406721a87019392b77017b80456ee6" name="apps/pc_frontend/modules/diary/config/view.yml" role="data" />
    <file baseinstalldir="/" md5sum="f22b473f03720f69c8c8d15901bd18d6" name="apps/pc_frontend/modules/like/actions/actions.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="5db2c9286387f203f5f27f6e95b78b86" name="apps/pc_frontend/modules/like/actions/components.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="f3068f4f0a279236bc8b404c8d3713eb" name="apps/pc_frontend/modules/like/actions/components.class.php" role="data" />
    <file baseinstalldir="/" md5sum="ad154960030a5addc41eaa2ee5077646" name="apps/pc_frontend/modules/like/config/security.yml" role="data" />
    <file baseinstalldir="/" md5sum="49d965b67dcc5318343b37602da16029" name="apps/pc_frontend/modules/like/templates/contentListSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="a57ba4008985dc4986916f0f34e3900c" name="apps/pc_frontend/modules/like/templates/memberListSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="eaf52063017c568a190bafb20996a53f" name="apps/pc_frontend/modules/like/templates/smtMemberListSuccess.php" role="data" />
-   <file baseinstalldir="/" md5sum="70e5b7fcae00e3a768fe5079ac327ea0" name="apps/pc_frontend/modules/like/templates/_likeAll.php" role="data" />
+   <file baseinstalldir="/" md5sum="70798d8ab57b97cd77719f6f4bfd4f09" name="apps/pc_frontend/modules/like/templates/_likeAll.php" role="data" />
    <file baseinstalldir="/" md5sum="70e5b7fcae00e3a768fe5079ac327ea0" name="apps/pc_frontend/modules/like/templates/_likeCommunity.php" role="data" />
    <file baseinstalldir="/" md5sum="06ce54d44f99fa769eba4cf934a17379" name="apps/pc_frontend/modules/like/templates/_show.php" role="data" />
    <file baseinstalldir="/" md5sum="e2363ab2434c8d5fddb82c0fba0d9e19" name="apps/pc_frontend/modules/like/templates/_smtLikeAll.php" role="data" />
    <file baseinstalldir="/" md5sum="7792991397cead851dcdfda2523fd93f" name="apps/pc_frontend/modules/like/templates/_smtLikeMember.php" role="data" />
    <file baseinstalldir="/" md5sum="fe8c1c7e3fb7d8cc5710b2c05f9bf831" name="config/gadget.yml" role="data" />
    <file baseinstalldir="/" md5sum="ab6f1520ad194b172cc868f08fec6ece" name="config/opLikePluginConfiguration.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="fca9561c027e02190b88d5451d23c159" name="config/profile_gadget.yml" role="data" />
-   <file baseinstalldir="/" md5sum="e6da1c6309bd1d072744f8bb61aa998d" name="config/smartphone_community_gadget.yml" role="data" />
-   <file baseinstalldir="/" md5sum="ca9edd2c054d2ba9d4183bbe7baf5d96" name="config/smartphone_gadget.yml" role="data" />
-   <file baseinstalldir="/" md5sum="ca9edd2c054d2ba9d4183bbe7baf5d96" name="config/smartphone_profile_gadget.yml" role="data" />
+   <file baseinstalldir="/" md5sum="fe8c1c7e3fb7d8cc5710b2c05f9bf831" name="config/profile_gadget.yml" role="data" />
+   <file baseinstalldir="/" md5sum="fbb2c5c2f01d407407fcda222132c51a" name="config/smartphone_community_gadget.yml" role="data" />
+   <file baseinstalldir="/" md5sum="fbb2c5c2f01d407407fcda222132c51a" name="config/smartphone_gadget.yml" role="data" />
+   <file baseinstalldir="/" md5sum="fbb2c5c2f01d407407fcda222132c51a" name="config/smartphone_profile_gadget.yml" role="data" />
    <file baseinstalldir="/" md5sum="0ec7b3a33290826240e086d109f4550c" name="config/doctrine/schema.yml" role="data" />
    <file baseinstalldir="/" md5sum="e91332695e57ffa3610833cd61496e36" name="data/fixtures/000_revision.yml" role="data" />
    <file baseinstalldir="/" md5sum="44f2a7fac23db5e1d0e334cb431f95db" name="data/fixtures/010_gadget_setting.yml" role="data" />
@@ -76,9 +76,9 @@ stable release.
    <file baseinstalldir="/" md5sum="d432405f95a3acd7bbb0fcd4f65800ea" name="lib/filter/doctrine/PluginLikeFormFilter.class.php" role="data" />
    <file baseinstalldir="/" md5sum="4cac0093c324cb2df1979f282c71e934" name="lib/filter/doctrine/PluginNiceFormFilter.class.php" role="data" />
    <file baseinstalldir="/" md5sum="fa86dfad039a5c18d0704b72245de845" name="lib/form/doctrine/PluginNiceForm.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="27e735b7cd593fdb0e686f7fd1069c96" name="lib/helper/opLikeHelper.php" role="data" />
+   <file baseinstalldir="/" md5sum="ba380f7af5f8cd21e5b503b0ede66308" name="lib/helper/opLikeHelper.php" role="data" />
    <file baseinstalldir="/" md5sum="fc3b318ba6195c3a8dfe6a030afb25af" name="lib/model/doctrine/PluginNice.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="02718502f92b620cdc3919711e06c623" name="lib/model/doctrine/PluginNiceTable.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="5de222a0b0824aaa5438d37f4bdeef89" name="lib/model/doctrine/PluginNiceTable.class.php" role="data" />
    <file baseinstalldir="/" md5sum="c5b7ce572e1bb488fa9449e9aa467c7c" name="lib/util/opLikePluginUtil.class.php" role="data" />
    <file baseinstalldir="/" md5sum="ef3162e85f073724c8ac58a894914659" name="task/pluginInstallTask.php" role="data" />
    <file baseinstalldir="/" md5sum="25b04d5e2306bbc79824f120dc88d181" name="test/bootstrap/database.php" role="data" />
@@ -90,16 +90,17 @@ stable release.
    <file baseinstalldir="/" md5sum="52440ab0abcc01c98551283f1e9942e1" name="test/unit/model/SkeletonTest.php" role="data" />
    <file baseinstalldir="/" md5sum="61e69d2afa67f89e4722ebd5e76cb4a4" name="web/apitest/like.html" role="data" />
    <file baseinstalldir="/" md5sum="7b1f8bf2b94bd179855d3b086d5ecba5" name="web/apitest/like.js" role="data" />
-   <file baseinstalldir="/" md5sum="e357a1d63c8777d145b004c61c825ea1" name="web/css/bootstrap.css" role="data" />
+   <file baseinstalldir="/" md5sum="a7c8c5042e47ac53101fbe6c4331dec3" name="web/css/bootstrap.css" role="data" />
    <file baseinstalldir="/" md5sum="8c5af11cf5d071090c55f1455e85fa2a" name="web/css/like-smartphone.css" role="data" />
-   <file baseinstalldir="/" md5sum="8467ed29cbedd64a85609e1850308cd3" name="web/css/like.css" role="data" />
+   <file baseinstalldir="/" md5sum="a7b84afce44e5cfdc1603525b7eecfe1" name="web/css/like.css" role="data" />
    <file baseinstalldir="/" md5sum="9bbc6e9602998a385c2ea13df56470fd" name="web/img/glyphicons-halflings-white.png" role="data" />
    <file baseinstalldir="/" md5sum="2516339970d710819585f90773aebe0a" name="web/img/glyphicons-halflings.png" role="data" />
-   <file baseinstalldir="/" md5sum="c010eb03170375460cb4f6b2463bd34e" name="web/js/like-smartphone.js" role="data" />
-   <file baseinstalldir="/" md5sum="3f856efa81ccc863da476003d9a89a9e" name="web/js/like.js" role="data" />
+   <file baseinstalldir="/" md5sum="b9a632551266c6efda6d5eaf6eb0709c" name="web/js/bootstrap-modal.js" role="data" />
+   <file baseinstalldir="/" md5sum="a0f7184dbcaff4e39aecaa24297db09f" name="web/js/like-smartphone.js" role="data" />
+   <file baseinstalldir="/" md5sum="d8e69607e926df70628d0519abae1a7f" name="web/js/like.js" role="data" />
    <file baseinstalldir="/" md5sum="f53018615ea9314d3e12b078128c0ddf" name="web/js/memberList-smartphone.js" role="data" />
    <file baseinstalldir="/" md5sum="88b26827712c0272829c0c1eda15f5ef" name="DEVELOPMENT.md" role="data" />
-   <file baseinstalldir="/" md5sum="514a210d1dbc939f986e50e64b109442" name="README.md" role="data" />
+   <file baseinstalldir="/" md5sum="2323f66d329ff6adb89d0c934fd10ebf" name="README.md" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -153,7 +154,7 @@ First stable release.
     <release>stable</release>
     <api>stable</api>
    </stability>
-   <date>2012-12-06</date>
+   <date>2012-12-11</date>
    <license>Apache</license>
    <notes>
 stable release.

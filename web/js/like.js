@@ -1,20 +1,10 @@
 $(function(){
-  var likeListMemberFlag = false;
-
-  $('body').click(function()
-  {
-    if (likeListMemberFlag)
-    {
-      $('div[class="like-list-member"]').hide();
-      likeListMemberFlag = false;
-    }
-  });
-
   $('.like-post').live('click', function()
   {
-    var likeId = $(this).attr('data-like-id');
-    var target = $(this).attr('data-like-target');
-    var memberid = $(this).attr('member-id');
+    var likeId = $(this).parent().attr('data-like-id');
+    var target = $(this).parent().attr('data-like-target');
+    var memberid = $(this).parent().attr('member-id');
+    var likeParent = $(this).parent();
 
     $.ajax(
     {
@@ -28,17 +18,18 @@ $(function(){
       },
       success: function(json)
       {
-        $('span[class="like-post"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').hide();
-        $('span[class="like-cancel"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').show();
-        totalLoad(likeId, target);
+        $(likeParent).children('.like-post').hide();
+        $(likeParent).children('.like-cancel').show();
+        totalLoad(likeId, target, $(likeParent));
       },
     });
   });
 
   $('.like-cancel').live('click', function()
   {
-    var likeId = $(this).attr('data-like-id');
-    var target = $(this).attr('data-like-target');
+    var likeId = $(this).parent().attr('data-like-id');
+    var target = $(this).parent().attr('data-like-target');
+    var likeParent = $(this).parent();
 
     $.ajax(
     {
@@ -51,9 +42,9 @@ $(function(){
       },
       success: function(json)
       {
-        $('span[class="like-cancel"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').hide();
-        $('span[class="like-post"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').show();
-        totalLoad(likeId, target);
+        $(likeParent).children('.like-cancel').hide();
+        $(likeParent).children('.like-post').show();
+        totalLoad(likeId, target, $(likeParent));
       },
     });
   });
@@ -61,38 +52,26 @@ $(function(){
 
   $('.like-list').live('click', function()
   {
-    var likeId = $(this).attr('data-like-id');
-    var target = $(this).attr('data-like-target');
-    var listMember = $('div[class="like-list-member"][data-like-id="' + likeId + '"][data-like-target="' + target + '"]');
-    listMember.children().remove();
+    var likeId = $(this).parent().attr('data-like-id');
+    var target = $(this).parent().attr('data-like-target');
 
-    if ('none' == listMember.css('display'))
+    $.ajax(
     {
-      $.ajax(
+      url: openpne.apiBase + 'like/list.json?apiKey=' + openpne.apiKey,
+      type: 'POST',
+      data:
+    {
+      'target': target,
+      'target_id': likeId
+    },
+      success: function(json)
       {
-        url: openpne.apiBase + 'like/list.json?apiKey=' + openpne.apiKey,
-        type: 'POST',
-        data:
+        if (json.data[0])
         {
-          'target': target,
-          'target_id': likeId
-        },
-        success: function(json)
-        {
-          $('div[class="like-list-member"]').hide();
-          if (json.data[0])
-          {
-            memberListShow(json, likeId, target);
-            likeListMemberFlag = true;
-          }
-        },
-      });
-    }
-    else if (likeListMemberFlag)
-    {
-      listMember.hide();
-      likeListMemberFlag = false;
-    }
+          memberListShow(json, likeId, target);
+        }
+      },
+    });
   });
 
   $('.like-more-see').live('click', function()
@@ -100,6 +79,7 @@ $(function(){
     var likeId = $(this).attr('data-like-id');
     var target = $(this).attr('data-like-target');
     var maxId = $(this).attr('data-max-id');
+    var listMember = $(this).parent();
     maxId = parseInt(maxId) + 20;
 
     $.ajax(
@@ -117,80 +97,35 @@ $(function(){
         if (json.data[0])
         {
           memberListShow(json, likeId, target);
+          if (json.data.length < maxId)
+          {
+            $('.like-more-see').hide();
+          }
         }
       },
     });
-  });
-
-  $('.icon-remove').live('click', function()
-  {
-    $('div[class="like-list-member"]').hide();
   });
 
   setInterval("totalLoadAll()", 2000);
 });
 
 
-function friendListShow(likeId, target)
-{
-  if ($('.like-friend-list'))
-  {
-    $.ajax(
-    {
-      url: openpne.apiBase + 'like/list.json?apiKey=' + openpne.apiKey,
-      type: 'POST',
-      data:
-      {
-        'target': target,
-        'target_id': likeId
-      },
-      success: function(json)
-      {
-        var friendHtml = '';
-        var count = 0;
-        if (json.data[0])
-        {
-          for (var i = 0; i < json.data.length; i++)
-          {
-            if (json.data[i].friend)
-            {
-              friendHtml = friendHtml + "&nbsp;&nbsp;" + '<a href="' + json.data[i].profile_url + '">' + json.data[i].name + '</a>';
-            }
-            else
-            {
-              count++;
-            }
-          }
-        }
-        friendHtml = friendHtml + "他" + count + "人が「いいね！」と言っています。";
-        var friendList = $('span[class="like-friend-list"][data-like-id="' + likeId + '"][data-like-target="' + target + '"]');
-        friendList.text('');
-        friendList.append(friendHtml);
-      },
-    });
-  }
-}
-
 function memberListShow(json, likeId, target)
 {
-  var listMember = $('div[class="like-list-member"][data-like-id="' + likeId + '"][data-like-target="' + target + '"]');
-  listMember.children().remove();
+  var modalBody = $('.modal-body');
+  $(modalBody).children().remove();
 
-  var likeListMemberHead = '<div style="background-color: #66c"><span>「いいね！」したメンバー</span><span style="float:right;"><i class="icon-remove" style="cursor: pointer"></i></span></div>';
-  listMember.append(likeListMemberHead);
-
-  var list = $('#LikelistTemplate').tmpl(json.data);
-  listMember.append(list);
-
-  var moreSee = '<p class="like-more-see btn" data-like-id="' + likeId + '" data-like-target="' + target + '" data-max-id="' + json.data.length + '" style="width:90%;margin: 4px;">もっと読む</p>';
-  listMember.append(moreSee);
-  listMember.show();
+  var list = $('#LikelistTemplate').tmpl(json.data.reverse());
+  $(modalBody).append(list);
+  $(modalBody).append('<div class="like-more-see btn" data-max-id="' + json.data.length + '" data-like-target="' + target + '" data-like-id="' + likeId + '">続きを読む</div>');
 }
 
 
-function totalLoad(likeId, target)
+function totalLoad(likeId, target, obj)
 {
-  var likeList = $('span[class="like-list"][data-like-id="' + likeId + '"][data-like-target="' + target + '"]');
+  var likeList = $(obj).children('.like-list');
+  var likePost = $(obj).children('.like-post');
+  var likeCancel = $(obj).children('.like-cancel');
   $.ajax(
   {
     url: openpne.apiBase + 'like/search.json?apiKey=' + openpne.apiKey,
@@ -217,50 +152,51 @@ function totalLoad(likeId, target)
           if (5 > friendCount && json.data[i].member.friend)
           {
             friendHtml = friendHtml + '<a href="' + json.data[i].member.profile_url + '">' + json.data[i].member.name + '</a>さん';
+            friendCount++;
           }
-          friendCount++;
         }
 
         likeList.text('');
-        likeList.parent().next().text('');
+        likeList.next().text('');
+        likeList.attr('href', '#likeModal');
         if (mine && '' !== friendHtml)
         {
-          likeList.append('<i class="icon-thumbs-up"></i>あなたと' + '他' + json.data[json.data.length - 1].total + '人');
-          likeList.parent().next().append(friendHtml + 'が「いいね！」と言っています。');
-          $('span[class="like-post"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').hide();
-          $('span[class="like-cancel"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').show();
+          likeList.append('<i class="icon-thumbs-up"></i>あなたと' + '他' + (parseInt(json.data[json.data.length - 1].total) - friendCount - 1) + '人');
+          likeList.next().append('と' + friendHtml + 'が「いいね！」と言っています。');
+          $(likePost).hide();
+          $(likeCancel).show();
         }
         else if (!mine && '' !== friendHtml)
         {
-          likeList.append('<i class="icon-thumbs-up"></i> ' + json.data[json.data.length - 1].total + '人');
-          likeList.parent().next().append('と' + friendHtml + 'が「いいね！」と言っています。');
+          likeList.append('<i class="icon-thumbs-up"></i> ' + (parseInt(json.data[json.data.length - 1].total) - friendCount) + '人');
+          likeList.next().append('と' + friendHtml + 'が「いいね！」と言っています。');
         }
         else if (mine && '' === friendHtml)
         {
           likeList.append('<i class="icon-thumbs-up"></i>あなた');
-          likeList.parent().next().append('が「いいね！」と言っています。');
-          $('span[class="like-post"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').hide();
-          $('span[class="like-cancel"][data-like-id="' +  likeId + '"][data-like-target="' + target + '"]').show();
+          likeList.next().append('が「いいね！」と言っています。');
+          $(likePost).hide();
+          $(likeCancel).show();
         }
         else
         {
           if (0 < json.data[json.data.length - 1].total)
           {
             likeList.append('<i class="icon-thumbs-up"></i>' + json.data[json.data.length - 1].total + '人');
-            likeList.parent().next().append(friendHtml + 'が「いいね！」と言っています。');
+            likeList.next().append(friendHtml + 'が「いいね！」と言っています。');
           }
           else
           {
             likeList.append('<i class="icon-thumbs-up"></i>0');
+            likeList.attr('href', '');
           }
         }
       }
       else
       {
-        likeList.parent().next().text('');
+        likeList.next().text('');
         likeList.text('');
       }
-      //friendListShow(likeId, target);
     },
   });
 }
@@ -271,9 +207,9 @@ function totalLoadAll()
   {
     if (!$(this).attr('not-each-load'))
     {
-      var likeId = $(this).attr('data-like-id');
-      var target = $(this).attr('data-like-target');
-      totalLoad(likeId, target);
+      var likeId = $(this).parent().attr('data-like-id');
+      var target = $(this).parent().attr('data-like-target');
+      totalLoad(likeId, target, $(this).parent().get(0));
       $(this).attr('not-each-load', true);
     }
   });

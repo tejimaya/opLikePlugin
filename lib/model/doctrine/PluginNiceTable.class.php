@@ -19,7 +19,7 @@ class PluginNiceTable extends Doctrine_Table
 
   public function getNicedList($table, $id, $limit=0)
   {
-    $q = $this->createQuery('n')->where('foreign_table = binary ? AND foreign_id = ?', array($table, $id));
+    $q = $this->createQuery('n')->where('foreign_table = binary ? AND foreign_id = ?', array($table, $id))->orderBy('id DESC');
 
     if($limit>0)
     {

@@ -29,6 +29,7 @@ class likeComponents extends opLikePluginLikeComponents
     $this->getResponse()->addStylesheet('/opLikePlugin/css/like.css');
     $this->getResponse()->addStylesheet('/opLikePlugin/css/bootstrap.css', 'last');
     $this->getResponse()->addjavascript('/opLikePlugin/js/like.js', 'last');
+    $this->getResponse()->addjavascript('/opLikePlugin/js/bootstrap-modal.js', 'last');
   }
 
   public function executeSmtLikeAll(sfWebRequest $request)
@@ -40,6 +41,7 @@ class likeComponents extends opLikePluginLikeComponents
     $this->getResponse()->addStylesheet('/opLikePlugin/css/like.css');
     $this->getResponse()->addStylesheet('/opLikePlugin/css/bootstrap.css', 'last');
     $this->getResponse()->addjavascript('/opLikePlugin/js/like.js', 'last');
+    $this->getResponse()->addjavascript('/opLikePlugin/js/bootstrap-modal.js', 'last');
   }
 
   public function executeSmtLikeCommunity(sfWebRequest $request)
