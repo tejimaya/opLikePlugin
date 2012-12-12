@@ -2,10 +2,8 @@ opLikePlugin概要
 ======================
 「いいね！」機能を追加します。
 
-「いいね！」ボタン（親指を立てた画像）をクリックするといいね！が付きます。  
-自分のつぶやきやコメントには「いいね！」出来ません。  
+「いいね！」をクリックするといいね！が付きます。  
 自分のつけた「いいね！」は「いいね！を取り消す」をクリックすることで取り消すことができます。  
-「いいね！」をクリックすると「いいね！」した人のメンバーリストを表示できます  
 
 スマートフォンにも対応しています。
 
@@ -37,22 +35,16 @@ symfonyコマンドを使って、直接DLします。
 
 
 **「いいね！」に対応したプラグインのダウンロード**  
-  通常のプラグインでは動作しないため、対応したプラグインを以下のコマンドでダウンロードします。  
 
-    cd path/to/OpnePNE
-    php plugins/opLikePlugin/task/pluginInstallTask.php -cdt
-
-
-  "-cdt"の部分はインストールしたいプラグインにより変更します。  
-  opCommunityTopicPluginだけのインストールしたい場合は "-c"  
-  opDiaryPluginとopTimelinePluginをインストールしたい場合は"-dt"  
-  上記のようにハイフンの後にプラグインの頭文字を指定します。  
-
+    cd path/to/OpenPNE  
+    ./symfony opPlugin:install opLikePlugin -r 1.0.1  
+    ./symfony opPlugin:install opDiaryPlugin -r 1.4.2  
+    ./symfony opPlugin:install opTimelinePlugin -r 1.0.1  
 
 **OpnePNE本体側Bootstrapの変更・画像の差し替え**
 
     rm 'OpenPNE ディレクトリ'/web/img/*
-    cp 'OpenPNE ディレクトリ'/plugins/opLikePlugin/web/img/* 'インストールディレクトリ'/web/img/
+    cp 'OpenPNE ディレクトリ'/plugins/opLikePlugin/web/img/* 'OpenPNE ディレクトリ'/web/img/
 
 
 **CSSの編集**

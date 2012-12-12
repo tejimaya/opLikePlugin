@@ -1,5 +1,25 @@
+.modal-header
+{
+  color: #FFFFFF;
+  background-color: #026cd1;
+}
+
+.like-cancel
+{
+  display: none;
+}
+
 .like-wrapper
 {
-  cursor: pointer;
-  float: right;
+  display: none;
+  background-color: #dddddd;
+  text-align: center;
+  border-top: solid 1px #cccccc;
+  margin: 10px 0px;
+  padding: 3px 0px;
+}
+
+.like-wrapper > span:first-child
+{
+  border-right: solid 1px #cccccc;
 }

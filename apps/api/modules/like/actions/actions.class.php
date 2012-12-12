@@ -47,10 +47,10 @@ class likeActions extends opJsonApiActions
 
     $memberId = $this->getUser()->getMemberId();
 
-    if ($memberId == $foreignMemberId)
+    /*if ($memberId == $foreignMemberId)
     {
       $this->forward400('I can not be myself like');
-    }
+    }*/
 
     $AlreadyLike = Doctrine::getTable('Nice')->isAlreadyNiced($memberId, $foreignTable, $foreignId);
     $this->forward400Unless(!$AlreadyLike, 'It has already been registered');

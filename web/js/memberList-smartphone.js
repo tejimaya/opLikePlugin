@@ -36,9 +36,13 @@ function memberListShow(likeId, target, maxId)
       {
         $('#like-list-member').children().remove();
 
-        var list = $('#LikelistTemplate').tmpl(json.data);
+        var list = $('#LikelistTemplate').tmpl(json.data.reverse());
         $('#like-list-member').append(list);
         $('#more-see').attr('data-max-id', json.data.length);
+        if (json.data.length < maxId)
+        {
+          $('#more-see').hide();
+        }
       }
     }
   });

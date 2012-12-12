@@ -1,31 +1,3 @@
-form.LikeDeleteForm
-{
-  display: inline;
-}
-
-form.LikeDeleteForm input
-{
-  display: inline;
-  cursor: pointer;
-  background: transparent;
-  border-width: 0;
-  text-decoration: underline;
-}
-
-form#LikeForm
-{
-  display: inline;
-}
-
-form#LikeForm input
-{
-  display: inline;
-  cursor: pointer;
-  background: transparent;
-  border-width: 0;
-  text-decoration: underline;
-}
-
 .like-list-member
 {
   width: 300px; 
@@ -40,7 +12,7 @@ form#LikeForm input
 
 .like-wrapper
 {
-  float: right;
+  display: none;
 }
 
 .like-post
@@ -59,6 +31,7 @@ form#LikeForm input
 {
   cursor: pointer;
   color: #026cd1;
+  display: none;
 }
 
 #likeModal
@@ -69,7 +42,7 @@ form#LikeForm input
 .modal-header
 {
   color: #FFFFFF;
-  background-color: #026cd1
+  background-color: #026cd1;
 }
 
 .modal-body
@@ -83,12 +56,25 @@ form#LikeForm input
   width: 440px;
 }
 
+.like-you
+{
+  display: none;
+}
+
 /* diary plugin */
-.like-friend-list {
+.like-friend-list
+{
   float: right;
 }
 
-div.parts dl span.like-wrapper {
+div.parts dl span.like-wrapper
+{
   float: left;
 }
 
+/* timeline plugin */
+.font-small
+{
+  font-size: smaller;
+  padding-left: 5px;
+}

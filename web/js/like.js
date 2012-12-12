@@ -1,10 +1,10 @@
 $(function(){
   $('.like-post').live('click', function()
   {
-    var likeId = $(this).parent().attr('data-like-id');
-    var target = $(this).parent().attr('data-like-target');
-    var memberid = $(this).parent().attr('member-id');
     var likeParent = $(this).parent();
+    var likeId = $(likeParent).attr('data-like-id');
+    var target = $(likeParent).attr('data-like-target');
+    var memberId = $(likeParent).attr('member-id');
 
     $.ajax(
     {
@@ -14,22 +14,22 @@ $(function(){
       {
         'target': target,
         'target_id': likeId,
-        'member_id': memberid
+        'member_id': memberId
       },
       success: function(json)
       {
+        $(likeParent).children('.like-you').show();
         $(likeParent).children('.like-post').hide();
         $(likeParent).children('.like-cancel').show();
-        totalLoad(likeId, target, $(likeParent));
       },
     });
   });
 
   $('.like-cancel').live('click', function()
   {
-    var likeId = $(this).parent().attr('data-like-id');
-    var target = $(this).parent().attr('data-like-target');
     var likeParent = $(this).parent();
+    var likeId = $(likeParent).attr('data-like-id');
+    var target = $(likeParent).attr('data-like-target');
 
     $.ajax(
     {
@@ -42,9 +42,9 @@ $(function(){
       },
       success: function(json)
       {
-        $(likeParent).children('.like-cancel').hide();
+        $(likeParent).children('.like-you').hide();
         $(likeParent).children('.like-post').show();
-        totalLoad(likeId, target, $(likeParent));
+        $(likeParent).children('.like-cancel').hide();
       },
     });
   });
@@ -154,51 +154,94 @@ function totalLoad(likeId, target, obj)
             friendHtml = friendHtml + '<a href="' + json.data[i].member.profile_url + '">' + json.data[i].member.name + '</a>さん';
             friendCount++;
           }
+
+          if (mine && 5 <= friendCount)
+          {
+            break;
+          }
         }
 
-        likeList.text('');
-        likeList.next().text('');
-        likeList.attr('href', '#likeModal');
-        if (mine && '' !== friendHtml)
-        {
-          likeList.append('<i class="icon-thumbs-up"></i>あなたと' + '他' + (parseInt(json.data[json.data.length - 1].total) - friendCount - 1) + '人');
-          likeList.next().append('と' + friendHtml + 'が「いいね！」と言っています。');
-          $(likePost).hide();
-          $(likeCancel).show();
-        }
-        else if (!mine && '' !== friendHtml)
-        {
-          likeList.append('<i class="icon-thumbs-up"></i> ' + (parseInt(json.data[json.data.length - 1].total) - friendCount) + '人');
-          likeList.next().append('と' + friendHtml + 'が「いいね！」と言っています。');
-        }
-        else if (mine && '' === friendHtml)
-        {
-          likeList.append('<i class="icon-thumbs-up"></i>あなた');
-          likeList.next().append('が「いいね！」と言っています。');
-          $(likePost).hide();
-          $(likeCancel).show();
-        }
-        else
-        {
-          if (0 < json.data[json.data.length - 1].total)
-          {
-            likeList.append('<i class="icon-thumbs-up"></i>' + json.data[json.data.length - 1].total + '人');
-            likeList.next().append(friendHtml + 'が「いいね！」と言っています。');
-          }
-          else
-          {
-            likeList.append('<i class="icon-thumbs-up"></i>0');
-            likeList.attr('href', '');
-          }
-        }
+        totalShow(mine, friendCount, friendHtml, parseInt(json.data[json.data.length - 1].total), obj);
       }
       else
       {
-        likeList.next().text('');
+        $(obj).attr('like-total', 0);
         likeList.text('');
       }
     },
   });
+}
+
+
+function totalShow(mine, friendCount, friendHtml, total, obj)
+{
+  var likeList = $(obj).children('.like-list');
+  var likePost = $(obj).children('.like-post');
+  var likeCancel = $(obj).children('.like-cancel');
+  var likeYou = $(obj).children('.like-you');
+
+  likeList.text('');
+  likeList.next('.like-after').remove();
+  likeList.attr('href', '#likeModal');
+
+  if (mine && '' !== friendHtml)
+  {
+    if (0 < (total - friendCount - 1))
+    {
+      likeList.append('<i class="icon-thumbs-up"></i>他' + (total - friendCount - 1) + '人');
+      likeList.after('<span class="like-after">と' + friendHtml + 'が「いいね！」と言っています。</span>');
+    }
+    else
+    {
+      likeList.append('<i class="icon-thumbs-up"></i>');
+      likeList.after('<span class="like-after">' + friendHtml + 'が「いいね！」と言っています。</span>');
+    }
+    $(likeYou).show();
+    $(likePost).hide();
+    $(likeCancel).show();
+  }
+  else if (!mine && '' !== friendHtml)
+  {
+    if (0 < (total - friendCount))
+    {
+      likeList.append('<i class="icon-thumbs-up"></i>' + (total - friendCount) + '人');
+      likeList.after('<span class="like-after">と' + friendHtml + 'が「いいね！」と言っています。</span>');
+    }
+    else
+    {
+      likeList.append('<i class="icon-thumbs-up"></i>');
+      likeList.after('<span class="like-after">' + friendHtml + 'が「いいね！」と言っています。</span>');
+    }
+    $(likeYou).hide();
+    $(likePost).show();
+    $(likeCancel).hide();
+  }
+  else if (mine && '' === friendHtml)
+  {
+    if (0 < (total - 1))
+    {
+      likeList.append('<i class="icon-thumbs-up"></i>他' + (total - 1) + '人');
+      likeList.after('<span class="like-after">が「いいね！」と言っています。</span>');
+    }
+    $(likeYou).show();
+    $(likePost).hide();
+    $(likeCancel).show();
+  }
+  else
+  {
+    if (0 < total)
+    {
+      likeList.append('<i class="icon-thumbs-up"></i>' + total  + '人');
+      likeList.after('<span class="like-after">が「いいね！」と言っています。</span>');
+    }
+    $(likeYou).hide();
+    $(likePost).show();
+    $(likeCancel).hide();
+  }
+  $(obj).attr('like-mine', mine);
+  $(obj).attr('like-friend-count', friendCount);
+  $(obj).attr('like-friend-html', friendHtml);
+  $(obj).attr('like-total', total - friendCount);
 }
 
 function totalLoadAll()
