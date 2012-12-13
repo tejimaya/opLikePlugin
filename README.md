@@ -40,7 +40,6 @@ symfonyコマンドを使って、直接DLします。
     ./symfony opPlugin:install opLikePlugin -r 1.0.1  
     ./symfony opPlugin:install opDiaryPlugin -r 1.4.2  
     ./symfony opPlugin:install opTimelinePlugin -r 1.0.1  
-    ./symfony opPlugin:install opCommunityTopicPlugin -r 1.0.5
 
 **OpnePNE本体側Bootstrapの変更・画像の差し替え**
 
