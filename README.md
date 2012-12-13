@@ -10,13 +10,13 @@ opLikePlugin概要
 
 スクリーンショット
 ------
-<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/001.png" height=150/>
-<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/002.png" height=150/>
-<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/003.png" height=150/>  
-<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/004.png" height=150/>
-<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/005.png" height=150/>
-<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/006.png" height=150/>
-<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/007.png" height=150/>
+<img src"https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/001.png" height=200/>
+<img src"https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/002.png" height=200/>
+<img src"https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/003.png" height=200/>
+<img src"https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/004.png" height=200/>
+<img src"https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/005.png" height=200/>
+<img src"https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/006.png" height=200/>
+<img src"https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/007.png" height=200/>
 
 対応プラグイン
 -------------
