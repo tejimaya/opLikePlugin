@@ -12,7 +12,18 @@ class Revision2_OpLikePlugin extends Doctrine_Migration_Base
   public function up()
   {
     $conn = Doctrine_Manager::connection();
-    $conn->execute('ALTER TABLE nice modify foreign_table char(1) COLLATE utf8_bin');
+    $export->alterTable('nice', array(
+      'change' => array(
+        'foreign_table' => array(
+          'definition' => array(
+            'type' => 'char',
+            'length'  => 1,
+            'notnull' => false,
+            'collate' => 'utf8-bin'
+          )
+        )
+      )
+    ));
   }
 }
 

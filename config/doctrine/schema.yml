@@ -1,7 +1,7 @@
-options:
-  charset: utf8
-
 Nice:
+  options:
+    charset: utf8
+    collate: utf8_bin
   columns:
     id:
       type: integer(4)
