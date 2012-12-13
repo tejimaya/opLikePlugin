@@ -10,14 +10,13 @@ opLikePlugin概要
 
 スクリーンショット
 ------
-<a href="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_01.png" target=brank>
-<img src="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_01.png" height=150/></a>
-<a href="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_03.png" target=brank>
-<img src="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_03.png" height=150/></a>
-<a href="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_02.png" target=brank>
-<img src="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_02.png" height=150/></a>
-<a href="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_04.png" target=brank>
-<img src="http://tejimaya.github.com/opNicePlugin/images/nice_01_rm_04.png" height=150/></a>
+<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/001.png" height=150/>
+<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/002.png" height=150/>
+<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/003.png" height=150/>  
+<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/004.png" height=150/>
+<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/005.png" height=150/>
+<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/006.png" height=150/>
+<img src="https://github.com/ichikawatatsuya/opLikePlugin/blob/gh-pages/images/007.png" height=150/>
 
 対応プラグイン
 -------------
