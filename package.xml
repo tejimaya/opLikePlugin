@@ -8,7 +8,7 @@
  <summary>いいね！機能を追加します</summary>
  <description>いいね！機能を追加します。
 
-1.0.1での対応プラグイン：
+1.0.2での対応プラグイン：
 ・opTimelinePlugin
 ・opDiaryPlugin
 ・opCommunityTopicPlugin</description>
@@ -19,10 +19,10 @@
   <active>yes</active>
  </lead>
  <date>2012-12-13</date>
- <time>13:52:43</time>
+ <time>14:00:48</time>
  <version>
-  <release>1.0.2</release>
-  <api>1.0.2</api>
+  <release>1.0.3</release>
+  <api>1.0.3</api>
  </version>
  <stability>
   <release>beta</release>
@@ -65,10 +65,9 @@ beta release.
    <file baseinstalldir="/" md5sum="fbb2c5c2f01d407407fcda222132c51a" name="config/smartphone_gadget.yml" role="data" />
    <file baseinstalldir="/" md5sum="fbb2c5c2f01d407407fcda222132c51a" name="config/smartphone_profile_gadget.yml" role="data" />
    <file baseinstalldir="/" md5sum="3ff8780c7724b8e8423556d996a86b0e" name="config/doctrine/schema.yml" role="data" />
-   <file baseinstalldir="/" md5sum="e91332695e57ffa3610833cd61496e36" name="data/fixtures/000_revision.yml" role="data" />
+   <file baseinstalldir="/" md5sum="b6d911a5e823f5301d0d0e5777a8ac1c" name="data/fixtures/000_revision.yml" role="data" />
    <file baseinstalldir="/" md5sum="44f2a7fac23db5e1d0e334cb431f95db" name="data/fixtures/010_gadget_setting.yml" role="data" />
-   <file baseinstalldir="/" md5sum="73850b34857e09a64a0fe3eb7c60dfaa" name="data/migrations/1.0.0/001_opLikePlugin.php" role="data" />
-   <file baseinstalldir="/" md5sum="0321a7a8b5438dda36b4b84be3024596" name="data/migrations/1.0.1/002_change_collate_for_foreign_table.php" role="data" />
+   <file baseinstalldir="/" md5sum="0321a7a8b5438dda36b4b84be3024596" name="data/migrations/1.0.0/001_change_collate_for_foreign_table.php" role="data" />
    <file baseinstalldir="/" md5sum="cc00082488368b3caed1da6de0cb75c0" name="i18n/messages.ja.xml" role="data" />
    <file baseinstalldir="/" md5sum="c643c0fe842f0399c007bc916e9db56f" name="lib/opLikePluginLikeRemover.class.php" role="data" />
    <file baseinstalldir="/" md5sum="764320148afef0c23715015b26952b06" name="lib/action/opLikePluginLikeAction.class.php" role="data" />
@@ -163,6 +162,21 @@ beta release.
    <version>
     <release>1.0.2</release>
     <api>1.0.2</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2012-12-13</date>
+   <license>Apache</license>
+   <notes>
+beta release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.3</release>
+    <api>1.0.3</api>
    </version>
    <stability>
     <release>beta</release>
