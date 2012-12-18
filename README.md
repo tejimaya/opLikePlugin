@@ -30,15 +30,15 @@ opCommunityTopicPlugin
 symfonyコマンドを使って、直接DLします。
 
     cd path/to/OpenPNE
-    ./symfony opPlugin:install opLikePlugin -r 1.0.3
+    ./symfony opPlugin:install opLikePlugin -r 1.0.4
 
 
 **「いいね！」に対応したプラグインのダウンロード**  
 
     cd path/to/OpenPNE  
-    ./symfony opPlugin:install opCommunityTopicPlugin -r 1.0.5  
-    ./symfony opPlugin:install opDiaryPlugin -r 1.4.2  
-    ./symfony opPlugin:install opTimelinePlugin -r 1.0.1  
+    ./symfony opPlugin:install opCommunityTopicPlugin -r 1.0.6  
+    ./symfony opPlugin:install opDiaryPlugin -r 1.4.3  
+    ./symfony opPlugin:install opTimelinePlugin -r 1.0.2  
 
 **OpnePNE本体側Bootstrapの変更・画像の差し替え**
 

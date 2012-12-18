@@ -8,7 +8,7 @@
  <summary>いいね！機能を追加します</summary>
  <description>いいね！機能を追加します。
 
-1.0.2での対応プラグイン：
+1.0.3での対応プラグイン：
 ・opTimelinePlugin
 ・opDiaryPlugin
 ・opCommunityTopicPlugin</description>
@@ -18,19 +18,19 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2012-12-13</date>
- <time>14:00:48</time>
+ <date>2012-12-18</date>
+ <time>11:56:23</time>
  <version>
-  <release>1.0.3</release>
-  <api>1.0.3</api>
+  <release>1.0.4</release>
+  <api>1.0.4</api>
  </version>
  <stability>
-  <release>beta</release>
-  <api>beta</api>
+  <release>alpha</release>
+  <api>alpha</api>
  </stability>
  <license>Apache</license>
  <notes>
-beta release.
+alpha release.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -98,7 +98,7 @@ beta release.
    <file baseinstalldir="/" md5sum="9b1eef7710fe488a9e1f896f07aa39d2" name="web/js/like.js" role="data" />
    <file baseinstalldir="/" md5sum="38f59f1fc751c603f672aa2c8c2db907" name="web/js/memberList-smartphone.js" role="data" />
    <file baseinstalldir="/" md5sum="88b26827712c0272829c0c1eda15f5ef" name="DEVELOPMENT.md" role="data" />
-   <file baseinstalldir="/" md5sum="fc5b18efa99c88eea3a36e81185eeb64" name="README.md" role="data" />
+   <file baseinstalldir="/" md5sum="33a28edce3bc3cf52307de9495bb8928" name="README.md" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -186,6 +186,21 @@ beta release.
    <license>Apache</license>
    <notes>
 beta release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.4</release>
+    <api>1.0.4</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-12-18</date>
+   <license>Apache</license>
+   <notes>
+alpha release.
    </notes>
   </release>
  </changelog>
