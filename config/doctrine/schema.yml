@@ -25,3 +25,4 @@ Nice:
     member_id_foreign_table_foreign_id_UNIQUE:
       fields: [member_id, foreign_table, foreign_id]
       type: unique
+  actAs: [Timestampable]

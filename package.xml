@@ -19,10 +19,10 @@
   <active>yes</active>
  </lead>
  <date>2012-12-28</date>
- <time>14:26:12</time>
+ <time>14:46:45</time>
  <version>
-  <release>1.0.5</release>
-  <api>1.0.5</api>
+  <release>1.1.0</release>
+  <api>1.1.0</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -64,10 +64,9 @@ alpha release.
    <file baseinstalldir="/" md5sum="fbb2c5c2f01d407407fcda222132c51a" name="config/smartphone_community_gadget.yml" role="data" />
    <file baseinstalldir="/" md5sum="fbb2c5c2f01d407407fcda222132c51a" name="config/smartphone_gadget.yml" role="data" />
    <file baseinstalldir="/" md5sum="fbb2c5c2f01d407407fcda222132c51a" name="config/smartphone_profile_gadget.yml" role="data" />
-   <file baseinstalldir="/" md5sum="3ff8780c7724b8e8423556d996a86b0e" name="config/doctrine/schema.yml" role="data" />
+   <file baseinstalldir="/" md5sum="d69ad92a87ee8679313ba391553d1357" name="config/doctrine/schema.yml" role="data" />
    <file baseinstalldir="/" md5sum="b6d911a5e823f5301d0d0e5777a8ac1c" name="data/fixtures/000_revision.yml" role="data" />
    <file baseinstalldir="/" md5sum="44f2a7fac23db5e1d0e334cb431f95db" name="data/fixtures/010_gadget_setting.yml" role="data" />
-   <file baseinstalldir="/" md5sum="0321a7a8b5438dda36b4b84be3024596" name="data/migrations/1.0.0/001_change_collate_for_foreign_table.php" role="data" />
    <file baseinstalldir="/" md5sum="cc00082488368b3caed1da6de0cb75c0" name="i18n/messages.ja.xml" role="data" />
    <file baseinstalldir="/" md5sum="c643c0fe842f0399c007bc916e9db56f" name="lib/opLikePluginLikeRemover.class.php" role="data" />
    <file baseinstalldir="/" md5sum="764320148afef0c23715015b26952b06" name="lib/action/opLikePluginLikeAction.class.php" role="data" />
@@ -98,7 +97,7 @@ alpha release.
    <file baseinstalldir="/" md5sum="9b1eef7710fe488a9e1f896f07aa39d2" name="web/js/like.js" role="data" />
    <file baseinstalldir="/" md5sum="38f59f1fc751c603f672aa2c8c2db907" name="web/js/memberList-smartphone.js" role="data" />
    <file baseinstalldir="/" md5sum="88b26827712c0272829c0c1eda15f5ef" name="DEVELOPMENT.md" role="data" />
-   <file baseinstalldir="/" md5sum="cd14409e635a2cfbddea7f83d2f90acd" name="README.md" role="data" />
+   <file baseinstalldir="/" md5sum="91773ea864eb3b877a7ffcad5909069c" name="README.md" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -207,6 +206,21 @@ alpha release.
    <version>
     <release>1.0.5</release>
     <api>1.0.5</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-12-28</date>
+   <license>Apache</license>
+   <notes>
+alpha release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.0</release>
+    <api>1.1.0</api>
    </version>
    <stability>
     <release>alpha</release>

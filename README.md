@@ -23,6 +23,16 @@ opLikePlugin概要
 opTimelinePlugin  
 opDiaryPlugin  
 opCommunityTopicPlugin  
+  
+注意
+----
+ver1.0.5以前ではmigrateを２回以上行うとエラーが発生する状態でした。  
+var1.1.0以降ではそのエラーを避けるためにDB構造を変更し、migrateスクリプトを削除致しました。  
+以上のことからver1.0.5とver1.1.0の互換性は無く、migrateコマンドでの移行は出来ません。  
+申し訳ありません。  
+  
+消すことの出来ないデータがあり、移行が必要な場合はmysqldump等で退避し手動で入れなおして下さい。  
+
 
 インストール方法
 ----------------
@@ -30,7 +40,7 @@ opCommunityTopicPlugin
 symfonyコマンドを使って、直接DLします。
 
     cd path/to/OpenPNE
-    ./symfony opPlugin:install opLikePlugin -r 1.0.5
+    ./symfony opPlugin:install opLikePlugin -r 1.1.0
 
 
 **「いいね！」に対応したプラグインのダウンロード**  
@@ -72,6 +82,7 @@ OpnePNE3.8.0以上
 更新履歴
 --------
 
+ * 2012/12/28 Ver.0.0.4  schema.ymlを変更、migrateでエラーを出さないようDB構造を変更。
  * 2012/11/16 Ver.0.0.3  opDiaryPlugin及び、opCommunityTopicPluginに対応。 
  * 2012/11/16 Ver.0.0.2  opNicePlugin → opLikePlugin に名称変更 
  * 2012/11/08 Ver.0.0.1 「いいね！」機能を追加 
