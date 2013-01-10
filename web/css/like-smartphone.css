@@ -4,6 +4,10 @@
   background-color: #026cd1;
 }
 
+.like-post, .like-cancel, .like-list {
+  cursor: pointer;
+}
+
 .like-cancel
 {
   display: none;
