@@ -40,7 +40,7 @@ var1.1.0以降ではそのエラーを避けるためにDB構造を変更し、m
 symfonyコマンドを使って、直接DLします。
 
     cd path/to/OpenPNE
-    ./symfony opPlugin:install opLikePlugin -r 1.1.0
+    ./symfony opPlugin:install opLikePlugin -r 1.1.1
 
 
 **「いいね！」に対応したプラグインのダウンロード**  
@@ -82,6 +82,7 @@ OpnePNE3.8.0以上
 更新履歴
 --------
 
+ * 2013/01/28 Ver.0.0.5  iPhoneでいいね！が押せないのを修正。
  * 2012/12/28 Ver.0.0.4  schema.ymlを変更、migrateでエラーを出さないようDB構造を変更。
  * 2012/11/16 Ver.0.0.3  opDiaryPlugin及び、opCommunityTopicPluginに対応。 
  * 2012/11/16 Ver.0.0.2  opNicePlugin → opLikePlugin に名称変更 
