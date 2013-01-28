@@ -18,11 +18,11 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2012-12-28</date>
- <time>14:46:45</time>
+ <date>2013-01-28</date>
+ <time>14:44:27</time>
  <version>
-  <release>1.1.0</release>
-  <api>1.1.0</api>
+  <release>1.1.1</release>
+  <api>1.1.1</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -88,7 +88,7 @@ alpha release.
    <file baseinstalldir="/" md5sum="61e69d2afa67f89e4722ebd5e76cb4a4" name="web/apitest/like.html" role="data" />
    <file baseinstalldir="/" md5sum="7b1f8bf2b94bd179855d3b086d5ecba5" name="web/apitest/like.js" role="data" />
    <file baseinstalldir="/" md5sum="a7c8c5042e47ac53101fbe6c4331dec3" name="web/css/bootstrap.css" role="data" />
-   <file baseinstalldir="/" md5sum="7be8af181dd4551d6e164d13f02e63b1" name="web/css/like-smartphone.css" role="data" />
+   <file baseinstalldir="/" md5sum="dd19ddd06973481f38f482036c349c8e" name="web/css/like-smartphone.css" role="data" />
    <file baseinstalldir="/" md5sum="c983a203fce913e30ad567c4b7941126" name="web/css/like.css" role="data" />
    <file baseinstalldir="/" md5sum="9bbc6e9602998a385c2ea13df56470fd" name="web/img/glyphicons-halflings-white.png" role="data" />
    <file baseinstalldir="/" md5sum="2516339970d710819585f90773aebe0a" name="web/img/glyphicons-halflings.png" role="data" />
@@ -227,6 +227,21 @@ alpha release.
     <api>alpha</api>
    </stability>
    <date>2012-12-28</date>
+   <license>Apache</license>
+   <notes>
+alpha release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.1</release>
+    <api>1.1.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2013-01-28</date>
    <license>Apache</license>
    <notes>
 alpha release.
