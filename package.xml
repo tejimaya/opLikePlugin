@@ -18,11 +18,11 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2013-01-28</date>
- <time>14:44:27</time>
+ <date>2013-01-31</date>
+ <time>17:03:04</time>
  <version>
-  <release>1.1.1</release>
-  <api>1.1.1</api>
+  <release>1.1.2</release>
+  <api>1.1.2</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -53,7 +53,7 @@ alpha release.
    <file baseinstalldir="/" md5sum="49d965b67dcc5318343b37602da16029" name="apps/pc_frontend/modules/like/templates/contentListSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="a57ba4008985dc4986916f0f34e3900c" name="apps/pc_frontend/modules/like/templates/memberListSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="eaf52063017c568a190bafb20996a53f" name="apps/pc_frontend/modules/like/templates/smtMemberListSuccess.php" role="data" />
-   <file baseinstalldir="/" md5sum="70798d8ab57b97cd77719f6f4bfd4f09" name="apps/pc_frontend/modules/like/templates/_likeAll.php" role="data" />
+   <file baseinstalldir="/" md5sum="92387c94985d01950b3b91e176a41255" name="apps/pc_frontend/modules/like/templates/_likeAll.php" role="data" />
    <file baseinstalldir="/" md5sum="70e5b7fcae00e3a768fe5079ac327ea0" name="apps/pc_frontend/modules/like/templates/_likeCommunity.php" role="data" />
    <file baseinstalldir="/" md5sum="06ce54d44f99fa769eba4cf934a17379" name="apps/pc_frontend/modules/like/templates/_show.php" role="data" />
    <file baseinstalldir="/" md5sum="e2363ab2434c8d5fddb82c0fba0d9e19" name="apps/pc_frontend/modules/like/templates/_smtLikeAll.php" role="data" />
@@ -89,15 +89,15 @@ alpha release.
    <file baseinstalldir="/" md5sum="7b1f8bf2b94bd179855d3b086d5ecba5" name="web/apitest/like.js" role="data" />
    <file baseinstalldir="/" md5sum="a7c8c5042e47ac53101fbe6c4331dec3" name="web/css/bootstrap.css" role="data" />
    <file baseinstalldir="/" md5sum="dd19ddd06973481f38f482036c349c8e" name="web/css/like-smartphone.css" role="data" />
-   <file baseinstalldir="/" md5sum="c983a203fce913e30ad567c4b7941126" name="web/css/like.css" role="data" />
+   <file baseinstalldir="/" md5sum="c91c4ce0ff40b33988460100d927fb09" name="web/css/like.css" role="data" />
    <file baseinstalldir="/" md5sum="9bbc6e9602998a385c2ea13df56470fd" name="web/img/glyphicons-halflings-white.png" role="data" />
    <file baseinstalldir="/" md5sum="2516339970d710819585f90773aebe0a" name="web/img/glyphicons-halflings.png" role="data" />
    <file baseinstalldir="/" md5sum="b9a632551266c6efda6d5eaf6eb0709c" name="web/js/bootstrap-modal.js" role="data" />
    <file baseinstalldir="/" md5sum="b7ecea880092ef429f3eaf4ea57d4bb5" name="web/js/like-smartphone.js" role="data" />
-   <file baseinstalldir="/" md5sum="9b1eef7710fe488a9e1f896f07aa39d2" name="web/js/like.js" role="data" />
+   <file baseinstalldir="/" md5sum="9f1f3394a80b6a06c48a531e318f802f" name="web/js/like.js" role="data" />
    <file baseinstalldir="/" md5sum="38f59f1fc751c603f672aa2c8c2db907" name="web/js/memberList-smartphone.js" role="data" />
    <file baseinstalldir="/" md5sum="88b26827712c0272829c0c1eda15f5ef" name="DEVELOPMENT.md" role="data" />
-   <file baseinstalldir="/" md5sum="91773ea864eb3b877a7ffcad5909069c" name="README.md" role="data" />
+   <file baseinstalldir="/" md5sum="a84629fb94eb114d1706fe29057b82dc" name="README.md" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -242,6 +242,21 @@ alpha release.
     <api>alpha</api>
    </stability>
    <date>2013-01-28</date>
+   <license>Apache</license>
+   <notes>
+alpha release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.2</release>
+    <api>1.1.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2013-01-31</date>
    <license>Apache</license>
    <notes>
 alpha release.
