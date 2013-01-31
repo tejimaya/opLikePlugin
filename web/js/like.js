@@ -112,12 +112,12 @@ $(function(){
 
 function memberListShow(json, likeId, target)
 {
-  var modalBody = $('.modal-body');
-  $(modalBody).children().remove();
+  var likeModalBody = $('.like-modal-body');
+  $(likeModalBody).children().remove();
 
   var list = $('#LikelistTemplate').tmpl(json.data.reverse());
-  $(modalBody).append(list);
-  $(modalBody).append('<div class="like-more-see btn" data-max-id="' + json.data.length + '" data-like-target="' + target + '" data-like-id="' + likeId + '">続きを読む</div>');
+  $(likeModalBody).append(list);
+  $(likeModalBody).append('<div class="like-more-see btn" data-max-id="' + json.data.length + '" data-like-target="' + target + '" data-like-id="' + likeId + '">続きを読む</div>');
 }
 
 
