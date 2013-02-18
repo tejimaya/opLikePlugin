@@ -1,6 +1,6 @@
 diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php
---- plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php	2013-02-18 15:27:37.000000000 +0900
-+++ plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php	2013-02-18 15:30:06.000000000 +0900
+--- plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php	2013-02-18 16:33:45.000000000 +0900
++++ plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php	2013-02-18 16:39:33.000000000 +0900
 @@ -36,6 +36,17 @@
  <?php endif; ?>
  <?php echo op_url_cmd(op_decoration(nl2br($diary->body))) ?>
@@ -19,6 +19,9 @@ diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuc
  </dd>
  </dl>
  <?php if ($diary->member_id === $myMemberId): ?>
+diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php
+--- plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php	2013-02-18 15:27:37.000000000 +0900
++++ plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php	2013-02-18 16:39:33.000000000 +0900
 @@ -27,6 +29,16 @@
        <div class="span4"><a href="${$value.filename}" target="_blank">{{html $value.imagetag}}</a></div>
      {{/each}}
@@ -54,8 +57,8 @@ diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuc
    </div>
  </script>
 diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php
---- plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php	2013-02-18 15:27:37.000000000 +0900
-+++ plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php	2013-02-18 15:30:06.000000000 +0900
+--- plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php	2013-02-18 16:33:45.000000000 +0900
++++ plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php	2013-02-18 16:39:33.000000000 +0900
 @@ -55,6 +55,17 @@
  <?php echo op_url_cmd(nl2br($comment->body)) ?>
  </p>

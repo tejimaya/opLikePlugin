@@ -31,23 +31,11 @@ EOF;
  
   protected function execute($arguments = array(), $options = array())
   {
-    // execute ./symfony doctrine:data-load
-    //$sfDoctrineDataLoadTask = new sfDoctrineDataLoadTask($this->dispatcher, $this->formatter); 
-    //$sfDoctrineDataLoadTask->run($arguments = array('./plugins/opLikePlugin/data/fixtures/010_gadget_setting.yml'), $options = array('append'));
-
-    // execute ./symfony plugin:publish-assets
-    //$sfPluginPublishAssetsTask = new sfPluginPublishAssetsTask($this->dispatcher, $this->formatter);
-    //$sfPluginPublishAssetsTask->run();
-
-    // execute ./symfomy cc
-    //$sfCacheClearTask = new sfCacheClearTask($this->dispatcher, $this->formatter);
-    //$sfCacheClearTask->run($arguments = array(), $options = array('type' => 'all'));
-    //$rootPath = sfContext::getInstance()->getRequest()->getRelativeUrlRoot();
     $pluginPath = 'plugins/';
-    $targetPlugin = array
+    $targetPlugin = array(
       $pluginPath.'opLikePlugin/lib/task/opTimelinePlugin.sh' => 'opTimelinePlugin',
-      $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.patch' => 'opDiaryPlugin',
-      $pluginPath.'opLikePlugin/lib/task/opCommunityTopicPlugin.patch' => 'opCommunityTopicPlugin');
+      $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.sh' => 'opDiaryPlugin',
+      $pluginPath.'opLikePlugin/lib/task/opCommunityTopicPlugin.sh' => 'opCommunityTopicPlugin');
 
     $dirList = array();
     $fileList = scandir($pluginPath);
@@ -69,5 +57,10 @@ EOF;
         }
       }
     }
+
+    // execute ./symfomy cc
+    $sfCacheClearTask = new sfCacheClearTask($this->dispatcher, $this->formatter);
+    $sfCacheClearTask->run($arguments = array(), $options = array('type' => 'all'));
+    $rootPath = sfContext::getInstance()->getRequest()->getRelativeUrlRoot();
   }
 }
