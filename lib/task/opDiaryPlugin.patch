@@ -1,0 +1,76 @@
+diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php
+--- plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php	2013-02-18 15:27:37.000000000 +0900
++++ plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php	2013-02-18 15:30:06.000000000 +0900
+@@ -36,6 +36,17 @@
+ <?php endif; ?>
+ <?php echo op_url_cmd(op_decoration(nl2br($diary->body))) ?>
+ </div>
++<!--Like Plugin -->
++<div class="like" style="display: none;">
++<span class="like-wrapper" data-like-id="<?php echo $diary->getId() ?>" data-like-target="D" member-id="<?php echo $diary->member_id ?>">
++<span class="like-post">いいね！</span>
++<span class="like-cancel">いいね！を取り消す&nbsp;</span>
++<span class="like-you">あなたが「いいね！」と言っています。</span><br />
++<a class="like-list" href="#likeModal" data-toggle="modal"></a>
++<div class="like-list-member"></div>
++<span class="like-friend-list"></span>
++</span>
++</div>
+ </dd>
+ </dl>
+ <?php if ($diary->member_id === $myMemberId): ?>
+@@ -27,6 +29,16 @@
+       <div class="span4"><a href="${$value.filename}" target="_blank">{{html $value.imagetag}}</a></div>
+     {{/each}}
+   </div>
++  <!-- Like Plugin -->
++  <div class="row like-wrapper" data-like-id="${id}" data-like-target="D" member-id="${member.id}" style="display: none;">
++    <span class="span6"> 
++      <a class="like-post">いいね！</a>
++      <a class="like-cancel">いいね！を取り消す</a>
++    </span>
++    <span class="span6">
++      <a class="like-list"></a>
++    </span>
++  </div>
+   {{tmpl "#diarySiblings"}}
+   <div class="row" id="comments">
+   </div>
+@@ -64,6 +76,16 @@
+           <div class="span3"><a href="${$value.filename}" target="_blank">{{html $value.imagetag}}</a></div>
+         {{/each}}
+       </div>
++      <!-- Like Plugin -->
++      <div class="row like-wrapper" data-like-id="${id}" data-like-target="d" member-id="${member.id}" style="display: none;">
++        <span class="span5"> 
++          <a class="like-post">いいね！</a>
++          <a class="like-cancel">いいね！を取り消す</a>
++        </span>
++        <span class="span2">
++          <a class="like-list"></a>
++        </span>
++      </div>
+     </div>
+   </div>
+ </script>
+diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php
+--- plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php	2013-02-18 15:27:37.000000000 +0900
++++ plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php	2013-02-18 15:30:06.000000000 +0900
+@@ -55,6 +55,17 @@
+ <?php echo op_url_cmd(nl2br($comment->body)) ?>
+ </p>
+ </div>
++<!--Like Plugin -->
++<div class="like" style="display: none;">
++<span class="like-wrapper" data-like-id="<?php echo $comment->getId() ?>" data-like-target="d" member-id="<?php echo $comment->member_id ?>">
++<span class="like-post">いいね！</span>
++<span class="like-cancel">いいね！を取り消す&nbsp;</span>
++<span class="like-you">あなたが「いいね！」と言っています。</span><br />
++<a class="like-list" href="#likeModal" data-toggle="modal"></a>
++<div class="like-list-member"></div>
++<span class="like-friend-list"></span>
++</span>
++</div>
+ </dd>
+ </dl>
+ <?php endforeach; ?>

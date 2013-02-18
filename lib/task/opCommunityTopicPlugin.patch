@@ -1,0 +1,82 @@
+diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php
+--- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php	2013-02-18 15:27:48.000000000 +0900
++++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php	2013-02-18 15:29:45.000000000 +0900
+@@ -103,6 +105,16 @@
+         <a href="javascript:void(0);" class="deleteComment" data-comment-id="${id}"><i class="icon-remove"></i></a>
+         {{/if}}
+       </div>
++      <!-- Like Plugin -->
++      <div class="row like-wrapper" data-like-id="${id}" data-like-target="e" member-id="${member.id}" style="display: none;">
++      <span class="span6"> 
++      <a class="like-post">いいね！</a>
++      <a class="like-cancel">いいね！を取り消す</a>
++      </span>
++      <span class="span4">
++      <a class="like-list"></a>
++      </span>
++      </div>
+     </div>
+   </div>
+ </script>
+diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php
+--- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php	2013-02-18 15:27:48.000000000 +0900
++++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php	2013-02-18 15:29:45.000000000 +0900
+@@ -39,6 +39,17 @@
+ <?php echo op_url_cmd(nl2br($comment->getBody())) ?>
+ </p>
+ </div>
++<!--Like Plugin -->
++<div class="like" style="display: none;">
++<span class="like-wrapper" data-like-id="<?php echo $comment->getId() ?>" data-like-target="e" member-id="<?php echo $comment->member_id ?>">
++<span class="like-post">いいね！</span>
++<span class="like-cancel">いいね！を取り消す&nbsp;</span>
++<span class="like-you">あなたが「いいね！」と言っています。</span><br />
++<a class="like-list" href="#likeModal" data-toggle="modal"></a>
++<div class="like-list-member"></div>
++<span class="like-friend-list"></span>
++</span>
++</div>
+ </dd>
+ </dl>
+ <?php endforeach; ?>
+diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php
+--- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php	2013-02-18 15:27:48.000000000 +0900
++++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php	2013-02-18 15:29:45.000000000 +0900
+@@ -76,6 +78,16 @@
+         <a href="javascript:void(0);" class="deleteComment" data-comment-id="${id}"><i class="icon-remove"></i></a>
+         {{/if}}
+       </div>
++      <!-- Like Plugin -->
++      <div class="row like-wrapper" data-like-id="${id}" data-like-target="t" member-id="${member.id}" style="display: none;">
++      <span class="span6"> 
++      <a class="like-post">いいね！</a>
++      <a class="like-cancel">いいね！を取り消す</a>
++      </span>
++      <span class="span4">
++      <a class="like-list"></a>
++      </span>
++      </div>
+     </div>
+   </div>
+ </script>
+diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php
+--- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php	2013-02-18 15:27:48.000000000 +0900
++++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php	2013-02-18 15:29:45.000000000 +0900
+@@ -38,6 +38,17 @@
+ <?php echo op_url_cmd(nl2br($comment->getBody())) ?>
+ </p>
+ </div>
++<!--Like Plugin -->
++<div class="like" style="display: none;">
++<span class="like-wrapper" data-like-id="<?php echo $comment->getId() ?>" data-like-target="t" member-id="<?php echo $comment->member_id ?>">
++<span class="like-post">いいね！</span>
++<span class="like-cancel">いいね！を取り消す&nbsp;</span>
++<span class="like-you">あなたが「いいね！」と言っています。</span><br />
++<a class="like-list" href="#likeModal" data-toggle="modal"></a>
++<div class="like-list-member"></div>
++<span class="like-friend-list"></span>
++</span>
++</div>
+ </dd>
+ </dl>
+ <?php endforeach; ?>
