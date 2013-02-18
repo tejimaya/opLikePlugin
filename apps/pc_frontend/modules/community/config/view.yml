@@ -1,5 +1,0 @@
-homeSuccess:
-  customize:
-    likeCommunity:
-      template: [like, likeCommunity]
-      is_component: true

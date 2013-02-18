@@ -1,6 +1,0 @@
-showSuccess:
-  customize:
-    likeShow:
-      template: [like, likeAll]
-      is_component: true
-
