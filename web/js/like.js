@@ -139,29 +139,7 @@ function totalLoad(likeId, target, obj)
     {
       if (0 < json.data.length)
       {
-        var mine = false;
-        var friendHtml = '';
-        var friendCount = 0;
-        for (var i = 0; i < json.data.length - 1; i++)
-        {
-          if (json.data[json.data.length - 1].requestMemberId == json.data[i].member.id)
-          {
-            mine = true;
-          }
-  
-          if (5 > friendCount && json.data[i].member.friend)
-          {
-            friendHtml = friendHtml + '<a href="' + json.data[i].member.profile_url + '">' + json.data[i].member.name + '</a>さん';
-            friendCount++;
-          }
-
-          if (mine && 5 <= friendCount)
-          {
-            break;
-          }
-        }
-
-        totalShow(mine, friendCount, friendHtml, parseInt(json.data[json.data.length - 1].total), obj);
+        judgeFriend(json, obj);
       }
       else
       {
@@ -172,6 +150,32 @@ function totalLoad(likeId, target, obj)
   });
 }
 
+function judgeFriend(json, obj)
+{
+  var mine = false;
+  var friendHtml = '';
+  var friendCount = 0;
+  for (var i = 0; i < json.data.length - 1; i++)
+  {
+    if (json.data[json.data.length - 1].requestMemberId == json.data[i].member.id)
+    {
+      mine = true;
+    }
+
+    if (5 > friendCount && json.data[i].member.friend)
+    {
+      friendHtml = friendHtml + '<a href="' + json.data[i].member.profile_url + '">' + json.data[i].member.name + '</a>さん';
+      friendCount++;
+    }
+
+    if (mine && 5 <= friendCount)
+    {
+      break;
+    }
+  }
+
+  totalShow(mine, friendCount, friendHtml, parseInt(json.data[json.data.length - 1].total), obj);
+}
 
 function totalShow(mine, friendCount, friendHtml, total, obj)
 {
@@ -246,6 +250,7 @@ function totalShow(mine, friendCount, friendHtml, total, obj)
 
 function totalLoadAll()
 {
+  /*
   $('.like-list').each(function()
   {
     if (!$(this).attr('not-each-load'))
@@ -258,4 +263,55 @@ function totalLoadAll()
   });
   $('.like-wrapper').show();
   $('.like').show();
+  */
+
+  var dataList = new Array();
+  $('.like-list').each(function()
+  {
+    if (!$(this).attr('not-each-load'))
+    {
+      var likeId = $(this).parent().attr('data-like-id');
+      var target = $(this).parent().attr('data-like-target');
+      var objList = new Object();
+
+      if (likeId && "" != likeId &&  target && "" != target)
+      {
+        objList.likeId = likeId;
+        objList.target = target;
+        dataList.push(objList);
+        $(this).attr('not-each-load', true);
+      }
+    }
+  });
+
+  if (0 < dataList.length)
+  {
+    packetLoad(dataList);
+  }
+}
+
+function packetLoad(dataList)
+{
+  $.ajax(
+  {
+    url: openpne.apiBase + 'like/packet_search.json?apiKey=' + openpne.apiKey,
+    type: 'GET',
+    data:
+    {
+      'data': dataList,
+    },
+    success: function(json)
+    {
+      for (var i = 0; i < json.data.length; i++)
+      {
+        judgeFriend(json.data[i], $('span[class="like-wrapper"][data-like-id="' + json.data[i].data[0].foreign_id + '"][data-like-target="' + json.data[i].data[0].foreign_table + '"]'));
+      }
+      $('.like-wrapper').show();
+      $('.like').show();
+    },
+    error: function(e)
+    {
+      alert("エラーだよん");
+    }
+  });
 }

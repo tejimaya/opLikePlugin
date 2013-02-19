@@ -84,4 +84,16 @@ class PluginNiceTable extends Doctrine_Table
     }
     return Doctrine::getTable('Member')->createQuery()->whereIn('id', $memberIds)->execute();
   }
+
+  public function getPacketNiceMemberList($dataList)
+  {
+    $nices = array();
+
+    foreach ($dataList as $data)
+    {
+      $nices[] = Doctrine::getTable('Nice')->getNicedList($data['target'], $data['likeId']);
+    }
+
+    return $nices;
+  }
 }

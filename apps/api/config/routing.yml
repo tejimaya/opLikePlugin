@@ -19,6 +19,11 @@ like_list:
   param: { module: like, action: list, sf_format: json }
   requirements: { sf_method: [get] }
 
+like_packet_search:
+  url: /like/packet_search.json
+  param: { module: like, action: packetSearch, sf_format: json }
+  requirements: { sf_method: [get] }
+
 no_like_api:
   url: /like/*
   param: { module: default, action: error }

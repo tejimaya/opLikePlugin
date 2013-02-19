@@ -19,10 +19,13 @@
 
 class likeActions extends opJsonApiActions
 {
+  public function preExecute()
+  {
+    $this->memberId = $this->getUser()->getMemberId();
+  }
+
   public function executeSearch(sfWebRequest $request)
   {
-    $memberId = $this->getUser()->getMemberId();
-
     $this->forward400Unless($request['target'], 'foreign_table not specified.');
     $this->forward400Unless($request['target_id'], 'foreign_id not specified.');
     $foreignTable = $request['target'];
@@ -31,7 +34,7 @@ class likeActions extends opJsonApiActions
     $this->likes = Doctrine::getTable('Nice')->getNicedList($foreignTable, $foreignId);
     $this->total = Doctrine::getTable('Nice')->getNicedCount($foreignTable, $foreignId);
 
-    $this->requestMemberId = $memberId;
+    $this->requestMemberId = $this->memberId;
   }
 
   public function executePost(sfWebRequest $request)
@@ -45,18 +48,11 @@ class likeActions extends opJsonApiActions
 
     if (1 < strlen($foreignTable)) $this->forward400('Is at least one character');
 
-    $memberId = $this->getUser()->getMemberId();
-
-    /*if ($memberId == $foreignMemberId)
-    {
-      $this->forward400('I can not be myself like');
-    }*/
-
-    $AlreadyLike = Doctrine::getTable('Nice')->isAlreadyNiced($memberId, $foreignTable, $foreignId);
+    $AlreadyLike = Doctrine::getTable('Nice')->isAlreadyNiced($this->memberId, $foreignTable, $foreignId);
     $this->forward400Unless(!$AlreadyLike, 'It has already been registered');
 
     $like = new Nice();
-    $like->setMemberId($memberId);
+    $like->setMemberId($this->memberId);
     $like->setForeignTable($foreignTable);
     $like->setForeignId($foreignId);
 
@@ -99,9 +95,7 @@ class likeActions extends opJsonApiActions
     $foreignTable = $request['target'];
     $foreignId = $request['target_id'];
 
-    $memberId = $this->getUser()->getMemberId();
-
-    $like = Doctrine::getTable('Nice')->getAlreadyNiced($memberId, $foreignTable, $foreignId);
+    $like = Doctrine::getTable('Nice')->getAlreadyNiced($this->memberId, $foreignTable, $foreignId);
     $this->like = $like->delete()->execute();
 
     if ($this->like < 1)
@@ -112,8 +106,6 @@ class likeActions extends opJsonApiActions
 
   public function executeList(sfWebRequest $request)
   {
-    $memberId = $this->getUser()->getMemberId();
-
     $this->forward400Unless($request['target'], 'foreign_table not specified.');
     $this->forward400Unless($request['target_id'], 'foreign_id not specified.');
     $foreignTable = $request['target'];
@@ -126,5 +118,14 @@ class likeActions extends opJsonApiActions
     }
 
     $this->members = Doctrine::getTable('Nice')->getNiceMemberList($foreignTable, $foreignId, $maxId);
+  }
+
+  public function executePacketSearch(sfWebRequest $request)
+  {
+    $this->forward400Unless($request['data'], 'data not specified.');
+    $dataList = $request['data'];
+
+    $this->likeList = Doctrine::getTable('Nice')->getPacketNiceMemberList($dataList);
+    $this->requestMemberId = $this->memberId;
   }
 }
