@@ -250,21 +250,6 @@ function totalShow(mine, friendCount, friendHtml, total, obj)
 
 function totalLoadAll()
 {
-  /*
-  $('.like-list').each(function()
-  {
-    if (!$(this).attr('not-each-load'))
-    {
-      var likeId = $(this).parent().attr('data-like-id');
-      var target = $(this).parent().attr('data-like-target');
-      totalLoad(likeId, target, $(this).parent().get(0));
-      $(this).attr('not-each-load', true);
-    }
-  });
-  $('.like-wrapper').show();
-  $('.like').show();
-  */
-
   var dataList = new Array();
   $('.like-list').each(function()
   {
@@ -308,10 +293,6 @@ function packetLoad(dataList)
       }
       $('.like-wrapper').show();
       $('.like').show();
-    },
-    error: function(e)
-    {
-      alert("エラーだよん");
     }
   });
 }
