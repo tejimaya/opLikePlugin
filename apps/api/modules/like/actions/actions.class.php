@@ -85,7 +85,10 @@ class likeActions extends opJsonApiActions
         $url = '#';
         break;
     }
-    opLikePluginUtil::sendNotification($fromMember, $toMember, $url);
+    if ($fromMember->getId() !== $toMember->getId())
+    {
+      opLikePluginUtil::sendNotification($fromMember, $toMember, $url);
+    }
   }
 
   public function executeDelete(sfWebRequest $request)
