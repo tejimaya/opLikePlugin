@@ -1,6 +1,6 @@
 diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php
---- plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php	2013-02-18 16:33:45.000000000 +0900
-+++ plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php	2013-02-18 16:39:33.000000000 +0900
+--- plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php	2013-02-20 11:42:16.000000000 +0900
++++ plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php	2013-02-20 11:40:41.000000000 +0900
 @@ -36,6 +36,17 @@
  <?php endif; ?>
  <?php echo op_url_cmd(op_decoration(nl2br($diary->body))) ?>
@@ -19,10 +19,34 @@ diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuc
  </dd>
  </dl>
  <?php if ($diary->member_id === $myMemberId): ?>
+@@ -68,3 +79,23 @@
+ <?php endif; ?>
+ 
+ <?php op_include_line('lineLinkToDiaryMemberList', link_to(__('Diaries of %1%', array('%1%' => $member->name)), 'diary_list_member', $member)) ?>
++
++<script id="LikelistTemplate" type="text/x-jquery-tmpl">
++<table>
++<tr style="padding: 2px;">
++<td style="width: 48px; padding: 2px;"><a href="${profile_url}"><img src="${profile_image}" width="48"></a></td>
++<td style="padding: 2px;"><a href="${profile_url}">${name}</a></td>
++</tr>
++</table>
++</script>
++
++<div id="likeModal" class="modal hide">
++  <div class="modal-header">
++    <h1>「いいね！」と言っている人</h1>
++  </div>
++  <div class="like-modal-body">
++  </div>
++  <div class="modal-footer">
++    <a href="#" class="btn close" data-dismiss="modal" aria-hidden="true">閉じる</a>
++  </div>
++</div>
 diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php
---- plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php	2013-02-18 15:27:37.000000000 +0900
-+++ plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php	2013-02-18 16:39:33.000000000 +0900
-@@ -27,6 +29,16 @@
+--- plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php	2013-02-20 11:42:16.000000000 +0900
++++ plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php	2013-02-20 11:21:28.000000000 +0900
+@@ -27,6 +27,16 @@
        <div class="span4"><a href="${$value.filename}" target="_blank">{{html $value.imagetag}}</a></div>
      {{/each}}
    </div>
@@ -39,7 +63,7 @@ diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShow
    {{tmpl "#diarySiblings"}}
    <div class="row" id="comments">
    </div>
-@@ -64,6 +76,16 @@
+@@ -64,6 +74,16 @@
            <div class="span3"><a href="${$value.filename}" target="_blank">{{html $value.imagetag}}</a></div>
          {{/each}}
        </div>
@@ -57,9 +81,9 @@ diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShow
    </div>
  </script>
 diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php
---- plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php	2013-02-18 16:33:45.000000000 +0900
-+++ plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php	2013-02-18 16:39:33.000000000 +0900
-@@ -55,6 +55,17 @@
+--- plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php	2013-02-20 11:42:16.000000000 +0900
++++ plugins/old_opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php	2013-02-20 11:41:02.000000000 +0900
+@@ -55,9 +55,40 @@
  <?php echo op_url_cmd(nl2br($comment->body)) ?>
  </p>
  </div>
@@ -77,3 +101,26 @@ diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/
  </dd>
  </dl>
  <?php endforeach; ?>
+ </div></div>
+ <?php /* }}} */ ?>
+ <?php endif; ?>
++
++<script id="LikelistTemplate" type="text/x-jquery-tmpl">
++<table>
++<tr style="padding: 2px;">
++<td style="width: 48px; padding: 2px;"><a href="${profile_url}"><img src="${profile_image}" width="48"></a></td>
++<td style="padding: 2px;"><a href="${profile_url}">${name}</a></td>
++</tr>
++</table>
++</script>
++
++<div id="likeModal" class="modal hide">
++  <div class="modal-header">
++    <h1>「いいね！」と言っている人</h1>
++  </div>
++  <div class="like-modal-body">
++  </div>
++  <div class="modal-footer">
++    <a href="#" class="btn close" data-dismiss="modal" aria-hidden="true">閉じる</a>
++  </div>
++</div>

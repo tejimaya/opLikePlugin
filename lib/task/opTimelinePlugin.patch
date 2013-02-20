@@ -1,6 +1,6 @@
 diff -urN plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_smtTimeline.php plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_smtTimeline.php
---- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_smtTimeline.php	2013-02-18 15:27:19.000000000 +0900
-+++ plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_smtTimeline.php	2013-02-18 15:29:21.000000000 +0900
+--- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_smtTimeline.php	2013-02-20 12:55:58.000000000 +0900
++++ plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_smtTimeline.php	2013-02-20 11:22:37.000000000 +0900
 @@ -57,6 +57,16 @@
                {{/if}}
              </span>
@@ -36,8 +36,8 @@ diff -urN plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_
  </script>
  
 diff -urN plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_smtTimelineCommunity.php plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_smtTimelineCommunity.php
---- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_smtTimelineCommunity.php	2013-02-18 15:27:19.000000000 +0900
-+++ plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_smtTimelineCommunity.php	2013-02-18 15:29:21.000000000 +0900
+--- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_smtTimelineCommunity.php	2013-02-20 12:55:58.000000000 +0900
++++ plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_smtTimelineCommunity.php	2013-02-20 11:22:37.000000000 +0900
 @@ -44,6 +44,16 @@
              <div class="timeline-post-body" id="timeline-body-context-${id}">
                {{html body_html}}
@@ -90,9 +90,90 @@ diff -urN plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_
              </div>
  </script>
  
+diff -urN plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineAll.php plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineAll.php
+--- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineAll.php	2013-02-20 12:55:58.000000000 +0900
++++ plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineAll.php	2013-02-20 11:35:17.000000000 +0900
+@@ -86,3 +86,23 @@
+     </div>
+ 
+ </div></div>
++
++<script id="LikelistTemplate" type="text/x-jquery-tmpl">
++<table>
++<tr style="padding: 2px;">
++<td style="width: 48px; padding: 2px;"><a href="${profile_url}"><img src="${profile_image}" width="48"></a></td>
++<td style="padding: 2px;"><a href="${profile_url}">${name}</a></td>
++</tr>
++</table>
++</script>
++
++<div id="likeModal" class="modal hide">
++  <div class="modal-header">
++    <h1>「いいね！」と言っている人</h1>
++  </div>
++  <div class="like-modal-body">
++  </div>
++  <div class="modal-footer">
++    <a href="#" class="btn close" data-dismiss="modal" aria-hidden="true">閉じる</a>
++  </div>
++</div>
+diff -urN plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineCommunity.php plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineCommunity.php
+--- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineCommunity.php	2013-02-20 12:55:58.000000000 +0900
++++ plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineCommunity.php	2013-02-20 11:35:34.000000000 +0900
+@@ -91,3 +91,23 @@
+ 
+ </div></div>
+ <?php endif; ?>
++
++<script id="LikelistTemplate" type="text/x-jquery-tmpl">
++<table>
++<tr style="padding: 2px;">
++<td style="width: 48px; padding: 2px;"><a href="${profile_url}"><img src="${profile_image}" width="48"></a></td>
++<td style="padding: 2px;"><a href="${profile_url}">${name}</a></td>
++</tr>
++</table>
++</script>
++
++<div id="likeModal" class="modal hide">
++  <div class="modal-header">
++    <h1>「いいね！」と言っている人</h1>
++  </div>
++  <div class="like-modal-body">
++  </div>
++  <div class="modal-footer">
++    <a href="#" class="btn close" data-dismiss="modal" aria-hidden="true">閉じる</a>
++  </div>
++</div>
+diff -urN plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineProfile.php plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineProfile.php
+--- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineProfile.php	2013-02-20 12:55:58.000000000 +0900
++++ plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineProfile.php	2013-02-20 11:35:43.000000000 +0900
+@@ -39,3 +39,23 @@
+ </div>
+ 
+ </div></div>
++
++<script id="LikelistTemplate" type="text/x-jquery-tmpl">
++<table>
++<tr style="padding: 2px;">
++<td style="width: 48px; padding: 2px;"><a href="${profile_url}"><img src="${profile_image}" width="48"></a></td>
++<td style="padding: 2px;"><a href="${profile_url}">${name}</a></td>
++</tr>
++</table>
++</script>
++
++<div id="likeModal" class="modal hide">
++  <div class="modal-header">
++    <h1>「いいね！」と言っている人</h1>
++  </div>
++  <div class="like-modal-body">
++  </div>
++  <div class="modal-footer">
++    <a href="#" class="btn close" data-dismiss="modal" aria-hidden="true">閉じる</a>
++  </div>
++</div>
 diff -urN plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineTemplate.php plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineTemplate.php
---- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineTemplate.php	2013-02-18 15:27:19.000000000 +0900
-+++ plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineTemplate.php	2013-02-18 15:29:21.000000000 +0900
+--- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineTemplate.php	2013-02-20 12:59:36.000000000 +0900
++++ plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineTemplate.php	2013-02-20 12:56:51.000000000 +0900
 @@ -22,6 +22,18 @@
              <a class="timeline-comment-link">コメントする</a>{{if member.self==true}} | <a href="#timeline-post-delete-confirm-${id}" class="timeline-post-delete-confirm-link">削除する</a>
              {{/if}} | <a href="<?php echo url_for('@homepage', array('absolute' => true)) ?>timeline/show/id/${id}"><span class="timestamp">${created_at}</span></a>
@@ -112,7 +193,7 @@ diff -urN plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_
              <a>
                <div id="timeline-comment-loadmore-${id}" data-timeline-id="${id}" class="timeline-comment-loadmore">
                  <i class="icon-comment"></i>&nbsp;以前のコメントを見る
-@@ -118,4 +129,15 @@
+@@ -118,4 +130,15 @@
                </div>
                {{/if}}
              </div>
@@ -128,9 +209,36 @@ diff -urN plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_
 +              </span>
 +            </div>
  </script>
+diff -urN plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/showSuccess.php plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/showSuccess.php
+--- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/showSuccess.php	2013-02-20 12:55:58.000000000 +0900
++++ plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/showSuccess.php	2013-02-20 11:37:23.000000000 +0900
+@@ -29,3 +29,23 @@
+       </div>
+     </div>
+ 
++
++<script id="LikelistTemplate" type="text/x-jquery-tmpl">
++<table>
++<tr style="padding: 2px;">
++<td style="width: 48px; padding: 2px;"><a href="${profile_url}"><img src="${profile_image}" width="48"></a></td>
++<td style="padding: 2px;"><a href="${profile_url}">${name}</a></td>
++</tr>
++</table>
++</script>
++
++<div id="likeModal" class="modal hide">
++  <div class="modal-header">
++    <h1>「いいね！」と言っている人</h1>
++  </div>
++  <div class="like-modal-body">
++  </div>
++  <div class="modal-footer">
++    <a href="#" class="btn close" data-dismiss="modal" aria-hidden="true">閉じる</a>
++  </div>
++</div>
 diff -urN plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/smtShowSuccess.php plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/smtShowSuccess.php
---- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/smtShowSuccess.php	2013-02-18 15:27:19.000000000 +0900
-+++ plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/smtShowSuccess.php	2013-02-18 15:29:21.000000000 +0900
+--- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/smtShowSuccess.php	2013-02-20 12:55:58.000000000 +0900
++++ plugins/old_opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/smtShowSuccess.php	2013-02-20 11:22:37.000000000 +0900
 @@ -49,6 +49,16 @@
                {{/if}}
              </span>

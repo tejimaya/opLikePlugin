@@ -1,7 +1,7 @@
 diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php
---- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php	2013-02-18 15:27:48.000000000 +0900
-+++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php	2013-02-18 15:29:45.000000000 +0900
-@@ -103,6 +105,16 @@
+--- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php	2013-02-20 11:42:32.000000000 +0900
++++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php	2013-02-20 11:21:46.000000000 +0900
+@@ -103,6 +103,16 @@
          <a href="javascript:void(0);" class="deleteComment" data-comment-id="${id}"><i class="icon-remove"></i></a>
          {{/if}}
        </div>
@@ -19,8 +19,8 @@ diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent
    </div>
  </script>
 diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php
---- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php	2013-02-18 15:27:48.000000000 +0900
-+++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php	2013-02-18 15:29:45.000000000 +0900
+--- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php	2013-02-20 11:42:32.000000000 +0900
++++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php	2013-02-20 11:41:35.000000000 +0900
 @@ -39,6 +39,17 @@
  <?php echo op_url_cmd(nl2br($comment->getBody())) ?>
  </p>
@@ -39,10 +39,34 @@ diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent
  </dd>
  </dl>
  <?php endforeach; ?>
+@@ -48,3 +59,23 @@
+ </div>
+ </div>
+ <?php endif; ?>
++
++<script id="LikelistTemplate" type="text/x-jquery-tmpl">
++<table>
++<tr style="padding: 2px;">
++<td style="width: 48px; padding: 2px;"><a href="${profile_url}"><img src="${profile_image}" width="48"></a></td>
++<td style="padding: 2px;"><a href="${profile_url}">${name}</a></td>
++</tr>
++</table>
++</script>
++
++<div id="likeModal" class="modal hide">
++  <div class="modal-header">
++    <h1>「いいね！」と言っている人</h1>
++  </div>
++  <div class="like-modal-body">
++  </div>
++  <div class="modal-footer">
++    <a href="#" class="btn close" data-dismiss="modal" aria-hidden="true">閉じる</a>
++  </div>
++</div>
 diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php
---- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php	2013-02-18 15:27:48.000000000 +0900
-+++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php	2013-02-18 15:29:45.000000000 +0900
-@@ -76,6 +78,16 @@
+--- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php	2013-02-20 11:42:32.000000000 +0900
++++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php	2013-02-20 11:21:46.000000000 +0900
+@@ -76,6 +76,16 @@
          <a href="javascript:void(0);" class="deleteComment" data-comment-id="${id}"><i class="icon-remove"></i></a>
          {{/if}}
        </div>
@@ -60,8 +84,8 @@ diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic
    </div>
  </script>
 diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php
---- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php	2013-02-18 15:27:48.000000000 +0900
-+++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php	2013-02-18 15:29:45.000000000 +0900
+--- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php	2013-02-20 11:42:32.000000000 +0900
++++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php	2013-02-20 11:41:44.000000000 +0900
 @@ -38,6 +38,17 @@
  <?php echo op_url_cmd(nl2br($comment->getBody())) ?>
  </p>
@@ -80,3 +104,27 @@ diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic
  </dd>
  </dl>
  <?php endforeach; ?>
+@@ -47,3 +58,23 @@
+ </div>
+ </div>
+ <?php endif; ?>
++
++<script id="LikelistTemplate" type="text/x-jquery-tmpl">
++<table>
++<tr style="padding: 2px;">
++<td style="width: 48px; padding: 2px;"><a href="${profile_url}"><img src="${profile_image}" width="48"></a></td>
++<td style="padding: 2px;"><a href="${profile_url}">${name}</a></td>
++</tr>
++</table>
++</script>
++
++<div id="likeModal" class="modal hide">
++  <div class="modal-header">
++    <h1>「いいね！」と言っている人</h1>
++  </div>
++  <div class="like-modal-body">
++  </div>
++  <div class="modal-footer">
++    <a href="#" class="btn close" data-dismiss="modal" aria-hidden="true">閉じる</a>
++  </div>
++</div>
