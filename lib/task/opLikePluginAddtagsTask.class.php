@@ -61,6 +61,5 @@ EOF;
     // execute ./symfomy cc
     $sfCacheClearTask = new sfCacheClearTask($this->dispatcher, $this->formatter);
     $sfCacheClearTask->run($arguments = array(), $options = array('type' => 'all'));
-    $rootPath = sfContext::getInstance()->getRequest()->getRelativeUrlRoot();
   }
 }
