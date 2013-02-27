@@ -31,11 +31,31 @@ EOF;
  
   protected function execute($arguments = array(), $options = array())
   {
+    $file = 'plugins/opLikePlugin/addtags.lock';
     $pluginPath = 'plugins/';
-    $targetPlugin = array(
-      $pluginPath.'opLikePlugin/lib/task/opTimelinePlugin.sh' => 'opTimelinePlugin',
-      $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.sh' => 'opDiaryPlugin',
-      $pluginPath.'opLikePlugin/lib/task/opCommunityTopicPlugin.sh' => 'opCommunityTopicPlugin');
+    if (!file_exists($file))
+    {
+      touch($file);
+      chmod($file, 0666);
+
+      echo("パッチを実行します。\n");
+      $targetPlugin = array(
+        $pluginPath.'opLikePlugin/lib/task/opTimelinePlugin.sh' => 'opTimelinePlugin',
+        $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.sh' => 'opDiaryPlugin',
+        $pluginPath.'opLikePlugin/lib/task/opCommunityTopicPlugin.sh' => 'opCommunityTopicPlugin'
+      );
+    }
+    else
+    {
+      unlink($file);
+
+      echo("リバースパッチを実行します。\n");
+      $targetPlugin = array(
+        $pluginPath.'opLikePlugin/lib/task/opTimelinePlugin.sh -R' => 'opTimelinePlugin',
+        $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.sh -R' => 'opDiaryPlugin',
+        $pluginPath.'opLikePlugin/lib/task/opCommunityTopicPlugin.sh -R' => 'opCommunityTopicPlugin'
+      );
+    }
 
     $dirList = array();
     $fileList = scandir($pluginPath);
