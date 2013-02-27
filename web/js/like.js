@@ -289,7 +289,13 @@ function packetLoad(dataList)
     {
       for (var i = 0; i < json.data.length; i++)
       {
-        judgeFriend(json.data[i], $('span[class="like-wrapper"][data-like-id="' + json.data[i].data[0].foreign_id + '"][data-like-target="' + json.data[i].data[0].foreign_table + '"]'));
+        var targetObj = $('span[class="like-wrapper"][data-like-id="' + json.data[i].data[0].foreign_id + '"][data-like-target="' + json.data[i].data[0].foreign_table + '"]');
+        if (0 >= targetObj.length)
+        {
+          var targetObj = $('span[class="like-wrapper font-small"][data-like-id="' + json.data[i].data[0].foreign_id + '"][data-like-target="' + json.data[i].data[0].foreign_table + '"]');
+        }
+        
+        judgeFriend(json.data[i], targetObj);
       }
       $('.like-wrapper').show();
       $('.like').show();
