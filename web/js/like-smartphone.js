@@ -27,6 +27,10 @@ $(function(){
         $(likeList).append('<i class="icon-thumbs-up"></i>' + (likeTotal + 1));
         $(likeList).attr('href', '/like/list/' + target + '/' + likeId);
       },
+      error: function(e)
+      {
+        alert("いいね！の投稿に失敗しました。");
+      }
     });
   });
 
@@ -58,6 +62,10 @@ $(function(){
           $(likeList).removeAttr('href');
         }
       },
+      error: function(e)
+      {
+        alert("いいね！の削除に失敗しました。");
+      }
     });
   });
   setInterval('totalLoadAll()', 2000);
@@ -78,6 +86,10 @@ function totalLoad(likeId, target, obj)
     {
       totalShowSmt(json, obj);
     },
+    error: function(e)
+    {
+      alert("データの取得に失敗しました。");
+    }
   });
 }
 
@@ -174,6 +186,10 @@ function packetLoad(dataList)
       }
       $('.like-wrapper').show();
       $('.like').show();
+    },
+    error: function(e)
+    {
+      alert("データの取得に失敗しました。");
     }
   });
 }
