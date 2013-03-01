@@ -1,2 +1,2 @@
 #!/bin/sh
-patch $1 -p0 < plugins/opLikePlugin/lib/task/opTimelinePlugin.patch
+patch $1 -p0 < plugins/opLikePlugin/data/patches/opTimelinePlugin.patch
