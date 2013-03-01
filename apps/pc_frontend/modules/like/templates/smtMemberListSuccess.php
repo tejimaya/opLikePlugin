@@ -13,4 +13,4 @@
   </div>
 </script>
 
-<span class='btn span11' id='more-see' data-max-id="">もっと見る</span>
+<span class="btn span11" id="more-see" data-max-id="">もっと見る</span>

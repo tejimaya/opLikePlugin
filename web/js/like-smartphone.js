@@ -26,7 +26,7 @@ $(function(){
         var likeTotal = parseInt($(likeList).text());
         $(likeList).text('');
         $(likeList).append('<i class="icon-thumbs-up"></i>' + (likeTotal + 1));
-        $(likeList).attr('href', '/like/list/' + target + '/' + likeId);
+        $(likeList).attr('href', 'like/list/' + target + '/' + likeId);
       },
       error: function(e)
       {
@@ -128,7 +128,7 @@ function totalShowSmt(json, obj)
 
     if (!likeList.attr('no-href-clear') && 0 < parseInt(total))
     {
-      $(likeList).attr('href', '/like/list/' + json.data[0].foreign_table + '/' + json.data[0].foreign_id);
+      $(likeList).attr('href', 'like/list/' + json.data[0].foreign_table + '/' + json.data[0].foreign_id);
     }
   }
   else
@@ -154,7 +154,7 @@ function totalLoadAll()
       var target = $(likeParent).attr('data-like-target');
       var objList = new Object();
 
-      if (likeId && "" != likeId &&  target && "" != target)
+      if (likeId.match(/^[0-9]+$/) && target.match(/^[a-zA-Z]$/))
       {   
         objList.likeId = likeId;
         objList.target = target;

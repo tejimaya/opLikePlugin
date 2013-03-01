@@ -18,6 +18,12 @@
  */
 class likeActions extends opLikePluginLikeActions
 {
+  public function executeMemberList(sfWebRequest $request)
+  {
+    $this->forwardIf($request->isSmartphone(), 'like', 'smtMemberList');
+    $this->forward('default', 'error');
+  }
+
   public function executeSmtMemberList(sfWebRequest $request)
   {
   }

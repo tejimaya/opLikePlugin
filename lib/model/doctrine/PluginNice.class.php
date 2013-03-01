@@ -19,7 +19,7 @@ abstract class PluginNice extends BaseNice
     if($this->foreignObject) return $this->foreignObject;
     
     $obj = Doctrine::getTable($this->getForeignTable())->find($this->getForeignId());
-    if($obj)
+    if ($obj)
     {
       $this->foreignObject = $obj;
       return $this->foreignObject;
@@ -29,27 +29,27 @@ abstract class PluginNice extends BaseNice
   
   public function getForeignTitle()
   {
-    $key = "name";
-    if($this->getForeignTable()=="Diary")
+    $key = 'name';
+    if($this->getForeignTable() == 'Diary')
     {
-      $key = "title";
+      $key = 'title';
     }
-    return $this->getForeignObject()?$this->getForeignObject()->get($key):'';
+    return $this->getForeignObject() ? $this->getForeignObject()->get($key) : '';
   }
   
   public function getForeignUrl()
   {
-    $url = "";
-    switch($this->getForeignTable())
+    $url = '';
+    switch ($this->getForeignTable())
     {
-      case "Diary":
-        $url = "diary/show?id=".$this->getForeignId();
+      case 'Diary':
+        $url = 'diary/show?id='.$this->getForeignId();
         break;
-      case "CommunityTopic":
-        $url = "communityTopic/show?id=".$this->getForeignId();
+      case 'CommunityTopic':
+        $url = 'communityTopic/show?id='.$this->getForeignId();
         break;
-      case "CommunityEvent":
-        $url = "communityEvent/show?id=".$this->getForeignId();
+      case 'CommunityEvent':
+        $url = 'communityEvent/show?id='.$this->getForeignId();
         break;
     }
     return $url;
@@ -57,7 +57,7 @@ abstract class PluginNice extends BaseNice
   
   public function getForeignDate()
   {
-    return $this->getForeignObject()?$this->getForeignObject()->getCreatedAt():'';
+    return $this->getForeignObject() ? $this->getForeignObject()->getCreatedAt() : '';
   }
   
   public function isDeletable($memberId)

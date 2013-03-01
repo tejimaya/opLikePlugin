@@ -17,11 +17,11 @@ class PluginNiceTable extends Doctrine_Table
     return Doctrine_Core::getTable('PluginNice');
   }
 
-  public function getNicedList($table, $id, $limit=0)
+  public function getNicedList($table, $id, $limit = 0)
   {
     $q = $this->createQuery('n')->where('foreign_table = binary ? AND foreign_id = ?', array($table, $id))->orderBy('id DESC');
 
-    if($limit>0)
+    if (0 < $limit)
     {
       $q->limit($limit);
     }
@@ -49,7 +49,10 @@ class PluginNiceTable extends Doctrine_Table
 
   public function getMemberPager($foreignTable, $foreignId, $size, $page = 1)
   {
-    if($page < 1) $page = 1;
+    if (1 > $page)
+    {
+      $page = 1;
+    }
     $q = $this->createQuery('n')->addWhere('n.foreign_table = binary ? AND n.foreign_id = ?', array($foreignTable, $foreignId));
 
     $pager = new sfDoctrinePager('Nice', $size);
@@ -62,7 +65,10 @@ class PluginNiceTable extends Doctrine_Table
 
   public function getContentPager($memberId, $size, $page = 1)
   {
-    if($page < 1) $page = 1;
+    if(1 > $page)
+    {
+      $page = 1;
+    }
     $q = $this->createQuery('n')->addWhere('n.member_id = ?', $memberId);
 
     $pager = new sfDoctrinePager('Nice', $size);
@@ -75,7 +81,10 @@ class PluginNiceTable extends Doctrine_Table
 
   public function getNiceMemberList($table, $id, $maxId = null)
   {
-    if (is_null($maxId)) $maxId = 20;
+    if (is_null($maxId))
+    {
+      $maxId = 20;
+    }
     $nices = Doctrine::getTable('Nice')->getNicedList($table, $id, $maxId);
 
     foreach ($nices as $nice)

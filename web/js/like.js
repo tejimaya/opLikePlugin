@@ -259,7 +259,7 @@ function totalShow(mine, friendCount, friendHtml, total, obj)
   {
     if (0 < total)
     {
-      likeList.append('<i class="icon-thumbs-up"></i>' + total  + '人');
+      likeList.append('<i class="icon-thumbs-up"></i>' + total + '人');
       likeList.after('<span class="like-after">が「いいね！」と言っています。</span>');
     }
     $(likeYou).hide();
@@ -283,7 +283,7 @@ function totalLoadAll()
       var target = $(this).parent().attr('data-like-target');
       var objList = new Object();
 
-      if (likeId && "" != likeId &&  target && "" != target)
+      if (likeId.match(/^[0-9]+$/) && target.match(/^[a-zA-Z]$/))
       {
         objList.likeId = likeId;
         objList.target = target;

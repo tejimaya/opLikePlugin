@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="">
         <source>Like!</source>
-        <target>イイネ！</target>
+        <target>いいね！</target>
       </trans-unit>
       <trans-unit id="">
         <source>Delete Like!</source>
@@ -12,31 +12,31 @@
       </trans-unit>
       <trans-unit id="">
         <source>Members who liked %name%</source>
-        <target>「%name%」にイイネ！と言っているメンバー</target>
+        <target>「%name%」にいいね！と言っているメンバー</target>
       </trans-unit>
       <trans-unit id="">
         <source>Members liked</source>
-        <target>イイネしたメンバー</target>
+        <target>いいねしたメンバー</target>
       </trans-unit>
       <trans-unit id="">
         <source>No member liked.</source>
-        <target>イイネ！と言っているメンバーはいません。</target>
+        <target>いいね！と言っているメンバーはいません。</target>
       </trans-unit>
       <trans-unit id="">
         <source>%member% liked these.</source>
-        <target>%member%さんのイイネ！一覧</target>
+        <target>%member%さんのいいね！一覧</target>
       </trans-unit>
       <trans-unit id="">
         <source>No content.</source>
-        <target>イイネ！はありません。</target>
+        <target>いいね！はありません。</target>
       </trans-unit>
       <trans-unit id="">
         <source>You cannot like to this content.</source>
-        <target>イイネ！できません。</target>
+        <target>いいね！できません。</target>
       </trans-unit>
       <trans-unit id="">
         <source>You have already liked this content.</source>
-        <target>既にイイネ！済みです。</target>
+        <target>既にいいね！済みです。</target>
       </trans-unit>
       <trans-unit id="">
         <source>%member% says that it is Like.</source>
