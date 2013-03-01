@@ -1,6 +1,6 @@
-diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php
+diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php
 --- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php	2013-02-20 11:42:32.000000000 +0900
-+++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php	2013-02-20 11:21:46.000000000 +0900
++++ plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php	2013-02-20 11:21:46.000000000 +0900
 @@ -103,6 +103,16 @@
          <a href="javascript:void(0);" class="deleteComment" data-comment-id="${id}"><i class="icon-remove"></i></a>
          {{/if}}
@@ -18,9 +18,9 @@ diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent
      </div>
    </div>
  </script>
-diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php
+diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php
 --- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php	2013-02-20 11:42:32.000000000 +0900
-+++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php	2013-02-20 11:41:35.000000000 +0900
++++ plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php	2013-02-20 11:41:35.000000000 +0900
 @@ -39,6 +39,17 @@
  <?php echo op_url_cmd(nl2br($comment->getBody())) ?>
  </p>
@@ -63,9 +63,9 @@ diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent
 +    <a href="#" class="btn close" data-dismiss="modal" aria-hidden="true">閉じる</a>
 +  </div>
 +</div>
-diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php
+diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php
 --- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php	2013-02-20 11:42:32.000000000 +0900
-+++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php	2013-02-20 11:21:46.000000000 +0900
++++ plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php	2013-02-20 11:21:46.000000000 +0900
 @@ -76,6 +76,16 @@
          <a href="javascript:void(0);" class="deleteComment" data-comment-id="${id}"><i class="icon-remove"></i></a>
          {{/if}}
@@ -83,9 +83,9 @@ diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic
      </div>
    </div>
  </script>
-diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php
+diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php
 --- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php	2013-02-20 11:42:32.000000000 +0900
-+++ plugins/old_opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php	2013-02-20 11:41:44.000000000 +0900
++++ plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php	2013-02-20 11:41:44.000000000 +0900
 @@ -38,6 +38,17 @@
  <?php echo op_url_cmd(nl2br($comment->getBody())) ?>
  </p>
