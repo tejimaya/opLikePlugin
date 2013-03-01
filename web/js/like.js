@@ -8,10 +8,11 @@ $(function(){
 
     $.ajax(
     {
-      url: openpne.apiBase + 'like/post.json?apiKey=' + openpne.apiKey,
+      url: openpne.apiBase + 'like/post.json',
       type: 'POST',
       data: 
       {
+        'apiKey': openpne.apiKey,
         'target': target,
         'target_id': likeId,
         'member_id': memberId
@@ -37,10 +38,11 @@ $(function(){
 
     $.ajax(
     {
-      url: openpne.apiBase + 'like/delete.json?apiKey=' + openpne.apiKey,
+      url: openpne.apiBase + 'like/delete.json',
       type: 'POST',
       data:
       {
+        'apiKey': openpne.apiKey,
         'target': target,
         'target_id': likeId
       },
@@ -65,10 +67,11 @@ $(function(){
 
     $.ajax(
     {
-      url: openpne.apiBase + 'like/list.json?apiKey=' + openpne.apiKey,
+      url: openpne.apiBase + 'like/list.json',
       type: 'POST',
       data:
     {
+      'apiKey': openpne.apiKey,
       'target': target,
       'target_id': likeId
     },
@@ -96,10 +99,11 @@ $(function(){
 
     $.ajax(
     {
-      url: openpne.apiBase + 'like/list.json?apiKey=' + openpne.apiKey,
+      url: openpne.apiBase + 'like/list.json',
       type: 'POST',
       data:
       {
+        'apiKey': openpne.apiKey,
         'target': target,
         'target_id': likeId,
         'max_id': maxId

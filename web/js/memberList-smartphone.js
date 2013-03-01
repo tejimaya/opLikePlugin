@@ -21,10 +21,11 @@ function memberListShow(likeId, target, maxId)
 {
   $.ajax(
   {
-    url: openpne.apiBase + 'like/list.json?apiKey=' + openpne.apiKey,
+    url: openpne.apiBase + 'like/list.json',
     type: 'POST',
     data: 
     {
+      'apiKey': openpne.apiKey,
       'target': target,
       'target_id': likeId,
       'max_id': maxId
