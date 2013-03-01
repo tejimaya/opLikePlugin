@@ -1,5 +1,5 @@
 $(function(){
-  $('.like-post').live('click', function()
+  $(document).on('click', '.like-post', function(event)
   {
     var likeParent = $(this).parent();
     var likeId = $(likeParent).attr('data-like-id');
@@ -29,7 +29,7 @@ $(function(){
     });
   });
 
-  $('.like-cancel').live('click', function()
+  $(document).on('click', '.like-cancel', function(event)
   {
     var likeParent = $(this).parent();
     var likeId = $(likeParent).attr('data-like-id');
@@ -58,7 +58,7 @@ $(function(){
   });
 
 
-  $('.like-list').live('click', function()
+  $(document).on('click', '.like-list', function(event)
   {
     var likeId = $(this).parent().attr('data-like-id');
     var target = $(this).parent().attr('data-like-target');
@@ -86,7 +86,7 @@ $(function(){
     });
   });
 
-  $('.like-more-see').live('click', function()
+  $(document).on('click', '.like-more-see', function(event)
   {
     var likeId = $(this).attr('data-like-id');
     var target = $(this).attr('data-like-target');

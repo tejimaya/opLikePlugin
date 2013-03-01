@@ -1,6 +1,6 @@
 $(function(){
 
-  $('.like-post').live('click', function()
+  $(document).on('click', '.like-post', function()
   {
     var likeParent = $(this).parent().parent('.like-wrapper');
     var likeId = $(likeParent).attr('data-like-id');
@@ -34,7 +34,7 @@ $(function(){
     });
   });
 
-  $('.like-cancel').live('click', function()
+  $(document).on('click', '.like-cancel', function()
   {
     var likeParent = $(this).parent().parent('.like-wrapper');
     var likeId = $(likeParent).attr('data-like-id');
