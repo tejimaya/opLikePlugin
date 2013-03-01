@@ -179,6 +179,7 @@ function judgeFriend(json, obj)
   var mine = false;
   var friendHtml = '';
   var friendCount = 0;
+  var friendViewNumber = 5;
   for (var i = 0; i < json.data.length - 1; i++)
   {
     if (json.data[json.data.length - 1].requestMemberId == json.data[i].member.id)
@@ -186,13 +187,13 @@ function judgeFriend(json, obj)
       mine = true;
     }
 
-    if (5 > friendCount && json.data[i].member.friend)
+    if (friendViewNumber > friendCount && json.data[i].member.friend)
     {
       friendHtml = friendHtml + '<a href="' + json.data[i].member.profile_url + '">' + json.data[i].member.name + '</a>さん';
       friendCount++;
     }
 
-    if (mine && 5 <= friendCount)
+    if (mine && friendViewNumber <= friendCount)
     {
       break;
     }
