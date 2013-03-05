@@ -61,25 +61,26 @@ class likeActions extends opJsonApiActions
 
     $fromMember = $this->getUser()->getMember();
     $toMember = Doctrine::getTable('Member')->findOneById($foreignMemberId);
+    $baseUrl = sfContext::getInstance()->getRequest()->getRelativeUrlRoot();
     switch ($foreignTable)
     {
       case 'A':
-        $url = '/timeline/show/id/' . $foreignId;
+        $url = $baseUrl.'/timeline/show/id/'.$foreignId;
         break;
       case 'D':
-        $url = '/diary/' . $foreignId;
+        $url = $baseUrl.'/diary/'.$foreignId;
         break;
       case 'd':
         $diaryComment = Doctrine::getTable('DiaryComment')->findOneById($foreignId);
-        $url = '/diary/' . $diaryComment->getDiaryId();
+        $url = $baseUrl.'/diary/'.$diaryComment->getDiaryId();
         break;
       case 'e':
         $eventComment = Doctrine::getTable('CommunityEventComment')->findOneById($foreignId);
-        $url = '/communityEvent/' . $eventComment->getCommunityEventId();
+        $url = $baseUrl.'/communityEvent/'.$eventComment->getCommunityEventId();
         break;
       case 't':
         $topicComment = Doctrine::getTable('CommunityTopicComment')->findOneById($foreignId);
-        $url = '/communityTopic/' . $topicComment->getCommunityTopicId();
+        $url = $baseUrl.'/communityTopic/'.$topicComment->getCommunityTopicId();
         break;
       default :
         $url = '#';
