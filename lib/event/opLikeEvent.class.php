@@ -15,20 +15,24 @@ class opLikeEvent
     $repuest = sfContext::getInstance()->getRequest();
     $response = sfContext::getInstance()->getResponse();
 
-    $memberInstance = sfContext::getInstance()->getUser()->getMember();
-    if (get_class($memberInstance) !== 'opAnonymousMember')
+    $pos = strpos($_SERVER['SCRIPT_NAME'], 'pc_backend');
+    if (false === $pos)
     {
-      if ($repuest->isSmartphone())
+      $memberInstance = sfContext::getInstance()->getUser()->getMember();
+      if (get_class($memberInstance) !== 'opAnonymousMember')
       {
-        sfContext::getInstance()->getResponse()->addSmtStylesheet('/opLikePlugin/css/like-smartphone.css', '', array());
-        sfContext::getInstance()->getResponse()->addSmtJavascript('/opLikePlugin/js/like-smartphone.js', 'last', array());
-      }
-      else
-      {
-        $response->addStylesheet('/opLikePlugin/css/like.css');
-        $response->addStylesheet('/opLikePlugin/css/bootstrap.css');
-        $response->addJavascript('/opLikePlugin/js/like.js', 'last');
-        $response->addJavascript('/opLikePlugin/js/bootstrap-modal.js', 'last');
+        if ($repuest->isSmartphone())
+        {
+          sfContext::getInstance()->getResponse()->addSmtStylesheet('/opLikePlugin/css/like-smartphone.css', '', array());
+          sfContext::getInstance()->getResponse()->addSmtJavascript('/opLikePlugin/js/like-smartphone.js', 'last', array());
+        }
+        else
+        {
+          $response->addStylesheet('/opLikePlugin/css/like.css');
+          $response->addStylesheet('/opLikePlugin/css/bootstrap.css');
+          $response->addJavascript('/opLikePlugin/js/like.js', 'last');
+          $response->addJavascript('/opLikePlugin/js/bootstrap-modal.js', 'last');
+        }
       }
     }
   }
