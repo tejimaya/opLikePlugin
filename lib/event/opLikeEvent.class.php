@@ -21,8 +21,8 @@ class opLikeEvent
       {
         if ($request->isSmartphone())
         {
-          sfContext::getInstance()->getResponse()->addSmtStylesheet('/opLikePlugin/css/like-smartphone.css', '', array());
-          sfContext::getInstance()->getResponse()->addSmtJavascript('/opLikePlugin/js/like-smartphone.js', 'last', array());
+          $response->addSmtStylesheet('/opLikePlugin/css/like-smartphone.css', '', array());
+          $response->addSmtJavascript('/opLikePlugin/js/like-smartphone.js', 'last', array());
         }
         else
         {
