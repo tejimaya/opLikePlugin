@@ -17,6 +17,7 @@ class opLikeEvent
 
     if ('pc_frontend' === sfConfig::get('sf_app'))
     {
+      $memberInstance = sfContext::getInstance()->getUser()->getMember();
       if (!$memberInstance instanceof opAnonymousMember)
       {
         if ($request->isSmartphone())
