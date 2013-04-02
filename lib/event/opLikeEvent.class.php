@@ -12,14 +12,14 @@ class opLikeEvent
 {
   public static function useAssets(sfEvent $event)
   {
-    $repuest = sfContext::getInstance()->getRequest();
+    $request = sfContext::getInstance()->getRequest();
     $response = sfContext::getInstance()->getResponse();
 
     if ('pc_frontend' === sfConfig::get('sf_app'))
     {
       if (!$memberInstance instanceof opAnonymousMember)
       {
-        if ($repuest->isSmartphone())
+        if ($request->isSmartphone())
         {
           sfContext::getInstance()->getResponse()->addSmtStylesheet('/opLikePlugin/css/like-smartphone.css', '', array());
           sfContext::getInstance()->getResponse()->addSmtJavascript('/opLikePlugin/js/like-smartphone.js', 'last', array());
