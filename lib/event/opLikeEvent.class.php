@@ -15,8 +15,7 @@ class opLikeEvent
     $repuest = sfContext::getInstance()->getRequest();
     $response = sfContext::getInstance()->getResponse();
 
-    $pos = strpos($_SERVER['SCRIPT_NAME'], 'pc_backend');
-    if (false === $pos)
+    if ('pc_frontend' === sfConfig::get('sf_app'))
     {
       $memberInstance = sfContext::getInstance()->getUser()->getMember();
       if (get_class($memberInstance) !== 'opAnonymousMember')
