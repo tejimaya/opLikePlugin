@@ -31,8 +31,8 @@ EOF;
  
   protected function execute($arguments = array(), $options = array())
   {
-    $file = 'plugins/opLikePlugin/addtags.lock';
-    $pluginPath = 'plugins/';
+    $pluginPath = sfConfig::get('sf_plugins_dir').'/';
+    $file = $pluginPath.'opLikePlugin/addtags.lock';
     if (!file_exists($file))
     {
       touch($file);
