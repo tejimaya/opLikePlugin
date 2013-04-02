@@ -59,16 +59,18 @@ EOF;
 
     $dirList = array();
     $fileList = scandir($pluginPath);
-    foreach($fileList as $value) {
-      if (is_dir($pluginPath . $value))
+    foreach($fileList as $value)
+    {
+      if (is_dir($pluginPath.$value))
       {
         array_push($dirList, $value);
       }
     }
 
-    foreach($dirList as $dir) {
+    foreach($dirList as $dir)
+    {
       $shKey = array_search($dir, $targetPlugin);
-      if ($shKey !== FALSE)
+      if (FALSE !== $shKey)
       {
         exec(mb_substr($shKey, 0, strlen($shKey)), $shOutput);
         foreach ($shOutput as $output)
