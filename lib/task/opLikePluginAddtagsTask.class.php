@@ -38,7 +38,7 @@ EOF;
       touch($file);
       chmod($file, 0666);
 
-      echo("パッチを実行します。\n");
+      $this->logSection('opLikePlugin', 'パッチを実行します。');
       $targetPlugin = array(
         $pluginPath.'opLikePlugin/lib/task/opTimelinePlugin.sh' => 'opTimelinePlugin',
         $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.sh' => 'opDiaryPlugin',
@@ -49,7 +49,7 @@ EOF;
     {
       unlink($file);
 
-      echo("リバースパッチを実行します。\n");
+      $this->logSection('opLikePlugin', 'リバースパッチを実行します。');
       $targetPlugin = array(
         $pluginPath.'opLikePlugin/lib/task/opTimelinePlugin.sh -R' => 'opTimelinePlugin',
         $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.sh -R' => 'opDiaryPlugin',
