@@ -46,22 +46,16 @@ class likeActions extends opJsonApiActions
     $foreignId = $request['target_id'];
     $foreignMemberId = $request['member_id'];
 
-    if (1 < strlen($foreignTable)) $this->forward400('Is at least one character');
+    $toMember = Doctrine::getTable('Member')->findOneById($foreignMemberId);
+    $this->forward400Unless($toMember, 'member does not exist.');
 
-    $AlreadyLike = Doctrine::getTable('Nice')->isAlreadyNiced($this->memberId, $foreignTable, $foreignId);
-    $this->forward400Unless(!$AlreadyLike, 'It has already been registered');
+    $this->forward400If(1 < strlen($foreignTable), 'must be a single character.');
 
-    $like = new Nice();
-    $like->setMemberId($this->memberId);
-    $like->setForeignTable($foreignTable);
-    $like->setForeignId($foreignId);
-
-    $like->save();
-    $this->like = $like;
+    $alreadyLike = Doctrine::getTable('Nice')->isAlreadyNiced($this->memberId, $foreignTable, $foreignId);
+    $this->forward400If($alreadyLike, 'It has already been registered');
 
     $fromMember = $this->getUser()->getMember();
-    $toMember = Doctrine::getTable('Member')->findOneById($foreignMemberId);
-    $baseUrl = sfContext::getInstance()->getRequest()->getRelativeUrlRoot();
+    $baseUrl = $request->getRelativeUrlRoot();
     switch ($foreignTable)
     {
       case 'A':
@@ -72,20 +66,32 @@ class likeActions extends opJsonApiActions
         break;
       case 'd':
         $diaryComment = Doctrine::getTable('DiaryComment')->findOneById($foreignId);
+        $this->forward400Unless($diaryComment, 'diary comment does not exist.');
         $url = $baseUrl.'/diary/'.$diaryComment->getDiaryId();
         break;
       case 'e':
         $eventComment = Doctrine::getTable('CommunityEventComment')->findOneById($foreignId);
+        $this->forward400Unless($eventComment, 'event comment does not exist.');
         $url = $baseUrl.'/communityEvent/'.$eventComment->getCommunityEventId();
         break;
       case 't':
         $topicComment = Doctrine::getTable('CommunityTopicComment')->findOneById($foreignId);
+        $this->forward400Unless($topicComment, 'topic comment does not exist.');
         $url = $baseUrl.'/communityTopic/'.$topicComment->getCommunityTopicId();
         break;
       default :
         $url = '#';
         break;
     }
+
+    $like = new Nice();
+    $like->setMemberId($this->memberId);
+    $like->setForeignTable($foreignTable);
+    $like->setForeignId($foreignId);
+
+    $like->save();
+    $this->like = $like;
+
     if ($fromMember->getId() !== $toMember->getId())
     {
       opLikePluginUtil::sendNotification($fromMember, $toMember, $url);
@@ -118,7 +124,14 @@ class likeActions extends opJsonApiActions
     $maxId = null;
     if (isset($request['max_id']))
     {
-      is_numeric($request['max_id']) ? $maxId = $request['max_id'] : $this->forward400('max_id is not a number');
+      if (is_numeric($request['max_id']))
+      {
+        $maxId = $request['max_id'];
+      }
+      else
+      {
+        $this->forward400('max_id is not a number');
+      }
     }
 
     $this->members = Doctrine::getTable('Nice')->getNiceMemberList($foreignTable, $foreignId, $maxId);

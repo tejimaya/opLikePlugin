@@ -14,9 +14,10 @@
  * @package    OpenPNE
  * @subpackage like
  * @author     H. Hishida<info@77-web.com>
+ * @author     tatsuya ichikawa <ichikawa@tejimaya.com>
  * @version    SVN: $Id: actions.class.php 9301 2008-05-27 01:08:46Z dwhittle $
  */
-class likeActions extends opLikePluginLikeActions
+class likeActions extends sfActions
 {
   public function executeMemberList(sfWebRequest $request)
   {
