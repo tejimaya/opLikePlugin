@@ -23,12 +23,12 @@ class opLikePluginAddtagsTask extends sfBaseTask
     $this->namespace        = 'opLikePlugin';
     $this->name             = 'addtags';
     $this->briefDescription = 'Addtags Command for "opLikePlugin".';
- 
+
     $this->detailedDescription = <<<EOF
 Use this command to addtags "opLikePlugin".
 EOF;
   }
- 
+
   protected function execute($arguments = array(), $options = array())
   {
     $pluginPath = sfConfig::get('sf_plugins_dir').'/';
@@ -40,9 +40,9 @@ EOF;
 
       $this->logSection('opLikePlugin', 'パッチを実行します。');
       $targetPlugin = array(
-        $pluginPath.'opLikePlugin/lib/task/opTimelinePlugin.sh' => 'opTimelinePlugin',
-        $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.sh' => 'opDiaryPlugin',
-        $pluginPath.'opLikePlugin/lib/task/opCommunityTopicPlugin.sh' => 'opCommunityTopicPlugin'
+        'opTimelinePlugin' => $pluginPath.'opLikePlugin/lib/task/opTimelinePlugin.sh',
+        'opDiaryPlugin' => $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.sh',
+        'opCommunityTopicPlugin' => $pluginPath.'opLikePlugin/lib/task/opCommunityTopicPlugin.sh'
       );
     }
     else
@@ -51,9 +51,9 @@ EOF;
 
       $this->logSection('opLikePlugin', 'リバースパッチを実行します。');
       $targetPlugin = array(
-        $pluginPath.'opLikePlugin/lib/task/opTimelinePlugin.sh -R' => 'opTimelinePlugin',
-        $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.sh -R' => 'opDiaryPlugin',
-        $pluginPath.'opLikePlugin/lib/task/opCommunityTopicPlugin.sh -R' => 'opCommunityTopicPlugin'
+        'opTimelinePlugin' => $pluginPath.'opLikePlugin/lib/task/opTimelinePlugin.sh -R',
+        'opDiaryPlugin' => $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.sh -R',
+        'opCommunityTopicPlugin' => $pluginPath.'opLikePlugin/lib/task/opCommunityTopicPlugin.sh -R'
       );
     }
 
@@ -61,21 +61,20 @@ EOF;
     $fileList = scandir($pluginPath);
     foreach($fileList as $value)
     {
-      if (is_dir($pluginPath.$value))
+      if (is_dir($pluginPath.$value) && isset($targetPlugin[$value]))
       {
-        array_push($dirList, $value);
-      }
-    }
-
-    foreach($dirList as $dir)
-    {
-      $shKey = array_search($dir, $targetPlugin);
-      if (FALSE !== $shKey)
-      {
-        exec(mb_substr($shKey, 0, strlen($shKey)), $shOutput);
-        foreach ($shOutput as $output)
+        exec($targetPlugin[$value].' --dry-run', $tempOutput, $execResult);
+        if (0 === $execResult)
         {
-          echo $output."\n";
+          exec($targetPlugin[$value], $shOutput);
+          foreach ($shOutput as $output)
+          {
+            echo $output."\n";
+          }
+        }
+        else
+        {
+          $this->logSection('opLikePlugin', 'パッチの適用に失敗しました。');
         }
       }
     }
