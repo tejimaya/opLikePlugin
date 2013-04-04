@@ -128,10 +128,10 @@ index 68de273..1159005 100644
 +  </div>
 +</div>
 diff --git plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineProfile.php plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineProfile.php
-index bde587d..f94efa1 100644
+index 6578800..7fd7557 100644
 --- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineProfile.php
 +++ plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineProfile.php
-@@ -39,3 +39,22 @@ var MAXLENGTH = 140;
+@@ -43,3 +43,22 @@ var MAXLENGTH = 140;
  </div>
  
  </div></div>
@@ -193,12 +193,12 @@ index f15bb06..6e38246 100644
 +            </div>
  </script>
 diff --git plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/showSuccess.php plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/showSuccess.php
-index 9b18eb3..41602bb 100644
+index 24f77bd..7622cfd 100644
 --- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/showSuccess.php
 +++ plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/showSuccess.php
 @@ -33,3 +33,22 @@ var fileMaxSize = '<?php echo opTimelinePluginUtil::getFileSizeMax() ?>';
-       </div>
-     </div>
+   </div>
+ </div>
  
 +<script id="LikelistTemplate" type="text/x-jquery-tmpl">
 +<table>

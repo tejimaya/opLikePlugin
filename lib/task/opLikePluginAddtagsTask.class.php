@@ -33,40 +33,45 @@ EOF;
   {
     $pluginPath = sfConfig::get('sf_plugins_dir').'/';
     $file = $pluginPath.'opLikePlugin/addtags.lock';
+    $targetPlugins = array(
+      'opTimelinePlugin' => $pluginPath.'opLikePlugin/lib/task/opTimelinePlugin.sh',
+      'opDiaryPlugin' => $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.sh',
+      'opCommunityTopicPlugin' => $pluginPath.'opLikePlugin/lib/task/opCommunityTopicPlugin.sh'
+    );
+
+    foreach ($targetPlugins as $key => $value)
+    {
+      chmod($value, 0755);
+    }
+
     if (!file_exists($file))
     {
       touch($file);
       chmod($file, 0666);
 
       $this->logSection('opLikePlugin', 'パッチを実行します。');
-      $targetPlugin = array(
-        'opTimelinePlugin' => $pluginPath.'opLikePlugin/lib/task/opTimelinePlugin.sh',
-        'opDiaryPlugin' => $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.sh',
-        'opCommunityTopicPlugin' => $pluginPath.'opLikePlugin/lib/task/opCommunityTopicPlugin.sh'
-      );
     }
     else
     {
       unlink($file);
 
       $this->logSection('opLikePlugin', 'リバースパッチを実行します。');
-      $targetPlugin = array(
-        'opTimelinePlugin' => $pluginPath.'opLikePlugin/lib/task/opTimelinePlugin.sh -R',
-        'opDiaryPlugin' => $pluginPath.'opLikePlugin/lib/task/opDiaryPlugin.sh -R',
-        'opCommunityTopicPlugin' => $pluginPath.'opLikePlugin/lib/task/opCommunityTopicPlugin.sh -R'
-      );
+      foreach ($targetPlugins as $key => $value)
+      {
+        $targetPlugins[$key] .= ' -R';
+      }
     }
 
     $dirList = array();
     $fileList = scandir($pluginPath);
     foreach($fileList as $value)
     {
-      if (is_dir($pluginPath.$value) && isset($targetPlugin[$value]))
+      if (is_dir($pluginPath.$value) && isset($targetPlugins[$value]))
       {
-        exec($targetPlugin[$value].' --dry-run', $tempOutput, $execResult);
+        exec($targetPlugins[$value].' --dry-run', $tempOutput, $execResult);
         if (0 === $execResult)
         {
-          exec($targetPlugin[$value], $shOutput);
+          exec($targetPlugins[$value], $shOutput);
           foreach ($shOutput as $output)
           {
             echo $output."\n";
