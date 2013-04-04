@@ -25,10 +25,10 @@
   <active>yes</active>
  </lead>
  <date>2013-04-04</date>
- <time>18:12:19</time>
+ <time>19:10:42</time>
  <version>
-  <release>1.2.0</release>
-  <api>1.2.0</api>
+  <release>1.2.1</release>
+  <api>1.2.1</api>
  </version>
  <stability>
   <release>stable</release>
@@ -36,7 +36,7 @@
  </stability>
  <license>Apache</license>
  <notes>
-opLikePlugin 1.2.0 release.
+opLikePlugin 1.2.1 release.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -58,7 +58,7 @@ opLikePlugin 1.2.0 release.
    <file baseinstalldir="/" md5sum="b6d911a5e823f5301d0d0e5777a8ac1c" name="data/fixtures/000_revision.yml" role="data" />
    <file baseinstalldir="/" md5sum="ab5eb0be4e2eae5b4599f7e13b418961" name="data/patches/opCommunityTopicPlugin.patch" role="data" />
    <file baseinstalldir="/" md5sum="8d67338d6eb7d73898c0c451ab71281a" name="data/patches/opDiaryPlugin.patch" role="data" />
-   <file baseinstalldir="/" md5sum="418dde354a60fb0ce85403085cdb67bd" name="data/patches/opTimelinePlugin.patch" role="data" />
+   <file baseinstalldir="/" md5sum="b4374464790056262ba33088a5514bc1" name="data/patches/opTimelinePlugin.patch" role="data" />
    <file baseinstalldir="/" md5sum="5e22e6bedb79038e52ee3c452930306f" name="i18n/messages.ja.xml" role="data" />
    <file baseinstalldir="/" md5sum="14ef49933ab04609b7c2a494450ca616" name="lib/event/opLikeEvent.class.php" role="data" />
    <file baseinstalldir="/" md5sum="ba380f7af5f8cd21e5b503b0ede66308" name="lib/helper/opLikeHelper.php" role="data" />
@@ -66,7 +66,7 @@ opLikePlugin 1.2.0 release.
    <file baseinstalldir="/" md5sum="5bd3ca76b6901379c336535434c30dfd" name="lib/model/doctrine/PluginNiceTable.class.php" role="data" />
    <file baseinstalldir="/" md5sum="1c4cba42953275ac8c1f1473fdac3e41" name="lib/task/opCommunityTopicPlugin.sh" role="data" />
    <file baseinstalldir="/" md5sum="c873a2acef31dc229f4d87c0307dceb2" name="lib/task/opDiaryPlugin.sh" role="data" />
-   <file baseinstalldir="/" md5sum="971616d88224edabd761656b8dc16b23" name="lib/task/opLikePluginAddtagsTask.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="7b4c21815c07abe6e48a2df8d05cd595" name="lib/task/opLikePluginAddtagsTask.class.php" role="data" />
    <file baseinstalldir="/" md5sum="4ad4e3cdfa54cc2b96eb46e8d6bde24a" name="lib/task/opTimelinePlugin.sh" role="data" />
    <file baseinstalldir="/" md5sum="9af8c3ff9906893dee8532aa8bff4c5f" name="lib/util/opLikePluginUtil.class.php" role="data" />
    <file baseinstalldir="/" md5sum="25b04d5e2306bbc79824f120dc88d181" name="test/bootstrap/database.php" role="data" />
@@ -266,6 +266,21 @@ alpha release.
    <license>Apache</license>
    <notes>
 opLikePlugin 1.2.0 release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.2.1</release>
+    <api>1.2.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2013-04-04</date>
+   <license>Apache</license>
+   <notes>
+opLikePlugin 1.2.1 release.
    </notes>
   </release>
  </changelog>
