@@ -1,6 +1,7 @@
-diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php
---- plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php	2013-02-20 11:42:16.000000000 +0900
-+++ plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php	2013-02-20 11:40:41.000000000 +0900
+diff --git plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php
+index 258d189..941aad0 100644
+--- plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php
++++ plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuccess.php
 @@ -36,6 +36,17 @@
  <?php endif; ?>
  <?php echo op_url_cmd(op_decoration(nl2br($diary->body))) ?>
@@ -19,7 +20,7 @@ diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuc
  </dd>
  </dl>
  <?php if ($diary->member_id === $myMemberId): ?>
-@@ -68,3 +79,23 @@
+@@ -68,3 +79,23 @@ op_include_form('formDiaryComment', $form, array(
  <?php endif; ?>
  
  <?php op_include_line('lineLinkToDiaryMemberList', link_to(__('Diaries of %1%', array('%1%' => $member->name)), 'diary_list_member', $member)) ?>
@@ -43,46 +44,10 @@ diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/showSuc
 +    <a href="#" class="btn close" data-dismiss="modal" aria-hidden="true">閉じる</a>
 +  </div>
 +</div>
-diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php
---- plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php	2013-02-20 11:42:16.000000000 +0900
-+++ plugins/opDiaryPlugin/apps/pc_frontend/modules/diary/templates/smtShowSuccess.php	2013-02-20 11:21:28.000000000 +0900
-@@ -27,6 +27,16 @@
-       <div class="span4"><a href="${$value.filename}" target="_blank">{{html $value.imagetag}}</a></div>
-     {{/each}}
-   </div>
-+  <!-- Like Plugin -->
-+  <div class="row like-wrapper" data-like-id="${id}" data-like-target="D" member-id="${member.id}" style="display: none;">
-+    <span class="span6"> 
-+      <a class="like-post">いいね！</a>
-+      <a class="like-cancel">いいね！を取り消す</a>
-+    </span>
-+    <span class="span6">
-+      <a class="like-list"></a>
-+    </span>
-+  </div>
-   {{tmpl "#diarySiblings"}}
-   <div class="row" id="comments">
-   </div>
-@@ -64,6 +74,16 @@
-           <div class="span3"><a href="${$value.filename}" target="_blank">{{html $value.imagetag}}</a></div>
-         {{/each}}
-       </div>
-+      <!-- Like Plugin -->
-+      <div class="row like-wrapper" data-like-id="${id}" data-like-target="d" member-id="${member.id}" style="display: none;">
-+        <span class="span5"> 
-+          <a class="like-post">いいね！</a>
-+          <a class="like-cancel">いいね！を取り消す</a>
-+        </span>
-+        <span class="span2">
-+          <a class="like-list"></a>
-+        </span>
-+      </div>
-     </div>
-   </div>
- </script>
-diff -urN plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php
---- plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php	2013-02-20 11:42:16.000000000 +0900
-+++ plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php	2013-02-20 11:41:02.000000000 +0900
+diff --git plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php
+index dc648ca..6560e78 100644
+--- plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php
++++ plugins/opDiaryPlugin/apps/pc_frontend/modules/diaryComment/templates/_list.php
 @@ -55,9 +55,40 @@
  <?php echo op_url_cmd(nl2br($comment->body)) ?>
  </p>

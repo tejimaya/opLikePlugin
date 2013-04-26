@@ -1,27 +1,8 @@
-diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php
---- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php	2013-02-20 11:42:32.000000000 +0900
-+++ plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent/templates/smtShowSuccess.php	2013-02-20 11:21:46.000000000 +0900
-@@ -103,6 +103,16 @@
-         <a href="javascript:void(0);" class="deleteComment" data-comment-id="${id}"><i class="icon-remove"></i></a>
-         {{/if}}
-       </div>
-+      <!-- Like Plugin -->
-+      <div class="row like-wrapper" data-like-id="${id}" data-like-target="e" member-id="${member.id}" style="display: none;">
-+      <span class="span6"> 
-+      <a class="like-post">いいね！</a>
-+      <a class="like-cancel">いいね！を取り消す</a>
-+      </span>
-+      <span class="span4">
-+      <a class="like-list"></a>
-+      </span>
-+      </div>
-     </div>
-   </div>
- </script>
-diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php
---- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php	2013-02-20 11:42:32.000000000 +0900
-+++ plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php	2013-02-20 11:41:35.000000000 +0900
-@@ -39,6 +39,17 @@
+diff --git plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php
+index 16e39af..2c4e439 100644
+--- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php
++++ plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEventComment/templates/_list.php
+@@ -39,6 +39,17 @@ $images = $comment->getImages();
  <?php echo op_url_cmd(nl2br($comment->getBody())) ?>
  </p>
  </div>
@@ -39,7 +20,7 @@ diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent
  </dd>
  </dl>
  <?php endforeach; ?>
-@@ -48,3 +59,23 @@
+@@ -48,3 +59,23 @@ $images = $comment->getImages();
  </div>
  </div>
  <?php endif; ?>
@@ -63,30 +44,11 @@ diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityEvent
 +    <a href="#" class="btn close" data-dismiss="modal" aria-hidden="true">閉じる</a>
 +  </div>
 +</div>
-diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php
---- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php	2013-02-20 11:42:32.000000000 +0900
-+++ plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic/templates/smtShowSuccess.php	2013-02-20 11:21:46.000000000 +0900
-@@ -76,6 +76,16 @@
-         <a href="javascript:void(0);" class="deleteComment" data-comment-id="${id}"><i class="icon-remove"></i></a>
-         {{/if}}
-       </div>
-+      <!-- Like Plugin -->
-+      <div class="row like-wrapper" data-like-id="${id}" data-like-target="t" member-id="${member.id}" style="display: none;">
-+      <span class="span6"> 
-+      <a class="like-post">いいね！</a>
-+      <a class="like-cancel">いいね！を取り消す</a>
-+      </span>
-+      <span class="span4">
-+      <a class="like-list"></a>
-+      </span>
-+      </div>
-     </div>
-   </div>
- </script>
-diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php
---- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php	2013-02-20 11:42:32.000000000 +0900
-+++ plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php	2013-02-20 11:41:44.000000000 +0900
-@@ -38,6 +38,17 @@
+diff --git plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php
+index 1c3c31d..c6af9da 100644
+--- plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php
++++ plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopicComment/templates/_list.php
+@@ -38,6 +38,17 @@ $images = $comment->getImages();
  <?php echo op_url_cmd(nl2br($comment->getBody())) ?>
  </p>
  </div>
@@ -104,7 +66,7 @@ diff -urN plugins/opCommunityTopicPlugin/apps/pc_frontend/modules/communityTopic
  </dd>
  </dl>
  <?php endforeach; ?>
-@@ -47,3 +58,23 @@
+@@ -47,3 +58,23 @@ $images = $comment->getImages();
  </div>
  </div>
  <?php endif; ?>
