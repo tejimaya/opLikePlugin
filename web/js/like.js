@@ -23,8 +23,9 @@ $(function(){
         $(likeParent).children('.like-post').hide();
         $(likeParent).children('.like-cancel').show();
       },
-      error: function(e)
+      error: function(jqXHR, textStatus, errorThrown)
       {
+        if (jqXHR.status === 0) return; // aborted
         alert("いいね！の投稿に失敗しました。");
       }
     });
@@ -52,8 +53,9 @@ $(function(){
         $(likeParent).children('.like-post').show();
         $(likeParent).children('.like-cancel').hide();
       },
-      error: function(e)
+      error: function(jqXHR, textStatus, errorThrown)
       {
+        if (jqXHR.status === 0) return; // aborted
         alert("いいね！の削除に失敗しました。");
       }
     });
@@ -82,8 +84,9 @@ $(function(){
           memberListShow(json, likeId, target);
         }
       },
-      error: function(e)
+      error: function(jqXHR, textStatus, errorThrown)
       {
+        if (jqXHR.status === 0) return; // aborted
         alert("データ取得にに失敗しました。");
       }
     });
@@ -119,8 +122,9 @@ $(function(){
           }
         }
       },
-      error: function(e)
+      error: function(jqXHR, textStatus, errorThrown)
       {
+        if (jqXHR.status === 0) return; // aborted
         alert("データ取得にに失敗しました。");
       }
     });
@@ -167,8 +171,9 @@ function totalLoad(likeId, target, obj)
         likeList.text('');
       }
     },
-    error: function(e)
+    error: function(jqXHR, textStatus, errorThrown)
     {
+      if (jqXHR.status === 0) return; // aborted
       alert("データ取得にに失敗しました。");
     }
   });
@@ -325,8 +330,9 @@ function packetLoad(dataList)
       $('.like-wrapper').show();
       $('.like').show();
     },
-    error: function(e)
+    error: function(jqXHR, textStatus, errorThrown)
     {
+      if (jqXHR.status === 0) return; // aborted
       alert("データ取得にに失敗しました。");
     }
   });
