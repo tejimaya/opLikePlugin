@@ -87,7 +87,7 @@ $(function(){
       error: function(jqXHR, textStatus, errorThrown)
       {
         if (jqXHR.status === 0) return; // aborted
-        alert("データ取得にに失敗しました。");
+        alert("データ取得に失敗しました。");
       }
     });
   });
@@ -125,7 +125,7 @@ $(function(){
       error: function(jqXHR, textStatus, errorThrown)
       {
         if (jqXHR.status === 0) return; // aborted
-        alert("データ取得にに失敗しました。");
+        alert("データ取得に失敗しました。");
       }
     });
   });
@@ -174,7 +174,7 @@ function totalLoad(likeId, target, obj)
     error: function(jqXHR, textStatus, errorThrown)
     {
       if (jqXHR.status === 0) return; // aborted
-      alert("データ取得にに失敗しました。");
+      alert("データ取得に失敗しました。");
     }
   });
 }
@@ -333,7 +333,7 @@ function packetLoad(dataList)
     error: function(jqXHR, textStatus, errorThrown)
     {
       if (jqXHR.status === 0) return; // aborted
-      alert("データ取得にに失敗しました。");
+      alert("データ取得に失敗しました。");
     }
   });
 }
