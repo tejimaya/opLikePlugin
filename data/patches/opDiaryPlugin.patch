@@ -12,7 +12,7 @@ index 258d189..941aad0 100644
 +<span class="like-post">いいね！</span>
 +<span class="like-cancel">いいね！を取り消す&nbsp;</span>
 +<span class="like-you">あなたが「いいね！」と言っています。</span><br />
-+<a class="like-list" href="#likeModal" data-toggle="modal"></a>
++<a class="like-list" href="javascript:void(0)" onclick="$('#likeModal').modal('show')"></a>
 +<div class="like-list-member"></div>
 +<span class="like-friend-list"></span>
 +</span>
@@ -58,7 +58,7 @@ index dc648ca..6560e78 100644
 +<span class="like-post">いいね！</span>
 +<span class="like-cancel">いいね！を取り消す&nbsp;</span>
 +<span class="like-you">あなたが「いいね！」と言っています。</span><br />
-+<a class="like-list" href="#likeModal" data-toggle="modal"></a>
++<a class="like-list" href="javascript:void(0)" onclick="$('#likeModal').modal('show')"></a>
 +<div class="like-list-member"></div>
 +<span class="like-friend-list"></span>
 +</span>
