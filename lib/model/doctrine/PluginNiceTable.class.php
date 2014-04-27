@@ -21,6 +21,11 @@ class PluginNiceTable extends Doctrine_Table
     return Doctrine_Core::getTable('PluginNice');
   }
 
+  public function generateForeignHash($foreignTable, $foreignId)
+  {
+    return md5($foreignTable.','.$foreignId);
+  }
+
   public function getNicedList($tableChar, $id, $limit = 0)
   {
     $q = $this->createQuery('n')->where('foreign_table = binary ? AND foreign_id = ?', array($tableChar, $id))->orderBy('id DESC');

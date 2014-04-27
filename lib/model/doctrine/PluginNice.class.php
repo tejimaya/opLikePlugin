@@ -13,4 +13,8 @@
  */
 abstract class PluginNice extends BaseNice
 {
+  public function preSave($event)
+  {
+    $this->_set('foreign_hash', $this->getTable()->generateForeignHash($this->_get('foreign_table'), $this->_get('foreign_id')));
+  }
 }
