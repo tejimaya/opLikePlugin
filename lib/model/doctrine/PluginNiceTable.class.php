@@ -73,13 +73,39 @@ class PluginNiceTable extends Doctrine_Table
 
   public function getPacketNiceMemberList($dataList)
   {
-    $nices = array();
-
+    $hashes = array();
     foreach ($dataList as $data)
     {
-      $nices[] = $this->getNicedList($data['target'], $data['likeId']);
+      $hashes[] = $this->generateForeignHash($data['target'], $data['likeId']);
     }
 
-    return $nices;
+    $results = $this->createQuery()
+      ->select('id')
+      ->addSelect('foreign_table')
+      ->addSelect('foreign_id')
+      ->addSelect('foreign_hash')
+      ->addSelect('member_id')
+      ->whereIn('foreign_hash', $hashes)
+      ->orderBy('id DESC')
+      ->execute(array(), Doctrine_Core::HYDRATE_NONE);
+
+    $list = array();
+    foreach ($results as $result)
+    {
+      $id = $result[0];
+      $foreignTable = $result[1];
+      $foreignId = $result[2];
+      $foreignHash = $result[3];
+      $memberId = $result[4];
+
+      $list[$foreignHash][] = array(
+        'id' => $id,
+        'foreign_table' => $foreignTable,
+        'foreign_id' => $foreignId,
+        'member' => Doctrine_Core::getTable('Member')->find($memberId),
+      );
+    }
+
+    return $list;
   }
 }
