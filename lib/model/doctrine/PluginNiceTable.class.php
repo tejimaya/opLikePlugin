@@ -28,7 +28,9 @@ class PluginNiceTable extends Doctrine_Table
 
   public function getNicedList($tableChar, $id, $limit = 0)
   {
-    $q = $this->createQuery('n')->where('foreign_table = binary ? AND foreign_id = ?', array($tableChar, $id))->orderBy('id DESC');
+    $q = $this->createQuery()
+      ->where('foreign_hash = ?', $this->generateForeignHash($tableChar, $id))
+      ->orderBy('id DESC');
 
     if (0 < $limit)
     {
@@ -40,7 +42,9 @@ class PluginNiceTable extends Doctrine_Table
 
   public function getNicedCount($tableChar, $id)
   {
-    return $this->createQuery('n')->where('foreign_table = binary ? AND foreign_id = ?', array($tableChar, $id))->count();
+    return $this->createQuery()
+      ->where('foreign_hash = ?', $this->generateForeignHash($tableChar, $id))
+      ->count();
   }
 
   public function isAlreadyNiced($memberId, $tableChar, $id)
