@@ -94,6 +94,7 @@ class PluginNiceTable extends Doctrine_Table
       ->execute(array(), Doctrine_Core::HYDRATE_NONE);
 
     $list = array();
+    $members = array();
     foreach ($results as $result)
     {
       $id = $result[0];
@@ -102,14 +103,29 @@ class PluginNiceTable extends Doctrine_Table
       $foreignHash = $result[3];
       $memberId = $result[4];
 
+      if (!isset($members[$memberId]))
+      {
+        $members[$memberId] = Doctrine_Core::getTable('Member')->find($memberId);
+      }
+
       $list[$foreignHash][] = array(
         'id' => $id,
         'foreign_table' => $foreignTable,
         'foreign_id' => $foreignId,
-        'member' => Doctrine_Core::getTable('Member')->find($memberId),
+        'member' => $members[$memberId],
       );
     }
 
-    return $list;
+    // update sort order by argments array.
+    $likeList = array();
+    foreach ($hashes as $hash)
+    {
+      if (isset($list[$hash]))
+      {
+        $likeList[] = $list[$hash];
+      }
+    }
+
+    return $likeList;
   }
 }
