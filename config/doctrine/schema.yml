@@ -16,6 +16,9 @@ Nice:
     foreign_id:
       type: integer(4)
       notnull: true
+    foreign_hash:
+      type: string(32)
+      notnull: true
   relations:
     Member:
       local: member_id
@@ -25,4 +28,6 @@ Nice:
     member_id_foreign_table_foreign_id_UNIQUE:
       fields: [member_id, foreign_table, foreign_id]
       type: unique
+    foreign_hash_id:
+      fields: [foreign_hash, id]
   actAs: [Timestampable]

@@ -21,9 +21,16 @@ class PluginNiceTable extends Doctrine_Table
     return Doctrine_Core::getTable('PluginNice');
   }
 
+  public function generateForeignHash($foreignTable, $foreignId)
+  {
+    return md5($foreignTable.','.$foreignId);
+  }
+
   public function getNicedList($tableChar, $id, $limit = 0)
   {
-    $q = $this->createQuery('n')->where('foreign_table = binary ? AND foreign_id = ?', array($tableChar, $id))->orderBy('id DESC');
+    $q = $this->createQuery()
+      ->where('foreign_hash = ?', $this->generateForeignHash($tableChar, $id))
+      ->orderBy('id DESC');
 
     if (0 < $limit)
     {
@@ -35,7 +42,9 @@ class PluginNiceTable extends Doctrine_Table
 
   public function getNicedCount($tableChar, $id)
   {
-    return $this->createQuery('n')->where('foreign_table = binary ? AND foreign_id = ?', array($tableChar, $id))->count();
+    return $this->createQuery()
+      ->where('foreign_hash = ?', $this->generateForeignHash($tableChar, $id))
+      ->count();
   }
 
   public function isAlreadyNiced($memberId, $tableChar, $id)
@@ -68,13 +77,55 @@ class PluginNiceTable extends Doctrine_Table
 
   public function getPacketNiceMemberList($dataList)
   {
-    $nices = array();
-
+    $hashes = array();
     foreach ($dataList as $data)
     {
-      $nices[] = $this->getNicedList($data['target'], $data['likeId']);
+      $hashes[] = $this->generateForeignHash($data['target'], $data['likeId']);
     }
 
-    return $nices;
+    $results = $this->createQuery()
+      ->select('id')
+      ->addSelect('foreign_table')
+      ->addSelect('foreign_id')
+      ->addSelect('foreign_hash')
+      ->addSelect('member_id')
+      ->whereIn('foreign_hash', $hashes)
+      ->orderBy('id DESC')
+      ->execute(array(), Doctrine_Core::HYDRATE_NONE);
+
+    $list = array();
+    $members = array();
+    foreach ($results as $result)
+    {
+      $id = $result[0];
+      $foreignTable = $result[1];
+      $foreignId = $result[2];
+      $foreignHash = $result[3];
+      $memberId = $result[4];
+
+      if (!isset($members[$memberId]))
+      {
+        $members[$memberId] = Doctrine_Core::getTable('Member')->find($memberId);
+      }
+
+      $list[$foreignHash][] = array(
+        'id' => $id,
+        'foreign_table' => $foreignTable,
+        'foreign_id' => $foreignId,
+        'member' => $members[$memberId],
+      );
+    }
+
+    // update sort order by argments array.
+    $likeList = array();
+    foreach ($hashes as $hash)
+    {
+      if (isset($list[$hash]))
+      {
+        $likeList[] = $list[$hash];
+      }
+    }
+
+    return $likeList;
   }
 }
