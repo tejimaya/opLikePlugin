@@ -4,7 +4,7 @@ class opLikePluginMigrationVersion2 extends opMigration
 {
   public function migrate($direction)
   {
-    $conn = Doctrine_Manager::connection();
+    $conn = $this->getConnection();
     $import = $conn->import;
     if (!$import->tableColumnExists('foreign_hash', 'nice'))
     {

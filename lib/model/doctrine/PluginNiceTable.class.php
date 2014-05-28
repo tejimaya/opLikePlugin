@@ -97,11 +97,7 @@ class PluginNiceTable extends Doctrine_Table
     $members = array();
     foreach ($results as $result)
     {
-      $id = $result[0];
-      $foreignTable = $result[1];
-      $foreignId = $result[2];
-      $foreignHash = $result[3];
-      $memberId = $result[4];
+      list($id, $foreignTable, $foreignId, $foreignHash, $memberId) = $result;
 
       if (!isset($members[$memberId]))
       {
