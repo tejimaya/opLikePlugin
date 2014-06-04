@@ -20,11 +20,11 @@ function op_api_member_info($member)
   return op_api_member($member);
 }
 
-function op_api_like_search($like, $member)
+function op_api_like_search($like, $member, $useExternalHelper = true)
 {
   return array(
     'id'              => $like['id'],
-    'member'          => op_api_member_info($member),
+    'member'          => $useExternalHelper ? op_api_member_info($member) : $member,
     'foreign_table'   => $like['foreign_table'],
     'foreign_id'      => $like['foreign_id'],
   );
