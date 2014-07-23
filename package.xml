@@ -24,19 +24,19 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2013-04-04</date>
- <time>19:10:42</time>
+ <date>2014-07-23</date>
+ <time>20:58:54</time>
  <version>
-  <release>1.2.1</release>
-  <api>1.2.1</api>
+  <release>1.2.2</release>
+  <api>1.2.2</api>
  </version>
  <stability>
-  <release>stable</release>
-  <api>stable</api>
+  <release>alpha</release>
+  <api>alpha</api>
  </stability>
  <license>Apache</license>
  <notes>
-opLikePlugin 1.2.1 release.
+1.2.2 alpha version release.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -45,7 +45,7 @@ opLikePlugin 1.2.1 release.
    <file baseinstalldir="/" md5sum="125a0a4d6fcf103be01fef0f5ab8a325" name="apps/api/modules/like/actions/actions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="fcff38997b3a0a44df79666e58f8d5a7" name="apps/api/modules/like/templates/deleteSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="5c556015ff36e05af6aac96be232e440" name="apps/api/modules/like/templates/listSuccess.php" role="data" />
-   <file baseinstalldir="/" md5sum="4e696f004e18804446ec2f5eab0f6512" name="apps/api/modules/like/templates/packetSearchSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="d5787f2da449a748c2701c6975cd4219" name="apps/api/modules/like/templates/packetSearchSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="4e20e0bfaee8e6220130d5bcf4e756d7" name="apps/api/modules/like/templates/postSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="0afd9d4471e00c4d13f8d98bc632ae59" name="apps/api/modules/like/templates/searchSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="bbe28d19c160509a1f4447422b05f2b6" name="apps/pc_frontend/config/routing.yml" role="data" />
@@ -54,16 +54,18 @@ opLikePlugin 1.2.1 release.
    <file baseinstalldir="/" md5sum="ad154960030a5addc41eaa2ee5077646" name="apps/pc_frontend/modules/like/config/security.yml" role="data" />
    <file baseinstalldir="/" md5sum="ad654107cdd7f1b1220012d1536e2773" name="apps/pc_frontend/modules/like/templates/smtMemberListSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="43486b4e0f9a83e6ec8a16d65785f47c" name="config/opLikePluginConfiguration.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="d69ad92a87ee8679313ba391553d1357" name="config/doctrine/schema.yml" role="data" />
-   <file baseinstalldir="/" md5sum="b6d911a5e823f5301d0d0e5777a8ac1c" name="data/fixtures/000_revision.yml" role="data" />
-   <file baseinstalldir="/" md5sum="ab5eb0be4e2eae5b4599f7e13b418961" name="data/patches/opCommunityTopicPlugin.patch" role="data" />
-   <file baseinstalldir="/" md5sum="8d67338d6eb7d73898c0c451ab71281a" name="data/patches/opDiaryPlugin.patch" role="data" />
-   <file baseinstalldir="/" md5sum="b4374464790056262ba33088a5514bc1" name="data/patches/opTimelinePlugin.patch" role="data" />
+   <file baseinstalldir="/" md5sum="e1fbefe6fe9079bfd2b513d18a7ec9fb" name="config/doctrine/schema.yml" role="data" />
+   <file baseinstalldir="/" md5sum="e91332695e57ffa3610833cd61496e36" name="data/fixtures/000_revision.yml" role="data" />
+   <file baseinstalldir="/" md5sum="15a58d76b3921b763408595802be4bf7" name="data/migrations/001_do_noting.php" role="data" />
+   <file baseinstalldir="/" md5sum="f19377374d927722646cca32d29a97be" name="data/migrations/002_add_nice_hash_column.php" role="data" />
+   <file baseinstalldir="/" md5sum="b03e70375514cf0af99ff2813c73391a" name="data/patches/opCommunityTopicPlugin.patch" role="data" />
+   <file baseinstalldir="/" md5sum="e66e3f06a82430680ed201e25e52163b" name="data/patches/opDiaryPlugin.patch" role="data" />
+   <file baseinstalldir="/" md5sum="d78a09c50bcf9172a64f2196ae08e4f1" name="data/patches/opTimelinePlugin.patch" role="data" />
    <file baseinstalldir="/" md5sum="5e22e6bedb79038e52ee3c452930306f" name="i18n/messages.ja.xml" role="data" />
    <file baseinstalldir="/" md5sum="14ef49933ab04609b7c2a494450ca616" name="lib/event/opLikeEvent.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="ba380f7af5f8cd21e5b503b0ede66308" name="lib/helper/opLikeHelper.php" role="data" />
-   <file baseinstalldir="/" md5sum="41070bb87490ca5f0027babccf3eb02a" name="lib/model/doctrine/PluginNice.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="5bd3ca76b6901379c336535434c30dfd" name="lib/model/doctrine/PluginNiceTable.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="93af3d83007d96e91df6f34fb4efd807" name="lib/helper/opLikeHelper.php" role="data" />
+   <file baseinstalldir="/" md5sum="a230431d889f8a29c2bdf136ac8b9e8c" name="lib/model/doctrine/PluginNice.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="f1b6e666e80de3c9024dd3aa8665d7b7" name="lib/model/doctrine/PluginNiceTable.class.php" role="data" />
    <file baseinstalldir="/" md5sum="1c4cba42953275ac8c1f1473fdac3e41" name="lib/task/opCommunityTopicPlugin.sh" role="data" />
    <file baseinstalldir="/" md5sum="c873a2acef31dc229f4d87c0307dceb2" name="lib/task/opDiaryPlugin.sh" role="data" />
    <file baseinstalldir="/" md5sum="7b4c21815c07abe6e48a2df8d05cd595" name="lib/task/opLikePluginAddtagsTask.class.php" role="data" />
@@ -84,8 +86,8 @@ opLikePlugin 1.2.1 release.
    <file baseinstalldir="/" md5sum="9bbc6e9602998a385c2ea13df56470fd" name="web/img/glyphicons-halflings-white.png" role="data" />
    <file baseinstalldir="/" md5sum="2516339970d710819585f90773aebe0a" name="web/img/glyphicons-halflings.png" role="data" />
    <file baseinstalldir="/" md5sum="b9a632551266c6efda6d5eaf6eb0709c" name="web/js/bootstrap-modal.js" role="data" />
-   <file baseinstalldir="/" md5sum="da7c16493afdad3a7436df04d5ea5956" name="web/js/like-smartphone.js" role="data" />
-   <file baseinstalldir="/" md5sum="472796987b3bed7001274e2f5d9290e9" name="web/js/like.js" role="data" />
+   <file baseinstalldir="/" md5sum="7b832126f1b52d8b888ed8812a183478" name="web/js/like-smartphone.js" role="data" />
+   <file baseinstalldir="/" md5sum="9e43d391ee43a6e4a5826a22b013603c" name="web/js/like.js" role="data" />
    <file baseinstalldir="/" md5sum="57a7f5ce5d2fbcf8c8114ffb4535a548" name="web/js/memberList-smartphone.js" role="data" />
    <file baseinstalldir="/" md5sum="88b26827712c0272829c0c1eda15f5ef" name="DEVELOPMENT.md" role="data" />
    <file baseinstalldir="/" md5sum="48fb655da9c759e50be92b63b46d6d68" name="README.md" role="data" />
@@ -281,6 +283,21 @@ opLikePlugin 1.2.0 release.
    <license>Apache</license>
    <notes>
 opLikePlugin 1.2.1 release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.2.2</release>
+    <api>1.2.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2014-07-23</date>
+   <license>Apache</license>
+   <notes>
+1.2.2 alpha version release.
    </notes>
   </release>
  </changelog>
