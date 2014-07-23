@@ -168,7 +168,7 @@ index f15bb06..6e38246 100644
 +             <span class="like-post">いいね！</span>
 +             <span class="like-cancel">いいね！を取り消す&nbsp;</span>
 +             <span class="like-you">あなたが「いいね！」と言っています。</span><div></div>
-+             <a class="like-list" href="#likeModal" data-toggle="modal"></a>
++             <a class="like-list" href="javascript:void(0)" onclick="$('#likeModal').modal('show')"></a>
 +             <div class="like-list-member"></div>
 +             <span class="like-friend-list"></span>
 +             </span>
@@ -186,7 +186,7 @@ index f15bb06..6e38246 100644
 +            <span class="like-post">いいね！</span>
 +            <span class="like-cancel">いいね！を取り消す&nbsp;</span>
 +            <span class="like-you">あなたが「いいね！」と言っています。</span><div></div>
-+            <a class="like-list" href="#likeModal" data-toggle="modal"></a>
++            <a class="like-list" href="javascript:void(0)" onclick="$('#likeModal').modal('show')"></a>
 +            <div class="like-list-member"></div>
 +            <span class="like-friend-list"></span>
 +            </span>
