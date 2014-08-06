@@ -59,7 +59,9 @@ class likeActions extends opJsonApiActions
     switch ($foreignTable)
     {
       case 'A':
-        $url = $baseUrl.'/timeline/show/id/'.$foreignId;
+        $activity = Doctrine::getTable('ActivityData')->find($foreignId);
+        $timelineId = $activity->in_reply_to_activity_id ? $activity->in_reply_to_activity_id : $activity->id;
+        $url = $baseUrl.'/timeline/show/id/'.$timelineId;
         break;
       case 'D':
         $url = $baseUrl.'/diary/'.$foreignId;
