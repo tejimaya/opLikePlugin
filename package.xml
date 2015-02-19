@@ -24,11 +24,11 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2014-07-23</date>
- <time>20:58:54</time>
+ <date>2015-02-19</date>
+ <time>17:06:17</time>
  <version>
-  <release>1.2.2</release>
-  <api>1.2.2</api>
+  <release>1.2.3</release>
+  <api>1.2.3</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -36,13 +36,13 @@
  </stability>
  <license>Apache</license>
  <notes>
-1.2.2 alpha version release.
+1.2.3 alpha version release.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="/" md5sum="a2bf81bc9835bae25c789c33841ae0f6" name="apps/api/config/filters.yml" role="data" />
    <file baseinstalldir="/" md5sum="8911d9fff2c5a2c3fbf65d5cc8f1951b" name="apps/api/config/routing.yml" role="data" />
-   <file baseinstalldir="/" md5sum="125a0a4d6fcf103be01fef0f5ab8a325" name="apps/api/modules/like/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="31614a22dd9946f914b50ea6694faa11" name="apps/api/modules/like/actions/actions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="fcff38997b3a0a44df79666e58f8d5a7" name="apps/api/modules/like/templates/deleteSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="5c556015ff36e05af6aac96be232e440" name="apps/api/modules/like/templates/listSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="d5787f2da449a748c2701c6975cd4219" name="apps/api/modules/like/templates/packetSearchSuccess.php" role="data" />
@@ -298,6 +298,21 @@ opLikePlugin 1.2.1 release.
    <license>Apache</license>
    <notes>
 1.2.2 alpha version release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.2.3</release>
+    <api>1.2.3</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2015-02-19</date>
+   <license>Apache</license>
+   <notes>
+1.2.3 alpha version release.
    </notes>
   </release>
  </changelog>
