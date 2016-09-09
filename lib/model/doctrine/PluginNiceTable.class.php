@@ -124,4 +124,75 @@ class PluginNiceTable extends Doctrine_Table
 
     return $likeList;
   }
+
+  public function cascadeForeignRecord(Doctrine_Record $record)
+  {
+    $conn = $this->getConnection();
+
+    if ($record instanceof ActivityData)
+    {
+      $query = <<<'SQL'
+DELETE n FROM nice n
+ WHERE n.foreign_table = "A" AND n.foreign_id = :activity_data_id
+SQL;
+      $conn->execute($query, array('activity_data_id' => $record->id));
+    }
+    elseif ($record instanceof Diary)
+    {
+      $query = <<<'SQL'
+DELETE n FROM nice n
+ WHERE n.foreign_table = "D" AND n.foreign_id = :diary_id
+SQL;
+      $conn->execute($query, array('diary_id' => $record->id));
+
+      $query = <<<'SQL'
+DELETE n FROM nice n
+ INNER JOIN diary_comment dc ON n.foreign_table = "d" AND n.foreign_id = dc.id
+ WHERE dc.diary_id = :diary_id
+SQL;
+      $conn->execute($query, array('diary_id' => $record->id));
+    }
+    elseif ($record instanceof DiaryComment)
+    {
+      $query = <<<'SQL'
+DELETE n FROM nice n
+ WHERE n.foreign_table = "d" AND n.foreign_id = :diary_comment_id
+SQL;
+      $conn->execute($query, array('diary_comment_id' => $record->id));
+    }
+    elseif ($record instanceof CommunityTopic)
+    {
+      $query = <<<'SQL'
+DELETE n FROM nice n
+ INNER JOIN community_topic_comment tc ON n.foreign_table = "t" AND n.foreign_id = tc.id
+ WHERE tc.community_topic_id = :community_topic_id
+SQL;
+      $conn->execute($query, array('community_topic_id' => $record->id));
+    }
+    elseif ($record instanceof CommunityTopicComment)
+    {
+      $query = <<<'SQL'
+DELETE n FROM nice n
+ WHERE n.foreign_table = "t" AND n.foreign_id = :community_topic_comment_id
+SQL;
+      $conn->execute($query, array('community_topic_comment_id' => $record->id));
+    }
+    elseif ($record instanceof CommunityEvent)
+    {
+      $query = <<<'SQL'
+DELETE n FROM nice n
+ INNER JOIN community_event_comment ec ON n.foreign_table = "e" AND n.foreign_id = ec.id
+ WHERE ec.community_event_id = :community_event_id
+SQL;
+      $conn->execute($query, array('community_event_id' => $record->id));
+    }
+    elseif ($record instanceof CommunityEventComment)
+    {
+      $query = <<<'SQL'
+DELETE n FROM nice n
+ WHERE n.foreign_table = "e" AND n.foreign_id = :community_event_comment_id
+SQL;
+      $conn->execute($query, array('community_event_comment_id' => $record->id));
+    }
+  }
 }
