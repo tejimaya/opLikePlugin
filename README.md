@@ -40,15 +40,15 @@ var1.1.0以降ではそのエラーを避けるためにDB構造を変更し、m
 symfonyコマンドを使って、直接DLします。
 
     cd path/to/OpenPNE
-    ./symfony opPlugin:install opLikePlugin -r 1.2.0
+    ./symfony opPlugin:install opLikePlugin -r 1.2.4
 
 
 **「いいね！」に対応したプラグインのダウンロード**  
 
     cd path/to/OpenPNE  
-    ./symfony opPlugin:install opCommunityTopicPlugin -r 1.0.4  
-    ./symfony opPlugin:install opDiaryPlugin -r 1.4.1  
-    ./symfony opPlugin:install opTimelinePlugin -r 1.2.0  
+    ./symfony opPlugin:install opCommunityTopicPlugin -r 1.1.2.1  
+    ./symfony opPlugin:install opDiaryPlugin -r 1.5.1  
+    ./symfony opPlugin:install opTimelinePlugin -r 1.2.6  
 
 
 **CSSの編集**
@@ -75,17 +75,11 @@ OpnePNE3.8.0以上
 更新履歴
 --------
 
- * 2013/04/04   他のプラグイン依存をなくしました。addtagsタスクでpatchを適用します。
- * 2013/01/28   iPhoneでいいね！が押せないのを修正。
- * 2012/12/28   schema.ymlを変更、migrateでエラーを出さないようDB構造を変更。
- * 2012/11/16   opDiaryPlugin及び、opCommunityTopicPluginに対応。 
- * 2012/11/16   opNicePlugin → opLikePlugin に名称変更 
- * 2012/11/08  「いいね！」機能を追加 
-
+https://github.com/tejimaya/opLikePlugin/commits/master
 
   
 要望・フィードバック
 ----------
 
-https://github.com/ichikawatatsuya/opLikePlugin/issues
+https://redmine.openpne.jp/projects/plg-like
 
