@@ -24,11 +24,11 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2015-02-19</date>
- <time>17:06:17</time>
+ <date>2016-09-13</date>
+ <time>18:15:22</time>
  <version>
-  <release>1.2.3</release>
-  <api>1.2.3</api>
+  <release>1.2.4</release>
+  <api>1.2.4</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -36,7 +36,7 @@
  </stability>
  <license>Apache</license>
  <notes>
-1.2.3 alpha version release.
+1.2.4 alpha version release.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -53,19 +53,20 @@
    <file baseinstalldir="/" md5sum="49a46e32aaba7b7bacbcda28cfec5026" name="apps/pc_frontend/modules/like/actions/actions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="ad154960030a5addc41eaa2ee5077646" name="apps/pc_frontend/modules/like/config/security.yml" role="data" />
    <file baseinstalldir="/" md5sum="ad654107cdd7f1b1220012d1536e2773" name="apps/pc_frontend/modules/like/templates/smtMemberListSuccess.php" role="data" />
-   <file baseinstalldir="/" md5sum="43486b4e0f9a83e6ec8a16d65785f47c" name="config/opLikePluginConfiguration.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="769c8e472d0786224ffaabd3f8c27cd4" name="config/opLikePluginConfiguration.class.php" role="data" />
    <file baseinstalldir="/" md5sum="e1fbefe6fe9079bfd2b513d18a7ec9fb" name="config/doctrine/schema.yml" role="data" />
-   <file baseinstalldir="/" md5sum="e91332695e57ffa3610833cd61496e36" name="data/fixtures/000_revision.yml" role="data" />
+   <file baseinstalldir="/" md5sum="1606bd9b7b2810f52f8220d197fb4739" name="data/fixtures/000_revision.yml" role="data" />
    <file baseinstalldir="/" md5sum="15a58d76b3921b763408595802be4bf7" name="data/migrations/001_do_noting.php" role="data" />
    <file baseinstalldir="/" md5sum="f19377374d927722646cca32d29a97be" name="data/migrations/002_add_nice_hash_column.php" role="data" />
+   <file baseinstalldir="/" md5sum="cd625d0c6d0bff9e6247517548a2abd1" name="data/migrations/003_delete_orphan_records.php" role="data" />
    <file baseinstalldir="/" md5sum="b03e70375514cf0af99ff2813c73391a" name="data/patches/opCommunityTopicPlugin.patch" role="data" />
    <file baseinstalldir="/" md5sum="e66e3f06a82430680ed201e25e52163b" name="data/patches/opDiaryPlugin.patch" role="data" />
-   <file baseinstalldir="/" md5sum="d78a09c50bcf9172a64f2196ae08e4f1" name="data/patches/opTimelinePlugin.patch" role="data" />
+   <file baseinstalldir="/" md5sum="cc70e7a7a6c316ef420bf3e5ac90dcb3" name="data/patches/opTimelinePlugin.patch" role="data" />
    <file baseinstalldir="/" md5sum="5e22e6bedb79038e52ee3c452930306f" name="i18n/messages.ja.xml" role="data" />
    <file baseinstalldir="/" md5sum="14ef49933ab04609b7c2a494450ca616" name="lib/event/opLikeEvent.class.php" role="data" />
    <file baseinstalldir="/" md5sum="93af3d83007d96e91df6f34fb4efd807" name="lib/helper/opLikeHelper.php" role="data" />
    <file baseinstalldir="/" md5sum="a230431d889f8a29c2bdf136ac8b9e8c" name="lib/model/doctrine/PluginNice.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="f1b6e666e80de3c9024dd3aa8665d7b7" name="lib/model/doctrine/PluginNiceTable.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="e226136dcbe6cb0d248532d2717859c2" name="lib/model/doctrine/PluginNiceTable.class.php" role="data" />
    <file baseinstalldir="/" md5sum="1c4cba42953275ac8c1f1473fdac3e41" name="lib/task/opCommunityTopicPlugin.sh" role="data" />
    <file baseinstalldir="/" md5sum="c873a2acef31dc229f4d87c0307dceb2" name="lib/task/opDiaryPlugin.sh" role="data" />
    <file baseinstalldir="/" md5sum="7b4c21815c07abe6e48a2df8d05cd595" name="lib/task/opLikePluginAddtagsTask.class.php" role="data" />
@@ -77,6 +78,7 @@
    <file baseinstalldir="/" md5sum="8d21e242b132450fd086dd9084f0238a" name="test/fixtures/test_data.yml" role="data" />
    <file baseinstalldir="/" md5sum="8a98cacfcc151f2808c399543fd52679" name="test/functional/mobile_frontend/skeletonActionsTest.php" role="data" />
    <file baseinstalldir="/" md5sum="1faa199e87c1ce270e86edee706b37fd" name="test/functional/pc_frontend/skeletonActionsTest.php" role="data" />
+   <file baseinstalldir="/" md5sum="bb522e1d32d48c85b601837d322f5bbe" name="test/unit/config/NiceCascadingTest.php" role="data" />
    <file baseinstalldir="/" md5sum="52440ab0abcc01c98551283f1e9942e1" name="test/unit/model/SkeletonTest.php" role="data" />
    <file baseinstalldir="/" md5sum="61e69d2afa67f89e4722ebd5e76cb4a4" name="web/apitest/like.html" role="data" />
    <file baseinstalldir="/" md5sum="7b1f8bf2b94bd179855d3b086d5ecba5" name="web/apitest/like.js" role="data" />
@@ -90,7 +92,7 @@
    <file baseinstalldir="/" md5sum="9e43d391ee43a6e4a5826a22b013603c" name="web/js/like.js" role="data" />
    <file baseinstalldir="/" md5sum="57a7f5ce5d2fbcf8c8114ffb4535a548" name="web/js/memberList-smartphone.js" role="data" />
    <file baseinstalldir="/" md5sum="88b26827712c0272829c0c1eda15f5ef" name="DEVELOPMENT.md" role="data" />
-   <file baseinstalldir="/" md5sum="48fb655da9c759e50be92b63b46d6d68" name="README.md" role="data" />
+   <file baseinstalldir="/" md5sum="0f58b4134270c1a189bd1e442ac1fb3c" name="README.md" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -313,6 +315,21 @@ opLikePlugin 1.2.1 release.
    <license>Apache</license>
    <notes>
 1.2.3 alpha version release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.2.4</release>
+    <api>1.2.4</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2016-09-13</date>
+   <license>Apache</license>
+   <notes>
+1.2.4 alpha version release.
    </notes>
   </release>
  </changelog>
