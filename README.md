@@ -40,15 +40,15 @@ var1.1.0以降ではそのエラーを避けるためにDB構造を変更し、m
 symfonyコマンドを使って、直接DLします。
 
     cd path/to/OpenPNE
-    ./symfony opPlugin:install opLikePlugin -r 1.2.4
+    php symfony opPlugin:install opLikePlugin -r 1.2.5
 
 
 **「いいね！」に対応したプラグインのダウンロード**  
 
     cd path/to/OpenPNE  
-    ./symfony opPlugin:install opCommunityTopicPlugin -r 1.1.2.1  
-    ./symfony opPlugin:install opDiaryPlugin -r 1.5.1  
-    ./symfony opPlugin:install opTimelinePlugin -r 1.2.6  
+    php symfony opPlugin:install opCommunityTopicPlugin -r 1.1.2.1  
+    php symfony opPlugin:install opDiaryPlugin -r 1.5.1.1  
+    php symfony opPlugin:install opTimelinePlugin -r 1.2.6.1  
 
 
 **CSSの編集**
@@ -61,16 +61,17 @@ symfonyコマンドを使って、直接DLします。
 
 **プラグインのインストール**
 
-    ./symfony openpne:migrate
-    ./symfony plugin:publish-assets
-    ./symfony opLike:addtags
-    ./symfony cc
+    php symfony openpne:migrate
+    php symfony plugin:publish-assets
+    php symfony opLike:addtags
+    php symfony cc
     
 
 動作環境
 --------
-OpnePNE3.8.0以上  
-    
+OpnePNE-3.8.22 以上  
+opSkinThemePlugin を使用する場合は、opSkinThemePlugin-1.0.13 以上が必要  
+  
   
 更新履歴
 --------
