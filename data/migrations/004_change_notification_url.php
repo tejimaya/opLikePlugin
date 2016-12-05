@@ -29,9 +29,11 @@ class opLikePluginMigrationVersion4 extends opMigration
           $url = $notificationItem['url'];
           if ($url)
           {
-            preg_match('/(\/timeline\/show\/id|\/diary|\/communityEvent|\/communityTopic)\/[0-9]+/', $url, $m);
-            $url = $m[0];
-            $notificationItem['url'] = $url;
+            if (preg_match('/(\/timeline\/show\/id|\/diary|\/communityEvent|\/communityTopic)\/[0-9]+/', $url, $m))
+            {
+              $url = $m[0];
+              $notificationItem['url'] = $url;
+            }
           }
           array_push($newNotifications, $notificationItem);
         }
