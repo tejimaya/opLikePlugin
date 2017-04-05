@@ -43,17 +43,33 @@
 {
   color: #FFFFFF;
   background-color: #026cd1;
+  border-radius: 5px 5px 0 0;
+}
+
+.modal-header h1
+{
+  line-height: 1;
 }
 
 .like-modal-body
 {
   overflow-y: scroll;
   height: 300px;
+  padding: 2px 5px 0;
 }
 
 .like-more-see
 {
-  width: 440px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 2px;
+}
+
+#likeModal .modal-footer a:link,
+#likeModal .modal-footer a:visited
+{
+  color: #333;
+  text-decoration: none;
 }
 
 .like-you
