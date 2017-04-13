@@ -24,11 +24,11 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2016-09-13</date>
- <time>18:15:22</time>
+ <date>2017-04-13</date>
+ <time>13:29:33</time>
  <version>
-  <release>1.2.4</release>
-  <api>1.2.4</api>
+  <release>1.2.5</release>
+  <api>1.2.5</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -36,7 +36,7 @@
  </stability>
  <license>Apache</license>
  <notes>
-1.2.4 alpha version release.
+1.2.5 alpha version release.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -82,9 +82,9 @@
    <file baseinstalldir="/" md5sum="52440ab0abcc01c98551283f1e9942e1" name="test/unit/model/SkeletonTest.php" role="data" />
    <file baseinstalldir="/" md5sum="61e69d2afa67f89e4722ebd5e76cb4a4" name="web/apitest/like.html" role="data" />
    <file baseinstalldir="/" md5sum="7b1f8bf2b94bd179855d3b086d5ecba5" name="web/apitest/like.js" role="data" />
-   <file baseinstalldir="/" md5sum="a7c8c5042e47ac53101fbe6c4331dec3" name="web/css/bootstrap.css" role="data" />
+   <file baseinstalldir="/" md5sum="2ad819c1cfc77d9cd2877b8844c067d7" name="web/css/bootstrap.css" role="data" />
    <file baseinstalldir="/" md5sum="dd19ddd06973481f38f482036c349c8e" name="web/css/like-smartphone.css" role="data" />
-   <file baseinstalldir="/" md5sum="c91c4ce0ff40b33988460100d927fb09" name="web/css/like.css" role="data" />
+   <file baseinstalldir="/" md5sum="1f364db1bc43e7c13760f99d0bcc0204" name="web/css/like.css" role="data" />
    <file baseinstalldir="/" md5sum="9bbc6e9602998a385c2ea13df56470fd" name="web/img/glyphicons-halflings-white.png" role="data" />
    <file baseinstalldir="/" md5sum="2516339970d710819585f90773aebe0a" name="web/img/glyphicons-halflings.png" role="data" />
    <file baseinstalldir="/" md5sum="b9a632551266c6efda6d5eaf6eb0709c" name="web/js/bootstrap-modal.js" role="data" />
@@ -92,7 +92,7 @@
    <file baseinstalldir="/" md5sum="9e43d391ee43a6e4a5826a22b013603c" name="web/js/like.js" role="data" />
    <file baseinstalldir="/" md5sum="57a7f5ce5d2fbcf8c8114ffb4535a548" name="web/js/memberList-smartphone.js" role="data" />
    <file baseinstalldir="/" md5sum="88b26827712c0272829c0c1eda15f5ef" name="DEVELOPMENT.md" role="data" />
-   <file baseinstalldir="/" md5sum="0f58b4134270c1a189bd1e442ac1fb3c" name="README.md" role="data" />
+   <file baseinstalldir="/" md5sum="00d4ac18851be8862d2889ed10bc28d1" name="README.md" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -330,6 +330,21 @@ opLikePlugin 1.2.1 release.
    <license>Apache</license>
    <notes>
 1.2.4 alpha version release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.2.5</release>
+    <api>1.2.5</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2017-04-13</date>
+   <license>Apache</license>
+   <notes>
+1.2.5 alpha version release.
    </notes>
   </release>
  </changelog>
