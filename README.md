@@ -40,7 +40,7 @@ var1.1.0以降ではそのエラーを避けるためにDB構造を変更し、m
 symfonyコマンドを使って、直接DLします。
 
     cd path/to/OpenPNE
-    ./symfony opPlugin:install opLikePlugin -r 1.2.4
+    ./symfony opPlugin:install opLikePlugin -r 1.2.5
 
 
 **「いいね！」に対応したプラグインのダウンロード**  
