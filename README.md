@@ -47,8 +47,8 @@ symfonyコマンドを使って、直接DLします。
 
     cd path/to/OpenPNE  
     ./symfony opPlugin:install opCommunityTopicPlugin -r 1.1.2.1  
-    ./symfony opPlugin:install opDiaryPlugin -r 1.5.1  
-    ./symfony opPlugin:install opTimelinePlugin -r 1.2.6  
+    ./symfony opPlugin:install opDiaryPlugin -r 1.5.1.1  
+    ./symfony opPlugin:install opTimelinePlugin -r 1.2.6.1  
 
 
 **CSSの編集**
