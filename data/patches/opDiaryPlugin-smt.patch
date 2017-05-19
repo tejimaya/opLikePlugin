@@ -1,0 +1,42 @@
+diff --git apps/pc_frontend/modules/diary/templates/smtShowSuccess.php apps/pc_frontend/modules/diary/templates/smtShowSuccess.php
+index 138f79d..7d09010 100644
+--- apps/pc_frontend/modules/diary/templates/smtShowSuccess.php
++++ apps/pc_frontend/modules/diary/templates/smtShowSuccess.php
+@@ -26,6 +26,16 @@ op_smt_use_javascript('/opDiaryPlugin/js/lightbox.js', 'last');
+     <div class="span12">{{html body}}</div>
+   </div>
+ 
++  <div class="row like-wrapper" data-like-id="${id}" data-like-target="D" member-id="${member.id}" style="display: none;">
++    <span class="span6" style="text-align: center;">
++      <a class="like-post">いいね！</a>
++      <a class="like-cancel">いいね！を取り消す</a>
++    </span>
++    <span class="span5" style="text-align: center;">
++      <a class="like-list"></a>
++    </span>
++  </div>
++
+   <div class="row edit">
+     {{if editable}}
+     <div class="btn-group span3">
+diff --git apps/pc_frontend/modules/diaryComment/templates/_smtCommentBox.php apps/pc_frontend/modules/diaryComment/templates/_smtCommentBox.php
+index 29f52d4..7fcf749 100644
+--- apps/pc_frontend/modules/diaryComment/templates/_smtCommentBox.php
++++ apps/pc_frontend/modules/diaryComment/templates/_smtCommentBox.php
+@@ -28,6 +28,16 @@
+         {{/if}}
+       </div>
+ 
++      <div class="row like-wrapper" data-like-id="${id}" data-like-target="d" member-id="${member.id}" style="display: none;">
++        <span class="span6" style="text-align: center;">
++          <a class="like-post">いいね！</a>
++          <a class="like-cancel">いいね！を取り消す</a>
++        </span>
++        <span class="span5" style="text-align: center;">
++          <a class="like-list"></a>
++        </span>
++      </div>
++
+       <div class="clearfix"></div>
+     </div>
+   </div>
