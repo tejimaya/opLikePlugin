@@ -26,7 +26,7 @@ $(function(){
         var likeTotal = parseInt($(likeList).text());
         $(likeList).text('');
         $(likeList).append('<i class="icon-thumbs-up"></i>' + (likeTotal + 1));
-        $(likeList).attr('href', 'like/list/' + target + '/' + likeId);
+        $(likeList).attr('href', json.data.member_list_url);
       },
       error: function(jqXHR, textStatus, errorThrown)
       {
@@ -131,7 +131,7 @@ function totalShowSmt(json, obj)
 
     if (!likeList.attr('no-href-clear') && 0 < parseInt(total))
     {
-      $(likeList).attr('href', 'like/list/' + json.data[0].foreign_table + '/' + json.data[0].foreign_id);
+      $(likeList).attr('href', json.data[0].member_list_url);
     }
   }
   else
