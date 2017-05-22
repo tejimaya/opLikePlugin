@@ -87,10 +87,41 @@ EOF;
     }
 
     $code = $this->patchDiaryPluginSmt($isReverse);
+    if ($code !== 0)
+    {
+      return $code;
+    }
+
+    $code = $this->patchCommunityTopicPluginSmt($isReverse);
 
     // execute ./symfomy cc
     $sfCacheClearTask = new sfCacheClearTask($this->dispatcher, $this->formatter);
     $sfCacheClearTask->run($arguments = array(), $options = array('type' => 'all'));
+
+    return $code;
+  }
+
+  protected function patchCommunityTopicPluginSmt($isReverse = false)
+  {
+    $code = 0;
+    $communityTopicPlugin = opPlugin::getInstance('opCommunityTopicPlugin', $this->dispatcher);
+    // for smartphone version.
+    if (version_compare($communityTopicPlugin->getVersion(), '1.1.0', '>='))
+    {
+      $this->logSection('opLikePlugin', 'スマートフォン対応の opCommunityTopicPlugin にスマートフォン向けパッチを適用します。');
+
+      $patchFile = 'opCommunityTopicPlugin-smt.patch';
+      $code = $this->cmdExecute($this->buildCmd($communityTopicPlugin->getName(), $patchFile, $isReverse, true));
+
+      if ($code !== 0)
+      {
+        $this->logSection('opLikePlugin', 'スマートフォン対応の opCommunityTopicPlugin にスマートフォン向けパッチの適用に失敗しました。');
+
+        return $code;
+      }
+
+      $code = $this->cmdExecute($this->buildCmd($communityTopicPlugin->getName(), $patchFile, $isReverse));
+    }
 
     return $code;
   }
