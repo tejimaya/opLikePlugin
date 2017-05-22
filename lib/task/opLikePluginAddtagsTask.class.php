@@ -123,7 +123,7 @@ EOF;
     try
     {
       $filesystem = $this->getFilesystem();
-      $filesystem->execute(sprintf($cmd, '--dry-run'), array($this, 'outputMessage'), array($this, 'outputMessage'));
+      $filesystem->execute($cmd, array($this, 'outputMessage'), array($this, 'outputMessage'));
     }
     catch (Exception $e)
     {
