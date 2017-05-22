@@ -86,6 +86,17 @@ EOF;
       }
     }
 
+    $code = $this->patchDiaryPluginSmt($isReverse);
+
+    // execute ./symfomy cc
+    $sfCacheClearTask = new sfCacheClearTask($this->dispatcher, $this->formatter);
+    $sfCacheClearTask->run($arguments = array(), $options = array('type' => 'all'));
+
+    return $code;
+  }
+
+  protected function patchDiaryPluginSmt($isReverse = false)
+  {
     $code = 0;
     $diaryPlugin = opPlugin::getInstance('opDiaryPlugin', $this->dispatcher);
     // for smartphone version.
@@ -93,13 +104,8 @@ EOF;
     {
       $this->logSection('opLikePlugin', 'スマートフォン対応の opDiaryPlugin にスマートフォン向けパッチを適用します。');
 
-      $cmd = sprintf('cd %s; patch -p0 %s %%s < %s',
-        escapeshellarg(realpath($pluginPath.'/opDiaryPlugin')), // cd to dir.
-        $isReverse ? '-R' : '',
-        escapeshellarg(realpath($pluginPath.'/opLikePlugin/data/patches/opDiaryPlugin-smt.patch'))
-      );
-
-      $code = $this->cmdExecute(sprintf($cmd, '--dry-run'));
+      $patchFile = 'opDiaryPlugin-smt.patch';
+      $code = $this->cmdExecute($this->buildCmd($diaryPlugin->getName(), $patchFile, $isReverse, true));
 
       if ($code !== 0)
       {
@@ -108,14 +114,22 @@ EOF;
         return $code;
       }
 
-      $code = $this->cmdExecute(sprintf($cmd, ''));
+      $code = $this->cmdExecute($this->buildCmd($diaryPlugin->getName(), $patchFile, $isReverse));
     }
 
-    // execute ./symfomy cc
-    $sfCacheClearTask = new sfCacheClearTask($this->dispatcher, $this->formatter);
-    $sfCacheClearTask->run($arguments = array(), $options = array('type' => 'all'));
-
     return $code;
+  }
+
+  protected function buildCmd($pluginName, $patchFile, $isReverse = false, $isDryRun = false)
+  {
+    $pluginPath = sfConfig::get('sf_plugins_dir');
+
+    return sprintf('cd %s; patch -p0 %s %s < %s',
+      escapeshellarg(realpath($pluginPath.'/'.$pluginName)), // cd to dir.
+      $isReverse ? '-R' : '',
+      $isDryRun ? '--dry-run' : '',
+      escapeshellarg(realpath($pluginPath.'/opLikePlugin/data/patches/'.$patchFile))
+    );
   }
 
   public function cmdExecute($cmd)
