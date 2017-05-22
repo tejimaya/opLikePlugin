@@ -27,6 +27,7 @@ function op_api_like_search($like, $member, $useExternalHelper = true)
     'member'          => $useExternalHelper ? op_api_member_info($member) : $member,
     'foreign_table'   => $like['foreign_table'],
     'foreign_id'      => $like['foreign_id'],
+    'member_list_url' => app_url_for('pc_frontend', '@liked_member_list?table='.$like['foreign_table'].'&id='.$like['foreign_id']),
   );
 }
 
@@ -36,5 +37,6 @@ function op_api_like_post($like)
     'member_id' => $like['member_id'],
     'foreign_table' => $like['foreign_table'],
     'foreign_id' => $like['foreign_id'],
+    'member_list_url' => app_url_for('pc_frontend', '@liked_member_list?table='.$like['foreign_table'].'&id='.$like['foreign_id']),
   );
 }
