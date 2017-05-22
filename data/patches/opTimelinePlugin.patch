@@ -155,7 +155,7 @@ index 6578800..7fd7557 100644
 +  </div>
 +</div>
 diff --git plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineTemplate.php plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineTemplate.php
-index ef2a658..b281927 100644
+index ef2a658..f30c7e1 100644
 --- plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineTemplate.php
 +++ plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/_timelineTemplate.php
 @@ -30,6 +30,17 @@ function addreply(name,value) {
@@ -176,21 +176,23 @@ index ef2a658..b281927 100644
  
              <a>
                <div id="timeline-comment-loadmore-${id}" data-timeline-id="${id}" class="timeline-comment-loadmore">
-@@ -130,4 +141,15 @@ function addreply(name,value) {
+@@ -129,5 +140,17 @@ function addreply(name,value) {
+                 </div>
                </div>
                {{/if}}
++
++              <!--Like Plugin -->
++              <div class="like" style="display: none;">
++              <span class="like-wrapper font-small" data-like-id="${id}" data-like-target="A" member-id="${member.id}">
++              <span class="like-post">いいね！</span>
++              <span class="like-cancel">いいね！を取り消す&nbsp;</span>
++              <span class="like-you">あなたが「いいね！」と言っています。</span><div></div>
++              <a class="like-list" href="javascript:void(0)" onclick="$('#likeModal').modal('show')"></a>
++              <div class="like-list-member"></div>
++              <span class="like-friend-list"></span>
++              </span>
++              </div>
              </div>
-+            <!--Like Plugin -->
-+            <div class="like" style="display: none;">
-+            <span class="like-wrapper font-small" data-like-id="${id}" data-like-target="A" member-id="${member.id}">
-+            <span class="like-post">いいね！</span>
-+            <span class="like-cancel">いいね！を取り消す&nbsp;</span>
-+            <span class="like-you">あなたが「いいね！」と言っています。</span><div></div>
-+            <a class="like-list" href="javascript:void(0)" onclick="$('#likeModal').modal('show')"></a>
-+            <div class="like-list-member"></div>
-+            <span class="like-friend-list"></span>
-+            </span>
-+            </div>
  </script>
 diff --git plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/showSuccess.php plugins/opTimelinePlugin/apps/pc_frontend/modules/timeline/templates/showSuccess.php
 index 24f77bd..7622cfd 100644
