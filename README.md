@@ -7,16 +7,39 @@ opLikePlugin概要
 
 スマートフォンにも対応しています。
 
+## スクリーンショット
 
-スクリーンショット
-------
-<img src="https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/001.png" height=200/>
-<img src="https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/002.png" height=200/>
-<img src="https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/003.png" height=200/>
-<img src="https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/004.png" height=200/>
-<img src="https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/005.png" height=200/>
-<img src="https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/006.png" height=200/>
-<img src="https://raw.github.com/ichikawatatsuya/opLikePlugin/gh-pages/images/007.png" height=200/>
+### PC
+
+#### タイムライン
+
+![タイムライン](./data/screenshot/timeline-pc.png "タイムライン")
+
+#### 日記
+
+![日記](./data/screenshot/diary-pc.png "日記")
+
+#### いいね！をしたメンバー一覧
+
+![いいね！をしたメンバー一覧](./data/screenshot/all-like-members-pc.png "いいね！をしたメンバー一覧")
+
+### スマートフォン
+
+#### タイムライン
+
+![タイムライン](./data/screenshot/timeline-smf.png "タイムライン")
+
+#### 日記
+
+![日記](./data/screenshot/diary-smf.png "日記")
+
+#### コミュニティイベント
+
+![コミュニティイベント](./data/screenshot/community-event-smf.png "コミュニティイベント")
+
+#### いいね！をしたメンバー一覧
+
+![いいね！をしたメンバー一覧](./data/screenshot/all-like-members-smf.png "いいね！をしたメンバー一覧")
 
 対応プラグイン
 -------------
