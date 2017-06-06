@@ -44,6 +44,7 @@ EOF;
       chmod($value, 0755);
     }
 
+    $isReverse = false;
     if (!file_exists($file))
     {
       touch($file);
@@ -55,6 +56,7 @@ EOF;
     {
       unlink($file);
 
+      $isReverse = true;
       $this->logSection('opLikePlugin', 'リバースパッチを実行します。');
       foreach ($targetPlugins as $key => $value)
       {
@@ -84,8 +86,71 @@ EOF;
       }
     }
 
+    $code = $this->patchDiaryPluginSmt($isReverse);
+
     // execute ./symfomy cc
     $sfCacheClearTask = new sfCacheClearTask($this->dispatcher, $this->formatter);
     $sfCacheClearTask->run($arguments = array(), $options = array('type' => 'all'));
+
+    return $code;
+  }
+
+  protected function patchDiaryPluginSmt($isReverse = false)
+  {
+    $code = 0;
+    $diaryPlugin = opPlugin::getInstance('opDiaryPlugin', $this->dispatcher);
+    // for smartphone version.
+    if (version_compare($diaryPlugin->getVersion(), '1.5.0', '>='))
+    {
+      $this->logSection('opLikePlugin', 'スマートフォン対応の opDiaryPlugin にスマートフォン向けパッチを適用します。');
+
+      $patchFile = 'opDiaryPlugin-smt.patch';
+      $code = $this->cmdExecute($this->buildCmd($diaryPlugin->getName(), $patchFile, $isReverse, true));
+
+      if ($code !== 0)
+      {
+        $this->logSection('opLikePlugin', 'スマートフォン対応の opDiaryPlugin にスマートフォン向けパッチの適用に失敗しました。');
+
+        return $code;
+      }
+
+      $code = $this->cmdExecute($this->buildCmd($diaryPlugin->getName(), $patchFile, $isReverse));
+    }
+
+    return $code;
+  }
+
+  protected function buildCmd($pluginName, $patchFile, $isReverse = false, $isDryRun = false)
+  {
+    $pluginPath = sfConfig::get('sf_plugins_dir');
+
+    return sprintf('cd %s; patch -p0 %s %s < %s',
+      escapeshellarg(realpath($pluginPath.'/'.$pluginName)), // cd to dir.
+      $isReverse ? '-R' : '',
+      $isDryRun ? '--dry-run' : '',
+      escapeshellarg(realpath($pluginPath.'/opLikePlugin/data/patches/'.$patchFile))
+    );
+  }
+
+  public function cmdExecute($cmd)
+  {
+    try
+    {
+      $filesystem = $this->getFilesystem();
+      $filesystem->execute($cmd, array($this, 'outputMessage'), array($this, 'outputMessage'));
+    }
+    catch (Exception $e)
+    {
+      $this->outputMessage($e->getMessage());
+
+      return $e->getCode();
+    }
+
+    return 0;
+  }
+
+  public function outputMessage($output)
+  {
+    echo $output;
   }
 }
