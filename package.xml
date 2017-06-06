@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+<package packagerversion="1.10.3" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
     http://pear.php.net/dtd/tasks-1.0.xsd
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
@@ -24,11 +24,17 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2017-04-13</date>
- <time>13:29:33</time>
+ <lead>
+  <name>Shinichi Urabe</name>
+  <user>urabe</user>
+  <email />
+  <active>yes</active>
+ </lead>
+ <date>2017-06-06</date>
+ <time>13:15:39</time>
  <version>
-  <release>1.2.5</release>
-  <api>1.2.5</api>
+  <release>1.2.6</release>
+  <api>1.2.6</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -36,7 +42,7 @@
  </stability>
  <license>Apache</license>
  <notes>
-1.2.5 alpha version release.
+1.2.6 alpha version release.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -59,17 +65,28 @@
    <file baseinstalldir="/" md5sum="15a58d76b3921b763408595802be4bf7" name="data/migrations/001_do_noting.php" role="data" />
    <file baseinstalldir="/" md5sum="f19377374d927722646cca32d29a97be" name="data/migrations/002_add_nice_hash_column.php" role="data" />
    <file baseinstalldir="/" md5sum="cd625d0c6d0bff9e6247517548a2abd1" name="data/migrations/003_delete_orphan_records.php" role="data" />
+   <file baseinstalldir="/" md5sum="0ec7bfcd3440c7d0f484a24ede9732a1" name="data/patches/opCommunityTopicPlugin-smt.patch" role="data" />
    <file baseinstalldir="/" md5sum="b03e70375514cf0af99ff2813c73391a" name="data/patches/opCommunityTopicPlugin.patch" role="data" />
+   <file baseinstalldir="/" md5sum="6beff048371e353e07027634f296f174" name="data/patches/opDiaryPlugin-smt.patch" role="data" />
    <file baseinstalldir="/" md5sum="e66e3f06a82430680ed201e25e52163b" name="data/patches/opDiaryPlugin.patch" role="data" />
-   <file baseinstalldir="/" md5sum="cc70e7a7a6c316ef420bf3e5ac90dcb3" name="data/patches/opTimelinePlugin.patch" role="data" />
+   <file baseinstalldir="/" md5sum="5ea4cde663a3fbb6d67b1a3fb569c745" name="data/patches/opTimelinePlugin.patch" role="data" />
+   <file baseinstalldir="/" md5sum="1a22e9c031f083ac5598501bcf1ee1cd" name="data/screenshot/all-like-members-pc.png" role="data" />
+   <file baseinstalldir="/" md5sum="144f2b6a5833205a1f1b01a6487ad72c" name="data/screenshot/all-like-members-smf.png" role="data" />
+   <file baseinstalldir="/" md5sum="3b364aa50a8a90ef0241edc611f6e979" name="data/screenshot/community-event-smf.png" role="data" />
+   <file baseinstalldir="/" md5sum="654f7b165d34ff85f97692e4b7d97c1c" name="data/screenshot/diary-pc.png" role="data" />
+   <file baseinstalldir="/" md5sum="201d053c99d646ae3be1c09c8985dc74" name="data/screenshot/diary-smf.png" role="data" />
+   <file baseinstalldir="/" md5sum="4f7345106f77870615451dbdee4ad4dd" name="data/screenshot/timeline-pc.png" role="data" />
+   <file baseinstalldir="/" md5sum="e08711ad7983969fbd94992beed9c930" name="data/screenshot/timeline-smf.png" role="data" />
    <file baseinstalldir="/" md5sum="5e22e6bedb79038e52ee3c452930306f" name="i18n/messages.ja.xml" role="data" />
    <file baseinstalldir="/" md5sum="14ef49933ab04609b7c2a494450ca616" name="lib/event/opLikeEvent.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="93af3d83007d96e91df6f34fb4efd807" name="lib/helper/opLikeHelper.php" role="data" />
+   <file baseinstalldir="/" md5sum="4cac0093c324cb2df1979f282c71e934" name="lib/filter/doctrine/PluginNiceFormFilter.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="4be041c7262c2fbae855a410cdf36aef" name="lib/form/doctrine/PluginNiceForm.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="8746543e638f24fb9a5dc9657e8fc5d8" name="lib/helper/opLikeHelper.php" role="data" />
    <file baseinstalldir="/" md5sum="a230431d889f8a29c2bdf136ac8b9e8c" name="lib/model/doctrine/PluginNice.class.php" role="data" />
    <file baseinstalldir="/" md5sum="e226136dcbe6cb0d248532d2717859c2" name="lib/model/doctrine/PluginNiceTable.class.php" role="data" />
    <file baseinstalldir="/" md5sum="1c4cba42953275ac8c1f1473fdac3e41" name="lib/task/opCommunityTopicPlugin.sh" role="data" />
    <file baseinstalldir="/" md5sum="c873a2acef31dc229f4d87c0307dceb2" name="lib/task/opDiaryPlugin.sh" role="data" />
-   <file baseinstalldir="/" md5sum="7b4c21815c07abe6e48a2df8d05cd595" name="lib/task/opLikePluginAddtagsTask.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="5cf729d922edab851d0932df86585129" name="lib/task/opLikePluginAddtagsTask.class.php" role="data" />
    <file baseinstalldir="/" md5sum="4ad4e3cdfa54cc2b96eb46e8d6bde24a" name="lib/task/opTimelinePlugin.sh" role="data" />
    <file baseinstalldir="/" md5sum="9af8c3ff9906893dee8532aa8bff4c5f" name="lib/util/opLikePluginUtil.class.php" role="data" />
    <file baseinstalldir="/" md5sum="25b04d5e2306bbc79824f120dc88d181" name="test/bootstrap/database.php" role="data" />
@@ -88,11 +105,11 @@
    <file baseinstalldir="/" md5sum="9bbc6e9602998a385c2ea13df56470fd" name="web/img/glyphicons-halflings-white.png" role="data" />
    <file baseinstalldir="/" md5sum="2516339970d710819585f90773aebe0a" name="web/img/glyphicons-halflings.png" role="data" />
    <file baseinstalldir="/" md5sum="b9a632551266c6efda6d5eaf6eb0709c" name="web/js/bootstrap-modal.js" role="data" />
-   <file baseinstalldir="/" md5sum="7b832126f1b52d8b888ed8812a183478" name="web/js/like-smartphone.js" role="data" />
+   <file baseinstalldir="/" md5sum="d2325660b56ceba76f656c2b5d3705e8" name="web/js/like-smartphone.js" role="data" />
    <file baseinstalldir="/" md5sum="9e43d391ee43a6e4a5826a22b013603c" name="web/js/like.js" role="data" />
    <file baseinstalldir="/" md5sum="57a7f5ce5d2fbcf8c8114ffb4535a548" name="web/js/memberList-smartphone.js" role="data" />
    <file baseinstalldir="/" md5sum="88b26827712c0272829c0c1eda15f5ef" name="DEVELOPMENT.md" role="data" />
-   <file baseinstalldir="/" md5sum="00d4ac18851be8862d2889ed10bc28d1" name="README.md" role="data" />
+   <file baseinstalldir="/" md5sum="b64f79d4d3d9b18e3846b6b4c9bbac53" name="README.md" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -345,6 +362,21 @@ opLikePlugin 1.2.1 release.
    <license>Apache</license>
    <notes>
 1.2.5 alpha version release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.2.6</release>
+    <api>1.2.6</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2017-06-06</date>
+   <license>Apache</license>
+   <notes>
+1.2.6 alpha version release.
    </notes>
   </release>
  </changelog>
