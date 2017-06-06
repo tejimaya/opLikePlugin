@@ -1,0 +1,18 @@
+diff --git apps/pc_frontend/modules/communityTopic/templates/_smtCommentBox.php apps/pc_frontend/modules/communityTopic/templates/_smtCommentBox.php
+index 59ca802..8fdb994 100644
+--- apps/pc_frontend/modules/communityTopic/templates/_smtCommentBox.php
++++ apps/pc_frontend/modules/communityTopic/templates/_smtCommentBox.php
+@@ -29,4 +29,13 @@
+       </div>
+     </div>
+   </div>
++  <div class="row like-wrapper" data-like-id="${id}" data-like-target="<?php echo 'event' === $target ? 'e' : 't' ?>" member-id="${member.id}" style="display: none;">
++    <span class="span6" style="text-align: center;">
++      <a class="like-post">いいね！</a>
++      <a class="like-cancel">いいね！を取り消す</a>
++    </span>
++    <span class="span5" style="text-align: center;">
++      <a class="like-list"></a>
++    </span>
++  </div>
+ </script>
