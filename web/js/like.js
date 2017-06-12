@@ -310,7 +310,7 @@ function packetLoad(dataList)
   $.ajax(
   {
     url: openpne.apiBase + 'like/packet_search.json?apiKey=' + openpne.apiKey,
-    type: 'GET',
+    type: 'POST',
     data:
     {
       'data': dataList,
