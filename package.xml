@@ -30,11 +30,11 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2017-06-06</date>
- <time>13:15:39</time>
+ <date>2017-06-12</date>
+ <time>18:08:20</time>
  <version>
-  <release>1.2.6</release>
-  <api>1.2.6</api>
+  <release>1.2.7</release>
+  <api>1.2.7</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -42,7 +42,7 @@
  </stability>
  <license>Apache</license>
  <notes>
-1.2.6 alpha version release.
+1.2.7 alpha version release.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -105,8 +105,8 @@
    <file baseinstalldir="/" md5sum="9bbc6e9602998a385c2ea13df56470fd" name="web/img/glyphicons-halflings-white.png" role="data" />
    <file baseinstalldir="/" md5sum="2516339970d710819585f90773aebe0a" name="web/img/glyphicons-halflings.png" role="data" />
    <file baseinstalldir="/" md5sum="b9a632551266c6efda6d5eaf6eb0709c" name="web/js/bootstrap-modal.js" role="data" />
-   <file baseinstalldir="/" md5sum="d2325660b56ceba76f656c2b5d3705e8" name="web/js/like-smartphone.js" role="data" />
-   <file baseinstalldir="/" md5sum="9e43d391ee43a6e4a5826a22b013603c" name="web/js/like.js" role="data" />
+   <file baseinstalldir="/" md5sum="065e393be2d48d3b08c2d367ab7af3eb" name="web/js/like-smartphone.js" role="data" />
+   <file baseinstalldir="/" md5sum="3ef5f717208437136713e26bcc33a42a" name="web/js/like.js" role="data" />
    <file baseinstalldir="/" md5sum="57a7f5ce5d2fbcf8c8114ffb4535a548" name="web/js/memberList-smartphone.js" role="data" />
    <file baseinstalldir="/" md5sum="88b26827712c0272829c0c1eda15f5ef" name="DEVELOPMENT.md" role="data" />
    <file baseinstalldir="/" md5sum="b64f79d4d3d9b18e3846b6b4c9bbac53" name="README.md" role="data" />
@@ -377,6 +377,21 @@ opLikePlugin 1.2.1 release.
    <license>Apache</license>
    <notes>
 1.2.6 alpha version release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.2.7</release>
+    <api>1.2.7</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2017-06-12</date>
+   <license>Apache</license>
+   <notes>
+1.2.7 alpha version release.
    </notes>
   </release>
  </changelog>
