@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.10.3" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
     http://pear.php.net/dtd/tasks-1.0.xsd
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
@@ -30,11 +30,11 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2017-06-12</date>
- <time>18:08:20</time>
+ <date>2020-03-19</date>
+ <time>05:37:48</time>
  <version>
-  <release>1.2.7</release>
-  <api>1.2.7</api>
+  <release>1.2.8</release>
+  <api>1.2.8</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -42,11 +42,11 @@
  </stability>
  <license>Apache</license>
  <notes>
-1.2.7 alpha version release.
+1.2.8 alpha version release.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <file baseinstalldir="/" md5sum="a2bf81bc9835bae25c789c33841ae0f6" name="apps/api/config/filters.yml" role="data" />
+   <file baseinstalldir="/" md5sum="f26c986d2b02e4774ac43264c2d6914d" name="apps/api/config/filters.yml" role="data" />
    <file baseinstalldir="/" md5sum="8911d9fff2c5a2c3fbf65d5cc8f1951b" name="apps/api/config/routing.yml" role="data" />
    <file baseinstalldir="/" md5sum="31614a22dd9946f914b50ea6694faa11" name="apps/api/modules/like/actions/actions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="fcff38997b3a0a44df79666e58f8d5a7" name="apps/api/modules/like/templates/deleteSuccess.php" role="data" />
@@ -392,6 +392,21 @@ opLikePlugin 1.2.1 release.
    <license>Apache</license>
    <notes>
 1.2.7 alpha version release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.2.8</release>
+    <api>1.2.8</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2020-03-19</date>
+   <license>Apache</license>
+   <notes>
+1.2.8 alpha version release.
    </notes>
   </release>
  </changelog>
