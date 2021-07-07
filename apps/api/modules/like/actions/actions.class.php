@@ -55,31 +55,30 @@ class likeActions extends opJsonApiActions
     $this->forward400If($alreadyLike, 'It has already been registered');
 
     $fromMember = $this->getUser()->getMember();
-    $baseUrl = $request->getRelativeUrlRoot();
     switch ($foreignTable)
     {
       case 'A':
         $this->forward400Unless($activity = Doctrine::getTable('ActivityData')->find($foreignId));
         $timelineId = $activity->in_reply_to_activity_id ? $activity->in_reply_to_activity_id : $activity->id;
-        $url = $baseUrl.'/timeline/show/id/'.$timelineId;
+        $url = '/timeline/show/id/'.$timelineId;
         break;
       case 'D':
-        $url = $baseUrl.'/diary/'.$foreignId;
+        $url = '/diary/'.$foreignId;
         break;
       case 'd':
         $diaryComment = Doctrine::getTable('DiaryComment')->findOneById($foreignId);
         $this->forward400Unless($diaryComment, 'diary comment does not exist.');
-        $url = $baseUrl.'/diary/'.$diaryComment->getDiaryId();
+        $url = '/diary/'.$diaryComment->getDiaryId();
         break;
       case 'e':
         $eventComment = Doctrine::getTable('CommunityEventComment')->findOneById($foreignId);
         $this->forward400Unless($eventComment, 'event comment does not exist.');
-        $url = $baseUrl.'/communityEvent/'.$eventComment->getCommunityEventId();
+        $url = '/communityEvent/'.$eventComment->getCommunityEventId();
         break;
       case 't':
         $topicComment = Doctrine::getTable('CommunityTopicComment')->findOneById($foreignId);
         $this->forward400Unless($topicComment, 'topic comment does not exist.');
-        $url = $baseUrl.'/communityTopic/'.$topicComment->getCommunityTopicId();
+        $url = '/communityTopic/'.$topicComment->getCommunityTopicId();
         break;
       default :
         $url = '#';
